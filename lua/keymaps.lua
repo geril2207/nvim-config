@@ -6,7 +6,7 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "<Leader>n", ":noh<CR>", {})
+map("n", "<C-n>", ":noh<CR>", {})
 map("n", "Space", "<Nop>", {})
 map("n", "<Leader>e", ":NvimTreeFocus<CR>", {})
 map("i", "jk", "<ESC>", {})
@@ -42,3 +42,8 @@ map('n', '<A-7>', ':BufferGoto 7<CR>', {})
 map('n', '<A-8>', ':BufferGoto 8<CR>', {})
 map('n', '<A-9>', ':BufferGoto 9<CR>', {})
 map('n', '<A-0>', ':BufferLast<CR>', {})
+
+--map('n', '<leader>fs', function()  require('telescope.builtin').grep_string() end, {})
+--map('n', '<leader>ff', function()  require('telescope.builtin').find_files() end, {})
+--map('n', '<leader>fb', function()  require('telescope.builtin').buffers() end, {})
+--map('n', '<leader>fh', function()  require('telescope.builtin').help_tags() end, {})
