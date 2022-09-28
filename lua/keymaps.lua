@@ -48,7 +48,6 @@ map('n', '<leader>fz', ":Telescope live_grep<CR>", {})
 map('n', '<leader>fb', ":Telescope buffers<CR>", {})
 map('n', '<leader>fh', ":Telescope help_tags<CR>", {})
 
-
 map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", {})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
@@ -59,4 +58,4 @@ map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", {})
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {})
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>", {})
-map("t", "<ESC>", '<C-\><C-n>', {})
+map("n", "<A-F>", ":Prettier<CR>", {})

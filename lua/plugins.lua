@@ -6,6 +6,10 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'folke/tokyonight.nvim'
 
+  --Prettier
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+
   use {
   'romgrk/barbar.nvim',
   requires = {'kyazdani42/nvim-web-devicons'}
@@ -24,6 +28,7 @@ return require('packer').startup(function(use)
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("onsails/lspkind-nvim")
+  use 'windwp/nvim-ts-autotag'
   use("nvim-treesitter/nvim-treesitter")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")

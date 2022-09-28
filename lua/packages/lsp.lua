@@ -72,3 +72,4 @@ require('nvim-autopairs').setup({
 local saga = require('lspsaga')
 
 saga.init_lsp_saga()
+require('nvim-ts-autotag').setup()
