@@ -23,9 +23,11 @@ return require('packer').startup(function(use)
   use "williamboman/nvim-lsp-installer"
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
+  use("onsails/lspkind-nvim")
   use("nvim-treesitter/nvim-treesitter")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")
+  use 'glepnir/lspsaga.nvim'
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { {'nvim-lua/plenary.nvim'} }
@@ -34,4 +36,15 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   })
+  use {
+	"windwp/nvim-autopairs"}
+  use({
+	"Pocco81/auto-save.nvim",
+	config = function()
+		 require("auto-save").setup {
+			-- your config goes here
+			-- or just leave it empty :)
+		 }
+	end,
+})
 end)
