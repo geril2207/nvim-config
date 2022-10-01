@@ -130,6 +130,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
@@ -139,11 +149,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -159,6 +164,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -179,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

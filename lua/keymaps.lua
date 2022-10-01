@@ -47,6 +47,7 @@ map('n', '<leader>ff', ":Telescope find_files<CR>", {})
 map('n', '<leader>fz', ":Telescope live_grep<CR>", {})
 map('n', '<leader>fb', ":Telescope buffers<CR>", {})
 map('n', '<leader>fh', ":Telescope help_tags<CR>", {})
+--map('n', '<leader>e', ":Telescope file_browser<CR>" , {})
 
 map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", {})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})

@@ -73,3 +73,12 @@ local saga = require('lspsaga')
 
 saga.init_lsp_saga()
 require('nvim-ts-autotag').setup()
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})

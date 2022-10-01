@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   --LSP
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use "williamboman/nvim-lsp-installer"
+	use { "williamboman/mason.nvim" }
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("onsails/lspkind-nvim")
@@ -46,10 +46,7 @@ return require('packer').startup(function(use)
   use({
 	"Pocco81/auto-save.nvim",
 	config = function()
-		 require("auto-save").setup {
-			-- your config goes here
-			-- or just leave it empty :)
-		 }
+		 require("auto-save").setup {}
 	end,
 })
 end)
