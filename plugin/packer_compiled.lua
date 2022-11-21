@@ -85,10 +85,15 @@ _G.packer_plugins = {
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\auto-save.nvim",
     url = "https://github.com/Pocco81/auto-save.nvim"
   },
-  ["barbar.nvim"] = {
+  ["bufdelete.nvim"] = {
     loaded = true,
-    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\barbar.nvim",
-    url = "https://github.com/romgrk/barbar.nvim"
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufdelete.nvim",
+    url = "https://github.com/famiu/bufdelete.nvim"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
   },
   catppuccin = {
     loaded = true,
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

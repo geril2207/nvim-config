@@ -10,14 +10,13 @@ return require('packer').startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
 
-  use {
-  'romgrk/barbar.nvim',
-  requires = {'kyazdani42/nvim-web-devicons'}
-  }
-  use {
+	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+	use 'famiu/bufdelete.nvim'
+	
+	use {
   'kyazdani42/nvim-tree.lua',
   requires = {
-    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    'nvim-tree/nvim-web-devicons', -- optional, for file icons
   },
   tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
@@ -33,6 +32,7 @@ return require('packer').startup(function(use)
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")
   use 'glepnir/lspsaga.nvim'
+	use { "nvim-telescope/telescope-file-browser.nvim" }
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { {'nvim-lua/plenary.nvim'} }

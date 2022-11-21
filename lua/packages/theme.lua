@@ -12,9 +12,7 @@
 --   contrast = "", -- can be "hard", "soft" or empty string
 --   overrides = {},
 -- })
-
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-
 require("catppuccin").setup({
     transparent_background = true,
     term_colors= false,
@@ -129,7 +127,6 @@ require("tokyonight").setup({
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 })
 
-require("bufferline").setup{}
 
 vim.cmd [[colorscheme tokyonight]]
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
