@@ -7,6 +7,9 @@ g.translate_source = 'ru'
 g.translate_target = 'en'
 opt.fillchars='eob: '
 
+
+opt.signcolumn = "yes"
+opt.ignorecase=true
 opt.cmdheight = 1
 opt.termguicolors = true
 opt.spelllang= { 'en_us', 'ru' }    -- Словари рус eng
@@ -53,3 +56,4 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", ti
 augroup end
 ]], false)
 
+require('nvim_comment').setup()
