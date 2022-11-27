@@ -1,8 +1,11 @@
 local null_ls = require("null-ls")
 null_ls.setup({
+	sources = {
+	 null_ls.builtins.formatting.prettier
+ },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
-      vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.format()<CR>")
+      vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.format({async = true})<CR>")
 
       -- format on save
       -- vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.format()")
@@ -17,7 +20,7 @@ null_ls.setup({
 local prettier = require("prettier")
 
 prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.22+)
+  bin = 'prettierd', -- or `'prettierd'` (v0.22+)
   filetypes = {
     "css",
     "graphql",

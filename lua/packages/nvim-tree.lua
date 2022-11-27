@@ -8,6 +8,10 @@ vim.g.loaded_netrwPlugin = 1
 		disable_netrw = true, 
 		open_on_setup = true,
 		open_on_setup_file = true,
-
+		update_focused_file = {
+			enable = true,
+			update_root = true
+		}
 })
+
 

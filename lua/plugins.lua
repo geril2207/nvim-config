@@ -15,18 +15,19 @@ return require('packer').startup(function(use)
 	use 'famiu/bufdelete.nvim'
 	use {
   'phaazon/hop.nvim',
-  branch = 'v2', -- optional but strongly recommended
+  	branch = 'v2', -- optional but strongly recommended
 	}
-	
 	use {
   'kyazdani42/nvim-tree.lua',
   requires = {
-    'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    'kyazdani42/nvim-web-devicons', -- optional, for file icons
   },
   tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   --LSP
+	use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+	
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use { "williamboman/mason.nvim" }
   use("neovim/nvim-lspconfig")

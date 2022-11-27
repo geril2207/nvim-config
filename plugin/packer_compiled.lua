@@ -120,6 +120,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "C:\\Users\\gergert_im\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind-nvim",
