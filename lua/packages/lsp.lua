@@ -4,6 +4,9 @@ local lspkind = require("lspkind")
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+	 completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
