@@ -12,5 +12,5 @@ require('telescope').setup {
 				return { "--hidden" }
 			end
 		},
-	}
+	},
 }
