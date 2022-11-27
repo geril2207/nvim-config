@@ -10,12 +10,17 @@ return require('packer').startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
 
+	use "windwp/nvim-ts-autotag"
 	use "terrortylor/nvim-comment"
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	use 'famiu/bufdelete.nvim'
 	use {
   'phaazon/hop.nvim',
   	branch = 'v2', -- optional but strongly recommended
+	}
+	use {
+  'lewis6991/gitsigns.nvim',
+  -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
 	}
 	use {
   'kyazdani42/nvim-tree.lua',
@@ -27,16 +32,15 @@ return require('packer').startup(function(use)
   --LSP
 	use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-	
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use { "williamboman/mason.nvim" }
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("onsails/lspkind-nvim")
-  use 'windwp/nvim-ts-autotag'
   use("nvim-treesitter/nvim-treesitter")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")
+	use('hrsh7th/cmp-path')
   use 'glepnir/lspsaga.nvim'
 	use { "nvim-telescope/telescope-file-browser.nvim" }
   use {

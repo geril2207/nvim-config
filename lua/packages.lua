@@ -6,4 +6,5 @@ require('packages/telescope')
 require('packages/prettier')
 require('packages/bufferline')
 require('packages/hop')
+require('packages/git')
 

@@ -1,6 +1,7 @@
 require('telescope').setup {
 	defaults = {
-		file_ignore_patterns = { "node_modules", ".git", "yarn.lock", "package-lock.json", "pnpm.lock", '.png', }
+		file_ignore_patterns = { ".pnpm-store","build", "dist", "node_modules", ".git", "yarn.lock", "package-lock.json", "pnpm.lock", '.png', ".svg", ".jpg", ".jpeg", ".ttf", ".eoff"},
+		path_display = {"truncate"}
 	},
 	pickers = {
 		find_files = {
