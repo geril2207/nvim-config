@@ -12,10 +12,11 @@ cmp.setup {
 			luasnip.lsp_expand(args.body)
 		end,
 	},
+	
 	mapping = cmp.mapping.preset.insert({
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-r>'] = cmp.mapping.complete(),
 
 		['<CR>'] = cmp.mapping.confirm {
 			behavior = cmp.ConfirmBehavior.Replace,
@@ -108,10 +109,66 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'eslint', 'graphql', 'sumneko_lua', 'html', 'cssls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'eslint', 'graphql', 'sumneko_lua', 'html', 'cssls', 'eslint_d', 'cssmodules_ls','astro','tailwindcss' }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
 		capabilities = capabilities,
 	}
 end
+lspconfig.diagnosticls.setup{
+  on_attach=on_attach,
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'scss', 'markdown', 'pandoc' },
+  init_options = {
+    linters = {
+      eslint = {
+        command = 'eslint',
+        rootPatterns = {  "package.json"},
+        debounce = 100,
+        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
+        sourceName = 'eslint',
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '[eslint] ${message} [${ruleId}]',
+          security = 'severity'
+        },
+        securities = {
+          [2] = 'error',
+          [1] = 'warning'
+        }
+      },
+    },
+    filetypes = {
+      javascript = 'eslint',
+      javascriptreact = 'eslint',
+      typescript = 'eslint',
+      typescriptreact = 'eslint',
+      markdown = 'markdownlint',
+      pandoc = 'markdownlint'
+    },
+    formatters = {
+      prettierEslint = {
+        command = 'prettier-eslint',
+        args = { '--stdin' },
+        rootPatterns = { '.git' },
+      },
+      prettier = {
+        command = 'prettier',
+        args = { '--stdin-filepath', '%filename' }
+      }
+    },
+    formatFiletypes = {
+       css = 'prettier',
+       javascript = 'prettierEslint',
+       javascriptreact = 'prettierEslint',
+       json = 'prettier',
+       scss = 'prettier',
+       typescript = 'prettierEslint',
+       typescriptreact = 'prettierEslint'
+    }
+  }
+}
