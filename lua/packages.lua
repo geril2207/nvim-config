@@ -5,4 +5,5 @@ require('packages/nvim-tree')
 require('packages/telescope')
 require('packages/prettier')
 require('packages/bufferline')
+require('packages/hop')
 

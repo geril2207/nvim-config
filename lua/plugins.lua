@@ -13,6 +13,10 @@ return require('packer').startup(function(use)
 	use "terrortylor/nvim-comment"
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 	use 'famiu/bufdelete.nvim'
+	use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+	}
 	
 	use {
   'kyazdani42/nvim-tree.lua',

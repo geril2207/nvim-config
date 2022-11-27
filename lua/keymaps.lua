@@ -6,31 +6,32 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+
+local function mapDoubleLeader(mode,lhs,rhs, opts)
+		map(mode, "<leader><leader>".. lhs, rhs, opts)
+end
+
 map("n", "<C-n>", ":noh<CR>", {})
-map("n", "Space", "<Nop>", {})
 map("n", "<Leader>e", ":NvimTreeFocus<CR>", {})
 --map("n", "<Leader>e", ":Neotree focus<CR>", {})
 map("i", "jk", "<ESC>", {})
 map("i", "jj", "<ESC>", {})
 --map("n", "<Tab>" , ":tabn<CR>", {})
 --map("n", "<S-Tab>" , ":tabp<CR>", {})
-map("n", "<C-z>", ":undo<CR>", {})
+-- map("n", "<C-z>", ":undo<CR>", {})
 map("n", "<C-Z>", ":redo<CR>", {})
 map("n", "<C-s>", ":w<CR>", {})
 map("n", "<leader>kw", ":BufferCloseAllButCurrentOrPinned<CR>", {})
 map("n", "<C-w>", ":Bdelete<CR>", {})
 map("v", 'Y', '"+y', {})
 map("n", 'Y', '"+y', {})
---map("n", "<A-1>", "1gt", {})
---map("n", "<A-2>", "2gt", {})
---map("n", "<A-3>", "3gt", {})
---map("n", "<A-4>", "4gt", {})
---map("n", "<A-5>", "5gt", {})
---map("n", "<A-6>", "6gt", {})
---map("n", "<A-7>", "7gt", {})
---map("n", "<A-8>", "8gt", {})
---map("n", "<A-9>", "9gt", {})
---map("n", "<A-10>", "10gt", {})
+map("n", '<c-space>', ':Telescope find_files<CR>', {})
+map("n", '<NUL>', ':Telescope find_files<CR>', {})
+map("n", '^@', ':Telescope find_files<CR>', {})
+map("i", '<C-space>', '123', {})
+map("i", '^@', '123', {})
+
+-- BufferLine
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
 map('n', '<A-1>', ':BufferLineGoToBuffer 1<CR>', {})
@@ -43,22 +44,33 @@ map('n', '<A-7>', ':BufferLineGoToBuffer 7<CR>', {})
 map('n', '<A-8>', ':BufferLineGoToBuffer 8<CR>', {})
 map('n', '<A-9>', ':BufferLineGoToBuffer 9<CR>', {})
 
+
+--Telescope
 map('n', '<leader>ff', ":Telescope find_files<CR>", {})
 map('n', '<leader>p', ":Telescope find_files<CR>", {})
 map('n', '<leader>fz', ":Telescope live_grep<CR>", {})
 map('n', '<leader>fb', ":Telescope buffers<CR>", {})
 map('n', '<leader>fh', ":Telescope help_tags<CR>", {})
---map('n', '<leader>e', ":Telescope file_browser<CR>" , {})
 
+-- LSP Saga
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", {})
 map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", {})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("n", "<leader>r", "<cmd>Lspsaga rename<CR>", {})
 map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", {})
+map("n", "<leader>d", "<cmd>Lspsaga peek_definition<CR>", {})
 map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", {})
 map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", {})
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {})
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>", {})
 map("n", "<A-F>", ":Prettier<CR>", {})
+
+-- Maps For Double Leader
+
+-- Easy Motions
+mapDoubleLeader("n", "w", ":HopWordAC<CR>", {})
+mapDoubleLeader("n", "b", ":HopWordBC<CR>", {})
+mapDoubleLeader("n", "f", ":HopChar1AC<CR>", {})
+mapDoubleLeader("n", "F", ":HopChar1BC<CR>", {})
