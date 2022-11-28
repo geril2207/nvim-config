@@ -11,6 +11,11 @@ local function mapDoubleLeader(mode,lhs,rhs, opts)
 		map(mode, "<leader><leader>".. lhs, rhs, opts)
 end
 
+
+
+--Back jump
+map("n", "<leader>b", "<C-o>", {})
+
 map("n", "<C-n>", ":noh<CR>", {})
 map("n", "<Leader>e", ":NvimTreeFocus<CR>", {})
 --map("n", "<Leader>e", ":Neotree focus<CR>", {})

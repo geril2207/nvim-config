@@ -142,6 +142,10 @@ require("tokyonight").setup({
 			bg = c.none,
 			fg = c.info
 		}
+
+		hl.MatchParen = {
+			bg = "#999797"
+		}
 	end
 })
 
