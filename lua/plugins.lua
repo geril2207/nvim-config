@@ -39,13 +39,13 @@ return require('packer').startup(function(use)
   }
   --LSP
 	use "rafamadriz/friendly-snippets"
-	
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use { "williamboman/mason.nvim" }
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use("onsails/lspkind-nvim")
+	use("p00f/nvim-ts-rainbow")
   use("nvim-treesitter/nvim-treesitter")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/nvim-cmp")
