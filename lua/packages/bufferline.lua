@@ -12,8 +12,6 @@ require("bufferline").setup {
 		show_close_icon = false,
 		close_command = close_func,
 		right_mouse_command = close_func,
-		max_name_length = 14,
-		max_prefix_length = 13,
 		tab_size = 20,
 		offsets = {
 			{
