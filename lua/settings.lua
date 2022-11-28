@@ -1,22 +1,22 @@
-local cmd = vim.cmd             -- execute Vim commands
-local exec = vim.api.nvim_exec  -- execute Vimscript
-local g = vim.g                 -- global variables
+local cmd = vim.cmd -- execute Vim commands
+local exec = vim.api.nvim_exec -- execute Vimscript
+local g = vim.g -- global variables
 local opt = vim.opt
 -- Направление перевода с русского на английский
 g.translate_source = 'ru'
 g.translate_target = 'en'
-opt.fillchars='eob: '
+opt.fillchars = 'eob: '
 
 
 opt.signcolumn = "yes"
-opt.ignorecase=true
+opt.ignorecase = true
 opt.cmdheight = 1
 opt.termguicolors = true
-opt.spelllang= { 'en_us', 'ru' }    -- Словари рус eng
-opt.number = true                   -- Включаем нумерацию строк
-opt.relativenumber = true           -- Вкл. относительную нумерацию строк
-opt.so=7                            -- Курсор всегда в центре экрана
-opt.undofile = true                 -- Возможность отката назад
+opt.spelllang = { 'en_us', 'ru' } -- Словари рус eng
+opt.number = true -- Включаем нумерацию строк
+opt.relativenumber = true -- Вкл. относительную нумерацию строк
+opt.so = 7 -- Курсор всегда в центре экрана
+opt.undofile = true -- Возможность отката назад
 opt.mouse = 'a'
 g.mapleader = " "
 -- COLOR
@@ -30,8 +30,8 @@ filetype indent plugin on
 syntax enable
 ]])
 
-opt.shiftwidth = 2        -- shift 4 spaces when tab
-opt.smartindent = true    -- autoindent new lines
+opt.shiftwidth = 2 -- shift 4 spaces when tab
+opt.smartindent = true -- autoindent new lines
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 -- remove line lenght marker for selected filetypes
@@ -41,7 +41,7 @@ cmd [[
 autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml,htmljinja setlocal shiftwidth=2 tabstop=2
 ]]
 -- С этой строкой отлично форматирует html файл, который содержит jinja2
-cmd[[ autocmd BufNewFile,BufRead *.html set filetype=htmldjango ]]
+cmd [[ autocmd BufNewFile,BufRead *.html set filetype=htmldjango ]]
 -----------------------------------------------------------
 -- Полезные фишки
 -----------------------------------------------------------
@@ -59,4 +59,3 @@ augroup end
 ]], false)
 
 require('nvim_comment').setup()
-

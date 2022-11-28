@@ -1,17 +1,14 @@
 local function map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-
-local function mapDoubleLeader(mode,lhs,rhs, opts)
-		map(mode, "<leader><leader>".. lhs, rhs, opts)
+local function mapDoubleLeader(mode, lhs, rhs, opts)
+	map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end
-
-
 
 --Back jump
 map("n", "<leader>b", "<C-o>", {})
