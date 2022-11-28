@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
   requires = { {'nvim-lua/plenary.nvim'} }
   }
+	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	use "windwp/nvim-ts-autotag"
 	use "terrortylor/nvim-comment"
@@ -38,6 +39,7 @@ return require('packer').startup(function(use)
   }
   --LSP
 	use "rafamadriz/friendly-snippets"
+	
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use { "williamboman/mason.nvim" }
