@@ -18,7 +18,6 @@ cmp.setup {
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-s>'] = cmp.mapping.complete(),
-
 		['<CR>'] = cmp.mapping.confirm {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -67,16 +66,16 @@ local saga = require('lspsaga')
 saga.init_lsp_saga({
 	finder_action_keys = {
 		open = 'o',
-		quit = 'q',
+		quit = { 'q', '<ESC>' },
 		scroll_down = '<C-f>',
 		scroll_up = '<C-d>', -- quit can be a table
 	},
 	code_action_keys = {
-		quit = 'q',
+		quit = { 'q', '<ESC>' },
 		exec = '<CR>',
 	},
 	definition_action_keys = {
-		quit = 'q',
+		quit = { 'q', '<ESC>' },
 	},
 })
 require('nvim-ts-autotag').setup()
@@ -107,7 +106,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 	vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, bufopts)
-	vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
@@ -134,3 +133,17 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+	severity_sort = true,
+	signs = {
+		severity_limit = "Hint",
+	},
+	virtual_text = {
+		severity_limit = "Warning",
+	},
+}
+)
