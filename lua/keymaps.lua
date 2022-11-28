@@ -23,9 +23,10 @@ map("n", "<C-s>", ":w<CR>", {})
 map("n", "<C-w>", ":Bdelete<CR>", {})
 map("v", 'Y', '"+y', {})
 map("n", 'Y', '"+y', {})
-
+map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
 -- BufferLine
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
+
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
 map('n', '<A-1>', ':BufferLineGoToBuffer 1<CR>', {})
 map('n', '<A-2>', ':BufferLineGoToBuffer 2<CR>', {})
@@ -58,7 +59,6 @@ map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", {})
 map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", {})
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {})
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {})
-map("n", "<leader>qq", ":q!<CR>:q!<CR>", {})
 map("n", "<A-F>", ":Prettier<CR>", {})
 
 -- Maps For Double Leader

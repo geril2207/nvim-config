@@ -3,6 +3,8 @@ local luasnip = require 'luasnip'
 local lspkind = require("lspkind")
 -- nvim-cmp setup
 local cmp = require 'cmp'
+
+
 cmp.setup {
 	completion = {
 		completeopt = 'menu,menuone,noinsert'
@@ -12,11 +14,10 @@ cmp.setup {
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	
 	mapping = cmp.mapping.preset.insert({
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-r>'] = cmp.mapping.complete(),
+		['<C-s>'] = cmp.mapping.complete(),
 
 		['<CR>'] = cmp.mapping.confirm {
 			behavior = cmp.ConfirmBehavior.Replace,
