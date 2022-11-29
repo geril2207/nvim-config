@@ -20,7 +20,9 @@ return require('packer').startup(function(use)
 
 	use "windwp/nvim-ts-autotag"
 	use 'JoosepAlviste/nvim-ts-context-commentstring'
-	use "terrortylor/nvim-comment"
+	use {
+		'numToStr/Comment.nvim',
+	}
 	use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 	use 'famiu/bufdelete.nvim'
 
@@ -53,12 +55,12 @@ return require('packer').startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/nvim-cmp")
 	use('hrsh7th/cmp-path')
-	use'glepnir/lspsaga.nvim'
+	use 'glepnir/lspsaga.nvim'
 	use({
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	})
-	use"windwp/nvim-autopairs"
+	use "windwp/nvim-autopairs"
 	use({
 		"Pocco81/auto-save.nvim",
 		config = function()
