@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
 	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	use "windwp/nvim-ts-autotag"
+	use 'JoosepAlviste/nvim-ts-context-commentstring'
 	use "terrortylor/nvim-comment"
 	use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 	use 'famiu/bufdelete.nvim'

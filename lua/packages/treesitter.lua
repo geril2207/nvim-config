@@ -10,6 +10,9 @@ require 'nvim-treesitter.configs'.setup {
 	rainbow = {
 		enable = true,
 		extended_mode = false,
+	},
+	context_commentstring = {
+		enable = true
 	}
 }
 --[[
