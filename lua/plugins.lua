@@ -3,6 +3,7 @@ return require('packer').startup(function(use)
 	--Themes
 	use 'ellisonleao/gruvbox.nvim'
 	use 'navarasu/onedark.nvim'
+	use "olimorris/onedarkpro.nvim"
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use 'folke/tokyonight.nvim'
 

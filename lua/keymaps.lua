@@ -13,6 +13,7 @@ end
 --Back jump
 map("n", "<leader>b", "<C-o>", {})
 
+
 map("n", "<C-n>", ":noh<CR>", {})
 map("n", "<Leader>e", ":NvimTreeFocus<CR>", {})
 --map("n", "<Leader>e", ":Neotree focus<CR>", {})
@@ -28,8 +29,10 @@ map("n", 'Y', '"+y', {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
 -- BufferLine
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
+map('n', 'J', ':BufferLineCyclePrev<CR>', {})
 
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
+map('n', 'K', ':BufferLineCycleNext<CR>', {})
 map('n', '<A-1>', ':BufferLineGoToBuffer 1<CR>', {})
 map('n', '<A-2>', ':BufferLineGoToBuffer 2<CR>', {})
 map('n', '<A-3>', ':BufferLineGoToBuffer 3<CR>', {})
@@ -70,3 +73,4 @@ mapDoubleLeader("n", "w", ":HopWordAC<CR>", {})
 mapDoubleLeader("n", "b", ":HopWordBC<CR>", {})
 mapDoubleLeader("n", "f", ":HopChar1AC<CR>", {})
 mapDoubleLeader("n", "F", ":HopChar1BC<CR>", {})
+mapDoubleLeader("n", "W", ":HopWord<CR>", {})

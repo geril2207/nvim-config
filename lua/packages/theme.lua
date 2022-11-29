@@ -1,7 +1,7 @@
 require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
-	bold = true,
+	bold = false,
 	italic = false,
 	strikethrough = true,
 	invert_selection = false,
@@ -10,12 +10,23 @@ require("gruvbox").setup({
 	invert_intend_guides = false,
 	inverse = true, -- invert background for search, diffs, statuslines and errors
 	contrast = "", -- can be "hard", "soft" or empty string
-	overrides = {},
+	overrides = {
+		DiagnosticSignWarn = { fg = "#d79921", bg = "none" },
+		DiagnosticSignHint = { fg = "#8ec07c", bg = "none" },
+		DiagnosticSignInfo = { fg = "#83a598", bg = "none" },
+		DiagnosticSignError = { fg = "#fb4934", bg = "none" },
+		GitSignsAdd = { fg = "#b8bb26", bg = "none" },
+		GitSignsChange = { fg = "#8ec07c", bg = "none" },
+		GitSignsDelete = { fg = "#fb4934", bg = "none" },
+	},
+	transparent_mode = true,
 })
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
 	transparent_background = true,
 	term_colors = false,
+	no_italic = true, -- Force no italic
+	no_bold = true, -- Force no bold
 	styles = {
 		comments = {},
 		conditionals = {},
@@ -106,6 +117,34 @@ require('onedark').setup {
 }
 
 
+require("onedarkpro").setup({
+	highlights = {}, -- Override default highlight and/or filetype groups
+	styles = { -- Choose from "bold,italic,underline"
+		types = "NONE", -- Style that is applied to types
+		numbers = "NONE", -- Style that is applied to numbers
+		strings = "NONE", -- Style that is applied to strings
+		comments = "NONE", -- Style that is applied to comments
+		keywords = "NONE", -- Style that is applied to keywords
+		constants = "NONE", -- Style that is applied to constants
+		functions = "NONE", -- Style that is applied to functions
+		operators = "NONE", -- Style that is applied to operators
+		variables = "NONE", -- Style that is applied to variables
+		conditionals = "NONE", -- Style that is applied to conditionals
+		virtual_text = "NONE", -- Style that is applied to virtual text
+	},
+	options = {
+		bold = false, -- Use bold styles?
+		italic = false, -- Use italic styles?
+		underline = true, -- Use underline styles?
+		undercurl = true, -- Use undercurl styles?
+
+		cursorline = false, -- Use cursorline highlighting?
+		transparency = true, -- Use a transparent background?
+		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+		window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+	}
+})
+
 require("tokyonight").setup({
 	-- your configuration comes here
 	-- or leave it empty to use the default settings
@@ -121,7 +160,7 @@ require("tokyonight").setup({
 		floats = "transparent", -- style for floating windows
 	},
 	sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-	day_brightness = 0.4, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+	day_brightness = 0, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
 	hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
 	dim_inactive = false, -- dims inactive windows
 	lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
@@ -150,5 +189,5 @@ require("tokyonight").setup({
 })
 
 
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme gruvbox]]
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
