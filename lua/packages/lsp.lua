@@ -66,16 +66,16 @@ local saga = require('lspsaga')
 saga.init_lsp_saga({
 	finder_action_keys = {
 		open = 'o',
-		quit = { 'q', '<ESC>' },
+		quit = 'q',
 		scroll_down = '<C-f>',
 		scroll_up = '<C-d>', -- quit can be a table
 	},
 	code_action_keys = {
-		quit = { 'q', '<ESC>' },
+		quit = 'q',
 		exec = '<CR>',
 	},
 	definition_action_keys = {
-		quit = { 'q', '<ESC>' },
+		quit = 'q',
 	},
 })
 require('nvim-ts-autotag').setup()
