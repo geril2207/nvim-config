@@ -190,5 +190,5 @@ require("tokyonight").setup({
 })
 
 
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme tokyonight]]
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")

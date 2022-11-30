@@ -12,27 +12,27 @@ end
 
 --Back jump
 map("n", "<leader>b", "<C-o>", {})
-
-
 map("n", "<C-n>", ":noh<CR>", {})
 map("n", "<Leader>e", ":NvimTreeFocus<CR>", {})
 --map("n", "<Leader>e", ":Neotree focus<CR>", {})
 map("i", "jk", "<ESC>", {})
-map("n", "K", "<ESC>", {})
 map("i", "jj", "<ESC>", {})
+
+map("n", "K", "<ESC>", {})
 map("n", "<C-z>", ":undo<CR>", {})
 map("n", "<C-Z>", ":redo<CR>", {})
 map("n", "<C-s>", ":w<CR>", {})
 map("n", "<C-w>", ":Bdelete<CR>", {})
 map("v", 'Y', '"+y', {})
+map("v", '<C-c>', '"+y', {})
 map("n", 'Y', '"+y', {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
 -- BufferLine
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
-map('n', 'J', ':BufferLineCyclePrev<CR>', {})
+-- map('n', 'J', ':BufferLineCyclePrev<CR>', {})
 
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
-map('n', 'K', ':BufferLineCycleNext<CR>', {})
+-- map('n', 'K', ':BufferLineCycleNext<CR>', {})
 map('n', '<A-1>', ':BufferLineGoToBuffer 1<CR>', {})
 map('n', '<A-2>', ':BufferLineGoToBuffer 2<CR>', {})
 map('n', '<A-3>', ':BufferLineGoToBuffer 3<CR>', {})
