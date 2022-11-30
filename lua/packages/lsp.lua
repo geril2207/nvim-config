@@ -134,14 +134,6 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	}
 end
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	update_in_insert = false,
-	virtual_text = { spacing = 4 },
-	severity_sort = true,
-}
-)
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
