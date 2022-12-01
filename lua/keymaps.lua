@@ -19,6 +19,7 @@ map("i", "jk", "<ESC>", {})
 map("i", "jj", "<ESC>", {})
 
 map("n", "K", "<ESC>", {})
+map("v", "K", "<ESC>", {})
 map("n", "<C-z>", ":undo<CR>", {})
 map("n", "<C-Z>", ":redo<CR>", {})
 map("n", "<C-s>", ":w<CR>", {})
