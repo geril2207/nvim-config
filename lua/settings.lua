@@ -58,3 +58,5 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", ti
 augroup end
 ]], false)
 
+-- SET HTML AS HTML NOT DJANGO
+cmd [[au BufNewFile,BufRead *.html set filetype=html]]

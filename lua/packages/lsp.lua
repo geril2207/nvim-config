@@ -94,7 +94,8 @@ saga.init_lsp_saga({
 		quit = 'q',
 	},
 })
-require('nvim-ts-autotag').setup()
+--[[ require('nvim-ts-autotag').setup({
+}) ]]
 require("mason").setup({
 	ui = {
 		icons = {
