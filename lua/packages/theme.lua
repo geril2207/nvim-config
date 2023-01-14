@@ -1,3 +1,4 @@
+local transparent = true
 require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
@@ -20,11 +21,11 @@ require("gruvbox").setup({
 		GitSignsDelete = { fg = "#fb4934", bg = "none" },
 		-- Pmenu = {bg = "none"}
 	},
-	transparent_mode = true,
+	transparent_mode = transparent,
 })
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
-	transparent_background = true,
+	transparent_background = transparent,
 	term_colors = false,
 	no_italic = true, -- Force no italic
 	no_bold = true, -- Force no bold
@@ -91,7 +92,7 @@ require('lualine').setup {
 require('onedark').setup {
 	-- Main options --
 	style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-	transparent = true, -- Show/hide background
+	transparent = transparent, -- Show/hide background
 	term_colors = true, -- Change terminal color as per the selected theme style
 	ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -140,7 +141,7 @@ require("onedarkpro").setup({
 		undercurl = true, -- Use undercurl styles?
 
 		cursorline = false, -- Use cursorline highlighting?
-		transparency = true, -- Use a transparent background?
+		transparency = transparent, -- Use a transparent background?
 		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
 		window_unfocused_color = false, -- When the window is out of focus, change the normal background?
 	}
@@ -150,7 +151,7 @@ require("tokyonight").setup({
 	-- your configuration comes here
 	-- or leave it empty to use the default settings
 	style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-	transparent = true, -- Enable this to disable setting the background color
+	transparent = transparent, -- Enable this to disable setting the background color
 	terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
 	styles = {
 		comments = { italic = false },
@@ -190,5 +191,5 @@ require("tokyonight").setup({
 })
 
 
-vim.cmd [[colorscheme gruvbox]]
-vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")

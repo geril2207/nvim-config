@@ -31,6 +31,8 @@ map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
 -- BufferLine
 map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
 -- map('n', 'J', ':BufferLineCyclePrev<CR>', {})
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
 
 map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
 -- map('n', 'K', ':BufferLineCycleNext<CR>', {})
