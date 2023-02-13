@@ -79,7 +79,7 @@ require('nvim-autopairs').setup({
 })
 local saga = require('lspsaga')
 
-saga.init_lsp_saga({
+saga.setup({
 	finder_action_keys = {
 		open = 'o',
 		quit = 'q',
