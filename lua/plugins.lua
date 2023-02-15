@@ -31,6 +31,11 @@ return require('packer').startup(function(use)
 	use {
 		'phaazon/hop.nvim',
 		branch = 'v2', -- optional but strongly recommended
+		commit = 'caaccee',
+
+		config = {
+				require('hop').setup()
+		}
 	}
 	use {
 		'lewis6991/gitsigns.nvim',
