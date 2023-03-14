@@ -6,6 +6,7 @@ local opt = vim.opt
 g.translate_source = 'ru'
 g.translate_target = 'en'
 opt.fillchars = 'eob: '
+opt.swapfile = false
 
 
 opt.signcolumn = "yes"
@@ -15,7 +16,7 @@ opt.termguicolors = true
 opt.spelllang = { 'en_us', 'ru' } -- Словари рус eng
 opt.number = true -- Включаем нумерацию строк
 opt.relativenumber = true -- Вкл. относительную нумерацию строк
-opt.so = 7 -- Курсор всегда в центре экрана
+opt.so = 7 
 opt.undofile = true -- Возможность отката назад
 opt.mouse = 'a'
 g.mapleader = " "

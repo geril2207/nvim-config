@@ -1,4 +1,10 @@
-local transparent = true
+local transparent
+if (vim.g.neovide == nil)  then
+	transparent = true
+else transparent = false
+end
+
+
 require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
