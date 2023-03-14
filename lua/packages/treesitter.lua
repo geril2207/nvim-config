@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "javascript", "lua", "tsx", "typescript", "scss", "css", "json", "dot", "html", "prisma" },
+	ensure_installed = { "javascript", "lua", "tsx", "typescript", "scss", "css", "json", "dot", "html", "prisma" , "markdown"},
 	sync_install = false,
 
 	highlight = {
