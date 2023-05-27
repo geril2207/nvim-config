@@ -93,6 +93,9 @@ saga.setup({
 	definition_action_keys = {
 		quit = 'q',
 	},
+      beacon = {
+        enable = false,
+      },
 })
 --[[ require('nvim-ts-autotag').setup({
 }) ]]

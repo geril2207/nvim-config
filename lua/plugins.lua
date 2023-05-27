@@ -2,10 +2,13 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	--Themes
 	use 'ellisonleao/gruvbox.nvim'
-	use 'navarasu/onedark.nvim'
-	use "olimorris/onedarkpro.nvim"
+	use { 'navarasu/onedark.nvim' }
+	-- use { "olimorris/onedarkpro.nvim" }
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use 'folke/tokyonight.nvim'
+	use "EdenEast/nightfox.nvim"
+	use 'shaunsingh/nord.nvim'
+	use 'ThePrimeagen/harpoon'
 
 	--Prettier
 	use('jose-elias-alvarez/null-ls.nvim')
@@ -40,6 +43,9 @@ return require('packer').startup(function(use)
 	use {
 		'lewis6991/gitsigns.nvim',
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+		config = {
+			require('gitsigns').setup()
+		}
 	}
 	use {
 		'kyazdani42/nvim-tree.lua',
@@ -53,7 +59,7 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use { "williamboman/mason.nvim" }
-	use("neovim/nvim-lspconfig")
+	use "neovim/nvim-lspconfig"
 	use("hrsh7th/cmp-nvim-lsp")
 	use("onsails/lspkind-nvim")
 	use("p00f/nvim-ts-rainbow")
@@ -70,7 +76,10 @@ return require('packer').startup(function(use)
 	use({
 		"Pocco81/auto-save.nvim",
 		config = function()
-			require("auto-save").setup {}
+			require("auto-save").setup {
+				enabled = true,
+				write_all_buffers = false,
+			}
 		end,
 	})
 end)

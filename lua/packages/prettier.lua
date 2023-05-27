@@ -5,11 +5,14 @@ null_ls.setup({
 	},
 	on_attach = function(client, bufnr)
 		if client.server_capabilities.documentFormattingProvider then
-			vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.format({async = true})<CR>")
+			vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.format({})<CR>")
 
 		end
 	end,
 })
+
+
+
 local prettier = require("prettier")
 
 prettier.setup({
