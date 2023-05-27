@@ -5,7 +5,7 @@ else transparent = false
 end
 
 
-require("gruvbox").setup({
+--[[ require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
 	bold = false,
@@ -28,7 +28,7 @@ require("gruvbox").setup({
 		-- Pmenu = {bg = "none"}
 	},
 	transparent_mode = transparent,
-})
+}) ]]
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
 	transparent_background = transparent,

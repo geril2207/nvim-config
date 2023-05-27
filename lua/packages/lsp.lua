@@ -1,9 +1,14 @@
 -- luasnip setup
 local luasnip = require 'luasnip'
 local lspkind = require("lspkind")
--- nvim-cmp setup
+
 local cmp = require 'cmp'
 
+
+luasnip.setup({
+	region_check_events = 'InsertEnter',
+	delete_check_events = 'InsertLeave'
+})
 
 cmp.setup {
 	completion = {
@@ -23,9 +28,12 @@ cmp.setup {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		},
-		--[[ ['<Tab>'] = cmp.mapping(function(fallback)
+		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.select_next_item()
+				cmp.confirm {
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				}
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			else
@@ -40,26 +48,12 @@ cmp.setup {
 			else
 				fallback()
 			end
-		end, { 'i', 's' }), ]]
-		['<Tab>'] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
-		['<S-Tab>'] = cmp.mapping(function(fallback)
-			if luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
 		end, { 'i', 's' }),
 	}),
 	formatting = {
 		format = lspkind.cmp_format({
-			mode = 'symbol', -- show only symbol annotations
-			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			mode = 'symbol',    -- show only symbol annotations
+			maxwidth = 50,      -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 			ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 
 			before = function(entry, vim_item)
@@ -126,12 +120,13 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 	vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition, bufopts)
-	-- vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+	vim.keymap.set('n', '<A-F>', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'eslint', 'graphql', 'sumneko_lua', 'html', 'cssls',
-	'cssmodules_ls', 'astro', 'tailwindcss' }
+local servers = { 'clangd', 'rust_analyzer', 'pylsp', 'tsserver', 'eslint', 'graphql', 'lua_ls', 'html', 'cssls',
+	'cssmodules_ls', 'astro', 'tailwindcss', 'yamlls', "dockerls", "jsonls", "stylelint_lsp", "prismals" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
@@ -150,12 +145,16 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
-	severity_sort = true,
-	signs = {
-		severity_limit = "Hint",
-	},
-	virtual_text = {
-		severity_limit = "Warning",
-	},
-}
+		severity_sort = true,
+		signs = {
+			severity_limit = "Hint",
+		},
+		virtual_text = {
+			severity_limit = "Warning",
+		},
+	}
 )
+
+
+
+
