@@ -1,4 +1,4 @@
-local close_func = function(bufnum)
+--[[ local close_func = function(bufnum)
 	local bufdelete_avail, bufdelete = pcall(require, "bufdelete")
 	if bufdelete_avail then
 		bufdelete.bufdelete(bufnum, true)
@@ -26,5 +26,8 @@ require("bufferline").setup {
 			return " " .. icon .. count
 		end
 
-	}
-}
+	} 
+}]]
+
+
+
