@@ -8,7 +8,6 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use "EdenEast/nightfox.nvim"
 	use 'shaunsingh/nord.nvim'
-	use 'ThePrimeagen/harpoon'
 
 	--Prettier
 	use('jose-elias-alvarez/null-ls.nvim')
