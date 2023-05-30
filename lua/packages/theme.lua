@@ -125,33 +125,33 @@ require('onedark').setup {
 }
 
 
-require("onedarkpro").setup({
-	highlights = {}, -- Override default highlight and/or filetype groups
-	styles = { -- Choose from "bold,italic,underline"
-		types = "NONE", -- Style that is applied to types
-		numbers = "NONE", -- Style that is applied to numbers
-		strings = "NONE", -- Style that is applied to strings
-		comments = "NONE", -- Style that is applied to comments
-		keywords = "NONE", -- Style that is applied to keywords
-		constants = "NONE", -- Style that is applied to constants
-		functions = "NONE", -- Style that is applied to functions
-		operators = "NONE", -- Style that is applied to operators
-		variables = "NONE", -- Style that is applied to variables
-		conditionals = "NONE", -- Style that is applied to conditionals
-		virtual_text = "NONE", -- Style that is applied to virtual text
-	},
-	options = {
-		bold = false, -- Use bold styles?
-		italic = false, -- Use italic styles?
-		underline = true, -- Use underline styles?
-		undercurl = true, -- Use undercurl styles?
+-- require("onedarkpro").setup({
+-- 	highlights = {}, -- Override default highlight and/or filetype groups
+-- 	styles = { -- Choose from "bold,italic,underline"
+-- 		types = "NONE", -- Style that is applied to types
+-- 		numbers = "NONE", -- Style that is applied to numbers
+-- 		strings = "NONE", -- Style that is applied to strings
+-- 		comments = "NONE", -- Style that is applied to comments
+-- 		keywords = "NONE", -- Style that is applied to keywords
+-- 		constants = "NONE", -- Style that is applied to constants
+-- 		functions = "NONE", -- Style that is applied to functions
+-- 		operators = "NONE", -- Style that is applied to operators
+-- 		variables = "NONE", -- Style that is applied to variables
+-- 		conditionals = "NONE", -- Style that is applied to conditionals
+-- 		virtual_text = "NONE", -- Style that is applied to virtual text
+-- 	},
+-- 	options = {
+-- 		bold = false, -- Use bold styles?
+-- 		italic = false, -- Use italic styles?
+-- 		underline = true, -- Use underline styles?
+-- 		undercurl = true, -- Use undercurl styles?
 
-		cursorline = false, -- Use cursorline highlighting?
-		transparency = transparent, -- Use a transparent background?
-		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-		window_unfocused_color = false, -- When the window is out of focus, change the normal background?
-	}
-})
+-- 		cursorline = false, -- Use cursorline highlighting?
+-- 		transparency = transparent, -- Use a transparent background?
+-- 		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+-- 		window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+-- 	}
+-- })
 
 require("tokyonight").setup({
 	-- your configuration comes here
