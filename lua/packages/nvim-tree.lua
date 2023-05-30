@@ -16,7 +16,6 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup({
 	hijack_netrw = true,
 	disable_netrw = true,
-	open_on_setup_file = true,
 	update_focused_file = {
 		enable = true,
 		-- update_root = true
