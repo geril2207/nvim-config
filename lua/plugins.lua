@@ -26,7 +26,8 @@ return require('packer').startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
 			require("harpoon").setup({
-				tabline = true
+				tabline = true,
+				save_on_toggle = false
 			})
 		end
 	}

@@ -67,4 +67,12 @@ cmd [[au BufNewFile,BufRead *.html set filetype=html]]
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
+
+
+--Harpoon
 cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+cmd('highlight! TabLineFill guibg=NONE guifg=white')
