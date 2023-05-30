@@ -52,9 +52,9 @@ map('n', '<S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>', {})
 -- map('n', '<A-1>', ':lua require("harpoon.ui").nav_file(1)<CR>', {})
 
 -- Map 1-9 navigation harpoon
-for i = 1,9,1
+for i = 1, 9, 1
 do
-	map('n', '<A-' .. i .. '>', ':lua require("harpoon.ui").nav_file(' ..i .. ')<CR>')
+	map('n', '<A-' .. i .. '>', ':lua require("harpoon.ui").nav_file(' .. i .. ')<CR>')
 end
 -- -- Map 1-9 navigation bufferline
 -- for i = 1,9,1
@@ -83,7 +83,8 @@ map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", {})
 map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", {})
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {})
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {})
-map("n", "<A-F>", ":Prettier<CR>", {})
+map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
+-- map("n", "<A-F>", ":Prettier<CR>", {})
 
 -- Maps For Double Leader
 -- Easy Motions
