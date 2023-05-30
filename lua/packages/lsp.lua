@@ -132,6 +132,7 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	}
+		root_dir = function() return vim.loop.cwd() end }
 end
 
 -- Diagnostic symbols in the sign column (gutter)
