@@ -24,11 +24,11 @@ return require('packer').startup(function(use)
 	use {
 		'ThePrimeagen/harpoon',
 		requires = "nvim-lua/plenary.nvim",
-		config = {
+		config = function()
 			require("harpoon").setup({
 				tabline = true
 			})
-		}
+		end
 	}
 	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
@@ -46,21 +46,22 @@ return require('packer').startup(function(use)
 		branch = 'v2', -- optional but strongly recommended
 		commit = 'caaccee',
 
-		config = {
+		config = function()
 				require('hop').setup()
-		}
+		end
+		
 	}
 	use {
 		'lewis6991/gitsigns.nvim',
 		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-		config = {
+		config = function()
 			require('gitsigns').setup()
-		}
+		end
 	}
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icons
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
@@ -80,7 +81,7 @@ return require('packer').startup(function(use)
 	use 'glepnir/lspsaga.nvim'
 	use({
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	})
 	use "windwp/nvim-autopairs"
 	use({
