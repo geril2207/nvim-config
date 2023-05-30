@@ -1,5 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "javascript", "lua", "tsx", "typescript", "scss", "css", "json", "dot", "html", "prisma" , "markdown", "markdown_inline"},
+	ensure_installed = { "javascript", "lua", "tsx", "typescript", "scss", "css", "json", "dot", "html", "prisma",
+		"markdown", "markdown_inline", "python" },
 	sync_install = false,
 
 	highlight = {
@@ -11,12 +12,13 @@ require 'nvim-treesitter.configs'.setup {
 	autotag = {
 		enable = true,
 		filetypes = {
-    'htmldjango',  'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-    'xml',
-    'php',
-    'markdown',
-    'glimmer','handlebars','hbs'
-	}
+			'htmldjango', 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx',
+			'jsx', 'rescript',
+			'xml',
+			'php',
+			'markdown',
+			'glimmer', 'handlebars', 'hbs'
+		}
 	},
 
 	rainbow = {

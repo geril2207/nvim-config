@@ -131,8 +131,8 @@ for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
 		capabilities = capabilities,
+		root_dir = function() return vim.loop.cwd() end 
 	}
-		root_dir = function() return vim.loop.cwd() end }
 end
 
 -- Diagnostic symbols in the sign column (gutter)
@@ -156,7 +156,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 		},
 	}
 )
-
-
-
-
