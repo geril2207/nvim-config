@@ -29,22 +29,22 @@ cmp.setup {
 			select = true,
 		},
 		['<Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif cmp.visible() then
 				cmp.confirm {
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = true,
 				}
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
 			else
 				fallback()
 			end
 		end, { 'i', 's' }),
 		['<S-Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
+			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
+			elseif cmp.visible() then
+				cmp.select_prev_item()
 			else
 				fallback()
 			end
@@ -87,9 +87,9 @@ saga.setup({
 	definition_action_keys = {
 		quit = 'q',
 	},
-      beacon = {
-        enable = false,
-      },
+	beacon = {
+		enable = false,
+	},
 })
 --[[ require('nvim-ts-autotag').setup({
 }) ]]
@@ -126,12 +126,12 @@ end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { 'clangd', 'rust_analyzer', 'pylsp', 'tsserver', 'eslint', 'graphql', 'lua_ls', 'html', 'cssls',
-	'cssmodules_ls', 'astro', 'tailwindcss', 'yamlls', "dockerls", "jsonls", "stylelint_lsp", "prismals" }
+	'cssmodules_ls', 'astro', 'tailwindcss', 'yamlls', "dockerls", "jsonls", "stylelint_lsp", "prismals", "emmet-ls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup {
 		on_attach = on_attach,
 		capabilities = capabilities,
-		root_dir = function() return vim.loop.cwd() end 
+		root_dir = function() return vim.loop.cwd() end
 	}
 end
 
