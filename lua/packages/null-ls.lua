@@ -11,4 +11,3 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 	},
 })
-vim.lsp.set_log_level("debug")
