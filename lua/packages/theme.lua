@@ -1,9 +1,9 @@
 local transparent
-if (vim.g.neovide == nil)  then
+if vim.g.neovide == nil then
 	transparent = true
-else transparent = false
+else
+	transparent = false
 end
-
 
 --[[ require("gruvbox").setup({
 	undercurl = true,
@@ -51,13 +51,12 @@ require("catppuccin").setup({
 	},
 })
 
-
-require('lualine').setup {
+require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = 'auto',
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
+		theme = "auto",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -69,35 +68,35 @@ require('lualine').setup {
 			statusline = 1000,
 			tabline = 1000,
 			winbar = 1000,
-		}
+		},
 	},
 	sections = {
-		lualine_a = { 'mode' },
-		lualine_b = { 'branch', 'diff', 'diagnostics' },
-		lualine_c = { 'filename' },
-		lualine_x = { 'encoding', 'fileformat', 'filetype' },
-		lualine_y = { 'progress' },
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = { "filename" },
+		lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_y = { "progress" },
 
-		lualine_z = { 'location' }
+		lualine_z = { "location" },
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { 'filename' },
-		lualine_x = { 'location' },
+		lualine_c = { "filename" },
+		lualine_x = { "location" },
 		lualine_y = {},
-		lualine_z = {}
+		lualine_z = {},
 	},
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {}
-}
+	extensions = {},
+})
 
 -- Lua
-require('onedark').setup {
+require("onedark").setup({
 	-- Main options --
-	style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+	style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
 	transparent = transparent, -- Show/hide background
 	term_colors = true, -- Change terminal color as per the selected theme style
 	ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -105,25 +104,24 @@ require('onedark').setup {
 
 	-- toggle theme style ---
 	toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-	toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- List of styles to toggle between
+	toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 
 	-- Change code style ---
 	-- Options are italic, bold, underline, none
 	-- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
 	code_style = {
-		comments = 'none',
-		keywords = 'none',
-		functions = 'none',
-		strings = 'none',
-		variables = 'none'
+		comments = "none",
+		keywords = "none",
+		functions = "none",
+		strings = "none",
+		variables = "none",
 	},
 
 	-- Lualine options --
 	lualine = {
 		transparent = true, -- lualine center bar transparency
 	},
-}
-
+})
 
 -- require("onedarkpro").setup({
 -- 	highlights = {}, -- Override default highlight and/or filetype groups
@@ -175,27 +173,26 @@ require("tokyonight").setup({
 	on_highlights = function(hl, c)
 		hl.DiagnosticVirtualTextHint = {
 			bg = c.none,
-			fg = c.hint
+			fg = c.hint,
 		}
 		hl.DiagnosticVirtualTextWarn = {
 			bg = c.none,
-			fg = c.warning
+			fg = c.warning,
 		}
 		hl.DiagnosticVirtualTextError = {
 			bg = c.none,
-			fg = c.error
+			fg = c.error,
 		}
 		hl.DiagnosticVirtualTextInfo = {
 			bg = c.none,
-			fg = c.info
+			fg = c.info,
 		}
 
 		hl.MatchParen = {
-			bg = "#636161"
+			bg = "#636161",
 		}
-	end
+	end,
 })
 
-
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])
 -- vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")

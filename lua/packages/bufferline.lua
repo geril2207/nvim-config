@@ -28,6 +28,3 @@ require("bufferline").setup {
 
 	} 
 }]]
-
-
-

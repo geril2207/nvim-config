@@ -10,8 +10,6 @@ local function mapDoubleLeader(mode, lhs, rhs, opts)
 	map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end
 
-
-
 map("n", "<A-j>", ":m +1 <CR>")
 map("n", "<A-k>", ":m -2 <CR>")
 
@@ -32,9 +30,9 @@ map("n", "<C-z>", ":undo<CR>", {})
 map("n", "<C-Z>", ":redo<CR>", {})
 map("n", "<C-s>", ":w<CR>", {})
 map("n", "<C-w>", ":Bdelete<CR>", {})
-map("v", 'Y', '"+y', {})
-map("v", '<C-c>', '"+y', {})
-map("n", 'Y', '"+y', {})
+map("v", "Y", '"+y', {})
+map("v", "<C-c>", '"+y', {})
+map("n", "Y", '"+y', {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
 -- BufferLine
 -- map('n', 'J', ':BufferLineCyclePrev<CR>', {})
@@ -42,8 +40,8 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "<C-d>", "<C-d>zz")
 
 -- map('n', '<Tab>', ':BufferLineCycleNext<CR>', {})
-map('n', '<Tab>', ':lua require("harpoon.ui").nav_next()<CR>', {})
-map('n', '<S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>', {})
+map("n", "<Tab>", ':lua require("harpoon.ui").nav_next()<CR>', {})
+map("n", "<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>', {})
 -- map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {})
 -- map('n', 'K', ':BufferLineCycleNext<CR>', {})
 -- map("n", "<leader>kw", ":BufferCloseAllButCurrentOrPinned<CR>", {})
@@ -52,9 +50,8 @@ map('n', '<S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>', {})
 -- map('n', '<A-1>', ':lua require("harpoon.ui").nav_file(1)<CR>', {})
 
 -- Map 1-9 navigation harpoon
-for i = 1, 9, 1
-do
-	map('n', '<A-' .. i .. '>', ':lua require("harpoon.ui").nav_file(' .. i .. ')<CR>')
+for i = 1, 9, 1 do
+	map("n", "<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 end
 -- -- Map 1-9 navigation bufferline
 -- for i = 1,9,1
@@ -63,13 +60,13 @@ end
 -- end
 
 --Telescope
-map('n', '<leader>ff', ":Telescope find_files<CR>", {})
-map('n', '<leader>p', ":Telescope find_files<CR>", {})
-map('n', '<leader>P', ":Telescope<CR>", {})
-map('n', '<C-p>', ":Telescope find_files<CR>", {})
-map('n', '<leader>fz', ":Telescope live_grep<CR>", {})
-map('n', '<leader>fb', ":Telescope buffers<CR>", {})
-map('n', '<leader>fh', ":Telescope help_tags<CR>", {})
+map("n", "<leader>ff", ":Telescope find_files<CR>", {})
+map("n", "<leader>p", ":Telescope find_files<CR>", {})
+map("n", "<leader>P", ":Telescope<CR>", {})
+map("n", "<C-p>", ":Telescope find_files<CR>", {})
+map("n", "<leader>fz", ":Telescope live_grep<CR>", {})
+map("n", "<leader>fb", ":Telescope buffers<CR>", {})
+map("n", "<leader>fh", ":Telescope help_tags<CR>", {})
 
 -- LSP Saga
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", {})
@@ -93,7 +90,6 @@ mapDoubleLeader("n", "b", ":HopWordBC<CR>", {})
 mapDoubleLeader("n", "f", ":HopChar1AC<CR>", {})
 mapDoubleLeader("n", "F", ":HopChar1BC<CR>", {})
 mapDoubleLeader("n", "W", ":HopWord<CR>", {})
-
 
 -- Harpoon
 map("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
