@@ -142,7 +142,6 @@ local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier
 	for _, server in ipairs(servers_formatting_disable) do
 		if client.name == server then
-			print("ITEM exists")
 			client.server_capabilities.documentFormattingProvider = false
 		end
 	end
