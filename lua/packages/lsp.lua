@@ -122,18 +122,13 @@ local servers_formatting_disable = {
 	"cssmodules_ls",
 	"stylelint_lsp",
 	"jsonls",
-	"clangd",
 	"emmet_ls",
 	"tailwindcss",
 	"eslint",
-	"rust_analyzer",
 	"pylsp",
 	"graphql",
 	"lua_ls",
 	"astro",
-	"yamlls",
-	"dockerls",
-	"prismals",
 }
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
