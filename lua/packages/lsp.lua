@@ -190,7 +190,8 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+local diagnostic_config = {
+	update_in_insert = false,
 	severity_sort = true,
 	signs = {
 		severity_limit = "Hint",
@@ -198,4 +199,23 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	virtual_text = {
 		severity_limit = "Warning",
 	},
+}
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+	diagnostic_config = diagnostic_config,
+	update_in_insert = false,
+	sources = {
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.pylint,
+	},
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
