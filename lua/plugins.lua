@@ -2,13 +2,8 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	--Themes
 	use("ellisonleao/gruvbox.nvim")
-	use({ "navarasu/onedark.nvim" })
-	-- use { "olimorris/onedarkpro.nvim" }
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("folke/tokyonight.nvim")
-	use("EdenEast/nightfox.nvim")
-	use("shaunsingh/nord.nvim")
-
 	--Prettier
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("MunifTanjim/prettier.nvim")
@@ -30,16 +25,11 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	-- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
 	use("windwp/nvim-ts-autotag")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"numToStr/Comment.nvim",
 	})
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
-	use("famiu/bufdelete.nvim")
-
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
