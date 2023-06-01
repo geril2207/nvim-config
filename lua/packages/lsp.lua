@@ -171,6 +171,7 @@ local servers = {
 	"yamlls",
 	"dockerls",
 	"prismals",
+	"gopls",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -218,4 +219,4 @@ null_ls.setup({
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
+	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
