@@ -13,6 +13,8 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"markdown_inline",
 		"python",
+		"go",
+		"rust",
 	},
 	sync_install = false,
 
