@@ -5,12 +5,17 @@ else
 	transparent = false
 end
 
---[[ require("gruvbox").setup({
+require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
 	bold = false,
-	italic = false,
-	strikethrough = true,
+	italic = {
+		strings = false,
+		comments = false,
+		operators = false,
+		folds = false,
+	},
+	hrough = true,
 	invert_selection = false,
 	invert_signs = false,
 	invert_tabline = false,
@@ -28,7 +33,8 @@ end
 		-- Pmenu = {bg = "none"}
 	},
 	transparent_mode = transparent,
-}) ]]
+})
+
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
 	transparent_background = transparent,
@@ -93,64 +99,6 @@ require("lualine").setup({
 	extensions = {},
 })
 
--- Lua
-require("onedark").setup({
-	-- Main options --
-	style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-	transparent = transparent, -- Show/hide background
-	term_colors = true, -- Change terminal color as per the selected theme style
-	ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-	-- toggle theme style ---
-	toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-	toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
-
-	-- Change code style ---
-	-- Options are italic, bold, underline, none
-	-- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
-	code_style = {
-		comments = "none",
-		keywords = "none",
-		functions = "none",
-		strings = "none",
-		variables = "none",
-	},
-
-	-- Lualine options --
-	lualine = {
-		transparent = true, -- lualine center bar transparency
-	},
-})
-
--- require("onedarkpro").setup({
--- 	highlights = {}, -- Override default highlight and/or filetype groups
--- 	styles = { -- Choose from "bold,italic,underline"
--- 		types = "NONE", -- Style that is applied to types
--- 		numbers = "NONE", -- Style that is applied to numbers
--- 		strings = "NONE", -- Style that is applied to strings
--- 		comments = "NONE", -- Style that is applied to comments
--- 		keywords = "NONE", -- Style that is applied to keywords
--- 		constants = "NONE", -- Style that is applied to constants
--- 		functions = "NONE", -- Style that is applied to functions
--- 		operators = "NONE", -- Style that is applied to operators
--- 		variables = "NONE", -- Style that is applied to variables
--- 		conditionals = "NONE", -- Style that is applied to conditionals
--- 		virtual_text = "NONE", -- Style that is applied to virtual text
--- 	},
--- 	options = {
--- 		bold = false, -- Use bold styles?
--- 		italic = false, -- Use italic styles?
--- 		underline = true, -- Use underline styles?
--- 		undercurl = true, -- Use undercurl styles?
-
--- 		cursorline = false, -- Use cursorline highlighting?
--- 		transparency = transparent, -- Use a transparent background?
--- 		terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
--- 		window_unfocused_color = false, -- When the window is out of focus, change the normal background?
--- 	}
--- })
-
 require("tokyonight").setup({
 	-- your configuration comes here
 	-- or leave it empty to use the default settings
@@ -195,4 +143,3 @@ require("tokyonight").setup({
 })
 
 vim.cmd([[colorscheme tokyonight]])
--- vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
