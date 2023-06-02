@@ -4,6 +4,7 @@ return require("packer").startup(function(use)
 	use("ellisonleao/gruvbox.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("folke/tokyonight.nvim")
+	use("navarasu/onedark.nvim")
 	--Prettier
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("MunifTanjim/prettier.nvim")
