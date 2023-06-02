@@ -25,7 +25,9 @@ syntax enable
 
 opt.shiftwidth = 2
 opt.tabstop = 2
-opt.smartindent = true -- autoindent new lines
+opt.softtabstop = 2
+-- opt.autoindent = true
+-- opt.smartindent = true -- autoindent new lines
 -- don't auto commenting new lines
 -- cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 -- Copy highlight
@@ -39,13 +41,14 @@ augroup end
 	false
 )
 
+exec([[autocmd FileType * set formatoptions-=cro]], false)
 -- SET HTML AS HTML NOT DJANGO
 cmd([[au BufNewFile,BufRead *.html set filetype=html]])
 
 -- Lsp diagnostic auto
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
-vim.o.updatetime = 1000
+vim.o.updatetime = 750
 
 --Harpoon
 cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
