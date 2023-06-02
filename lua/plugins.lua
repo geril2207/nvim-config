@@ -29,6 +29,12 @@ return require("packer").startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup({
+				enable_autocmd = false,
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
 	})
 	use({
 		"phaazon/hop.nvim",
@@ -56,7 +62,14 @@ return require("packer").startup(function(use)
 	--LSP
 	use("rafamadriz/friendly-snippets")
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-	use("L3MON4D3/LuaSnip") -- Snippets plugin
+	use({
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("luasnip.loaders.from_vscode").load()
+			require("luasnip").filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
+			require("luasnip").filetype_extend("javascript", { "typescript", "javascriptreact" })
+		end,
+	}) -- Snippets plugin
 	use({ "williamboman/mason.nvim" })
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
