@@ -95,4 +95,7 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	use(
+		"j-hui/fidget.nvim"
+	)
 end)
