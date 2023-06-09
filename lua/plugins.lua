@@ -95,7 +95,18 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	use(
-		"j-hui/fidget.nvim"
-	)
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup({
+				text = {
+					spinner = "dots",
+					done = "󰸞 ",
+				},
+				window = {
+					blend = 0,
+				},
+			})
+		end,
+	})
 end)
