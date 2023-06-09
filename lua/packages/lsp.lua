@@ -163,7 +163,6 @@ local servers = {
 	"emmet_ls",
 	"tailwindcss",
 	"eslint",
-	"rust_analyzer",
 	"pylsp",
 	"graphql",
 	"lua_ls",
@@ -183,6 +182,19 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+	settings = { ["rust-analyzer"] = {
+		rustfmt = {
+			extraArgs = { "--config", "tab_spaces=2" },
+		},
+	} },
+})
+
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = "󱌹 ", Info = " " }
 
@@ -194,6 +206,7 @@ end
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
+	underline = false,
 	signs = {
 		severity_limit = "Hint",
 	},
