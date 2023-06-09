@@ -13,13 +13,13 @@ return require("packer").startup(function(use)
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
-			vim.opt.list = true
-			vim.opt.listchars:append("space:⋅")
-			vim.opt.listchars:append("eol:↴")
-
 			require("indent_blankline").setup({
-				show_end_of_line = true,
+				char = "│",
+				show_foldtext = false,
+				context_char = "▎",
 				space_char_blankline = " ",
+				show_current_context = false,
+				show_current_context_start = false,
 			})
 		end,
 	})

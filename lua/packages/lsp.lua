@@ -90,8 +90,6 @@ saga.setup({
 		enable = false,
 	},
 })
---[[ require('nvim-ts-autotag').setup({
-}) ]]
 require("mason").setup({
 	ui = {
 		icons = {
