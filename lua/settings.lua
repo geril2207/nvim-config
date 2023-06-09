@@ -18,16 +18,21 @@ opt.so = 10
 opt.undofile = true -- Возможность отката назад
 opt.mouse = "a"
 opt.cursorline = false
+opt.guicursor = ""
 g.mapleader = " "
 cmd([[
 filetype indent plugin on
 syntax enable
 ]])
 
-opt.shiftwidth = 2
-opt.tabstop = 2
-opt.softtabstop = 2
+-- opt.tabstop = 2
+-- opt.shiftwidth = 2
 -- opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 -- opt.smartindent = true -- autoindent new lines
 -- don't auto commenting new lines
 -- cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
