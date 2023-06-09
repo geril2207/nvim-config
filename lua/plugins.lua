@@ -5,13 +5,24 @@ return require("packer").startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("folke/tokyonight.nvim")
 	-- use("navarasu/onedark.nvim")
-	use "olimorris/onedarkpro.nvim"
+	use("olimorris/onedarkpro.nvim")
 	--Prettier
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("MunifTanjim/prettier.nvim")
 
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.opt.list = true
+			vim.opt.listchars:append("space:⋅")
+			vim.opt.listchars:append("eol:↴")
 
-	use "lukas-reineke/indent-blankline.nvim"
+			require("indent_blankline").setup({
+				show_end_of_line = true,
+				space_char_blankline = " ",
+			})
+		end,
+	})
 
 	--Telescope
 	use({
