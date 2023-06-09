@@ -57,7 +57,7 @@ require("catppuccin").setup({
 	},
 })
 
-require("onedark").setup({
+require("onedarkpro").setup({
 	-- Main options --
 	style = "darker", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
 	transparent = transparent, -- Show/hide background
@@ -182,4 +182,4 @@ require("tokyonight").setup({
 	end,
 })
 
-vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme tokyonight]])
