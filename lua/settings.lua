@@ -17,6 +17,7 @@ opt.relativenumber = true -- Вкл. относительную нумераци
 opt.so = 10
 opt.undofile = true -- Возможность отката назад
 opt.mouse = "a"
+opt.cursorline = true
 g.mapleader = " "
 cmd([[
 filetype indent plugin on
