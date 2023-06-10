@@ -97,6 +97,7 @@ require("lazy").setup({
 	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
 	--LSP
+  'ray-x/lsp_signature.nvim',
   "williamboman/mason-lspconfig.nvim",
 	{ "williamboman/mason.nvim" },
 	"neovim/nvim-lspconfig",

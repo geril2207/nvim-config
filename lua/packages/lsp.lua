@@ -12,6 +12,8 @@ require("luasnip.loaders.from_vscode").load()
 luasnip.filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
 luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
 
+require("lsp_signature").setup()
+
 cmp.setup({
 	completion = {
 		completeopt = "menu,menuone,noinsert",
@@ -125,27 +127,28 @@ local servers = {
 }
 
 require("mason-lspconfig").setup({
-  ensure_installed = {
-	"tsserver",
-	"html",
-	"cssls",
-	"cssmodules_ls",
-	"stylelint_lsp",
-	"jsonls",
-	"clangd",
-	"emmet_ls",
-	"tailwindcss",
-	"eslint",
-	-- "pylsp",
-	"graphql",
-	"lua_ls",
-	"astro",
-	"yamlls",
-	"dockerls",
-	"prismals",
-	"gopls",
-  "rust_analyzer"
-}})
+	ensure_installed = {
+		"tsserver",
+		"html",
+		"cssls",
+		"cssmodules_ls",
+		"stylelint_lsp",
+		"jsonls",
+		"clangd",
+		"emmet_ls",
+		"tailwindcss",
+		"eslint",
+		-- "pylsp",
+		"graphql",
+		"lua_ls",
+		"astro",
+		"yamlls",
+		"dockerls",
+		"prismals",
+		"gopls",
+		"rust_analyzer",
+	},
+})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
