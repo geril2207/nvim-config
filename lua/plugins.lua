@@ -10,135 +10,134 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup(
+require("lazy").setup({
+	--Themes
+	"ellisonleao/gruvbox.nvim",
+	{ "catppuccin/nvim", name = "catppuccin" },
+	"folke/tokyonight.nvim",
+	-- use("navarasu/onedark.nvim")
+	"olimorris/onedarkpro.nvim",
+	--Prettier
+	"jose-elias-alvarez/null-ls.nvim",
+	"MunifTanjim/prettier.nvim",
+
 	{
-		--Themes
-		"ellisonleao/gruvbox.nvim",
-		{ "navarasu/onedark.nvim" },
-		-- use { "olimorris/onedarkpro.nvim" }
-		{ "catppuccin/nvim", as = "catppuccin" },
-		"folke/tokyonight.nvim",
-		"EdenEast/nightfox.nvim",
-		"shaunsingh/nord.nvim",
-	
-		--Prettier
-		"jose-elias-alvarez/null-ls.nvim",
-		"MunifTanjim/prettier.nvim",
-	
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("indent_blankline").setup({
-					char = "│",
-					show_foldtext = false,
-					context_char = "▎",
-					space_char_blankline = " ",
-					show_current_context = false,
-					show_current_context_start = false,
-				})
-			end,
-		})
-	
-		--Telescope
-		{
-			"nvim-telescope/telescope.nvim",
-			version = "0.1.0",
-			dependencies =  { "nvim-lua/plenary.nvim"  },
-			lazy = true,
-		},
-	
-		{
-			"ThePrimeagen/harpoon",
-			dependencies = "nvim-lua/plenary.nvim",
-			config = function()
-				require("harpoon").setup({
-					tabline = true,
-					save_on_toggle = false,
-				})
-			end,
-		},
-		"windwp/nvim-ts-autotag",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		{
-			"numToStr/Comment.nvim",
-			 config = function()
-				require("Comment").setup({
-					enable_autocmd = false,
-					pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-				})
-			end
-		},
-		"famiu/bufdelete.nvim",
-		{
-			"phaazon/hop.nvim",
-			branch = "v2", -- optional but strongly recommended
-			commit = "caaccee",
-			lazy = true,
-	
-			config = function()
-				require("hop").setup()
-			end,
-		},
-		{
-			"lewis6991/gitsigns.nvim",
-			-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-			config = function()
-				require("gitsigns").setup()
-			end,
-			lazy = true,
-		},
-		{
-	 "nvim-tree/nvim-tree.lua",
-	 lazy = false,
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("indent_blankline").setup({
+				char = "│",
+				show_foldtext = false,
+				context_char = "▎",
+				space_char_blankline = " ",
+				show_current_context = false,
+				show_current_context_start = false,
+			})
+		end,
+	},
+
+	--Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		version = "0.1.0",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = true,
+	},
+
+	{
+		"ThePrimeagen/harpoon",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require("harpoon").setup({
+				tabline = true,
+				save_on_toggle = false,
+			})
+		end,
+	},
+	"windwp/nvim-ts-autotag",
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup({
+				enable_autocmd = false,
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
+	},
+	"famiu/bufdelete.nvim",
+	{
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		commit = "caaccee",
+		lazy = true,
+
+		config = function()
+			require("hop").setup()
+		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		-- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		lazy = false,
+    priority = 1000,
 		version = "*",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		},
-		--LSP
-		"rafamadriz/friendly-snippets",
-		"L3MON4D3/LuaSnip", -- Snippets plugin
-		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-		{ "williamboman/mason.nvim" },
-		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
-		"onsails/lspkind-nvim",
-		"p00f/nvim-ts-rainbow",
-		"nvim-treesitter/nvim-treesitter",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-path",
-		"glepnir/lspsaga.nvim",
-		{
-			"nvim-lualine/lualine.nvim",
-			dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-		},
-		"windwp/nvim-autopairs",
-		{
-			"Pocco81/auto-save.nvim",
-			config = function()
-				require("auto-save").setup({
-					enabled = true,
-					write_all_buffers = false,
-				})
-			end,
-		})
-		{
-			"j-hui/fidget.nvim",
-			config = function()
-				require("fidget").setup({
-					text = {
-						spinner = "dots",
-						done = "󰸞 ",
-					},
-					window = {
-						blend = 0,
-					},
-				})
-			end,
-		}
-	}
-)
+    config = function ()
+      require("packages.nvim-tree")
+    end
+	},
+	--LSP
+	"rafamadriz/friendly-snippets",
+	"L3MON4D3/LuaSnip", -- Snippets plugin
+	"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+	{ "williamboman/mason.nvim" },
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
+	"onsails/lspkind-nvim",
+	"p00f/nvim-ts-rainbow",
+	"nvim-treesitter/nvim-treesitter",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-path",
+	"glepnir/lspsaga.nvim",
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+	},
+	"windwp/nvim-autopairs",
+	{
+		"Pocco81/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				enabled = true,
+				write_all_buffers = false,
+			})
+		end,
+	},
+	{
+		"j-hui/fidget.nvim",
+    branch = "legacy",
+		config = function()
+			require("fidget").setup({
+				text = {
+					spinner = "dots",
+					done = "󰸞 ",
+				},
+				window = {
+					blend = 0,
+				},
+			})
+		end,
+	},
+})
 -- return require("packer").startup(function(use)
 -- 	use({
 -- 		"stevearc/dressing.nvim",
