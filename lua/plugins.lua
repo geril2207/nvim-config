@@ -69,7 +69,6 @@ require("lazy").setup({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
 		commit = "caaccee",
-		lazy = true,
 
 		config = function()
 			require("hop").setup()
@@ -85,14 +84,14 @@ require("lazy").setup({
 	{
 		"nvim-tree/nvim-tree.lua",
 		lazy = false,
-    priority = 1000,
+		priority = 1000,
 		version = "*",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-    config = function ()
-      require("packages.nvim-tree")
-    end
+		config = function()
+			require("packages.nvim-tree")
+		end,
 	},
 	--LSP
 	"rafamadriz/friendly-snippets",
@@ -124,7 +123,7 @@ require("lazy").setup({
 	},
 	{
 		"j-hui/fidget.nvim",
-    branch = "legacy",
+		branch = "legacy",
 		config = function()
 			require("fidget").setup({
 				text = {
