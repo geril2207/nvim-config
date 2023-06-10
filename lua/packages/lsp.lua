@@ -136,7 +136,7 @@ require("mason-lspconfig").setup({
 	"emmet_ls",
 	"tailwindcss",
 	"eslint",
-	"pylsp",
+	-- "pylsp",
 	"graphql",
 	"lua_ls",
 	"astro",
