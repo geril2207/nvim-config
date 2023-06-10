@@ -92,18 +92,11 @@ require("lazy").setup({
 			require("packages.nvim-tree")
 		end,
 	},
-	--LSP
+	-- Snippets plugin
 	"rafamadriz/friendly-snippets",
-	{
-		"L3MON4D3/LuaSnip",
-
-		config = function()
-			require("luasnip.loaders.from_vscode").load()
-			require("luasnip").filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
-			require("luasnip").filetype_extend("javascript", { "typescript", "javascriptreact" })
-		end,
-	}, -- Snippets plugin
+	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+	--LSP
 	{ "williamboman/mason.nvim" },
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",

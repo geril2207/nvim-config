@@ -8,6 +8,9 @@ luasnip.setup({
 	region_check_events = "InsertEnter",
 	delete_check_events = "InsertLeave",
 })
+require("luasnip.loaders.from_vscode").load()
+luasnip.filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
+luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
 
 cmp.setup({
 	completion = {
