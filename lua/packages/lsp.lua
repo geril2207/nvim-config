@@ -125,8 +125,27 @@ local servers = {
 }
 
 require("mason-lspconfig").setup({
-  ensure_installed =servers
-})
+  ensure_installed = {
+	"tsserver",
+	"html",
+	"cssls",
+	"cssmodules_ls",
+	"stylelint_lsp",
+	"jsonls",
+	"clangd",
+	"emmet_ls",
+	"tailwindcss",
+	"eslint",
+	"pylsp",
+	"graphql",
+	"lua_ls",
+	"astro",
+	"yamlls",
+	"dockerls",
+	"prismals",
+	"gopls",
+  "rust_analyzer"
+}})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
