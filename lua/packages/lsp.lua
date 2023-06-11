@@ -6,8 +6,9 @@ local cmp = require("cmp")
 
 luasnip.setup({
 	region_check_events = "InsertEnter",
-	delete_check_events = "InsertLeave",
+	delete_check_events = "TextChanged,InsertLeave",
 })
+
 require("luasnip.loaders.from_vscode").load()
 luasnip.filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
 luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
