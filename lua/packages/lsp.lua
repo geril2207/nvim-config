@@ -12,8 +12,6 @@ require("luasnip.loaders.from_vscode").load()
 luasnip.filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
 luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
 
-require("lsp_signature").setup()
-
 cmp.setup({
 	completion = {
 		completeopt = "menu,menuone,noinsert",
@@ -188,6 +186,9 @@ local on_attach = function(client, bufnr)
 			client.server_capabilities.documentFormattingProvider = false
 		end
 	end
+	require("lsp_signature").on_attach({
+		bind = true,
+	}, bufnr)
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -197,6 +198,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "<leader>f", formatFile, bufopts)
 	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
+	vim.keymap.set("n", "<Leader>k", function()
+		vim.lsp.buf.signature_help()
+	end, { silent = true, noremap = true, desc = "toggle signature" })
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
@@ -216,11 +220,13 @@ lspconfig.rust_analyzer.setup({
 	root_dir = function()
 		return vim.loop.cwd()
 	end,
-	settings = { ["rust-analyzer"] = {
-		rustfmt = {
-			extraArgs = { "--config", "tab_spaces=2" },
+	settings = {
+		["rust-analyzer"] = {
+			rustfmt = {
+				-- extraArgs = { "--config", "tab_spaces=2" },
+			},
 		},
-	} },
+	},
 })
 
 -- Diagnostic symbols in the sign column (gutter)
