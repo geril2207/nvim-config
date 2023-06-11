@@ -156,9 +156,6 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local function formatFile()
 	vim.lsp.buf.format({
 		async = true,
-		filter = function(client)
-			return client.name ~= "tsserver"
-		end,
 	})
 end
 
