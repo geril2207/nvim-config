@@ -8,6 +8,11 @@ luasnip.setup({
 	region_check_events = "InsertEnter",
 	delete_check_events = "InsertLeave",
 })
+require("luasnip.loaders.from_vscode").load()
+luasnip.filetype_extend("typescript", { "typescriptreact", "javascript", "javascriptreact" })
+luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
+
+require("lsp_signature").setup()
 
 cmp.setup({
 	completion = {
@@ -100,6 +105,51 @@ require("mason").setup({
 	},
 })
 
+local servers = {
+	"tsserver",
+	"html",
+	"cssls",
+	"cssmodules_ls",
+	"stylelint_lsp",
+	"jsonls",
+	"clangd",
+	"emmet_ls",
+	"tailwindcss",
+	"eslint",
+	"pylsp",
+	"graphql",
+	"lua_ls",
+	"astro",
+	"yamlls",
+	"dockerls",
+	"prismals",
+	"gopls",
+}
+
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"tsserver",
+		"html",
+		"cssls",
+		"cssmodules_ls",
+		"stylelint_lsp",
+		"jsonls",
+		"clangd",
+		"emmet_ls",
+		"tailwindcss",
+		"eslint",
+		-- "pylsp",
+		"graphql",
+		"lua_ls",
+		"astro",
+		"yamlls",
+		"dockerls",
+		"prismals",
+		"gopls",
+		"rust_analyzer",
+	},
+})
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -150,26 +200,6 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {
-	"tsserver",
-	"html",
-	"cssls",
-	"cssmodules_ls",
-	"stylelint_lsp",
-	"jsonls",
-	"clangd",
-	"emmet_ls",
-	"tailwindcss",
-	"eslint",
-	"pylsp",
-	"graphql",
-	"lua_ls",
-	"astro",
-	"yamlls",
-	"dockerls",
-	"prismals",
-	"gopls",
-}
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -204,7 +234,7 @@ end
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
-	underline = false,
+	underline = true,
 	signs = {
 		severity_limit = "Hint",
 	},

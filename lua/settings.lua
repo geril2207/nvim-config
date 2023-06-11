@@ -20,20 +20,12 @@ opt.mouse = "a"
 opt.cursorline = false
 opt.guicursor = ""
 g.mapleader = " "
-cmd([[
-filetype indent plugin on
-syntax enable
-]])
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
 
--- opt.tabstop = 2
--- opt.shiftwidth = 2
--- opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
--- opt.smartindent = true -- autoindent new lines
 -- don't auto commenting new lines
 -- cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 -- Copy highlight
@@ -46,6 +38,10 @@ augroup end
 ]],
 	false
 )
+cmd([[
+filetype indent plugin on
+syntax enable
+]])
 
 exec([[autocmd FileType * set formatoptions-=cro]], false)
 -- SET HTML AS HTML NOT DJANGO
@@ -54,12 +50,38 @@ cmd([[au BufNewFile,BufRead *.html set filetype=html]])
 -- Lsp diagnostic auto
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
-vim.o.updatetime = 750
+vim.o.updatetime = 250
 
 --Harpoon
-cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- cmd([[autocmd! CursorHold lua vim.diagnostic.open_float(nil, {focus=false})]])
 cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
 cmd("highlight! HarpoonActive guibg=NONE guifg=white")
 cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
 cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
 cmd("highlight! TabLineFill guibg=NONE guifg=white")
+
+local function open_diagnostic()
+	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+		if vim.api.nvim_win_get_config(winid).zindex then
+			return
+		end
+	end
+	vim.diagnostic.open_float(0, {
+		scope = "cursor",
+		focusable = false,
+		close_events = {
+			"CursorMoved",
+			"CursorMovedI",
+			"BufHidden",
+			"InsertCharPre",
+			"WinLeave",
+		},
+	})
+end
+-- Show diagnostics under the cursor when holding position
+vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+	pattern = "*",
+	callback = open_diagnostic,
+	group = "lsp_diagnostics_hold",
+})
