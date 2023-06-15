@@ -67,6 +67,8 @@ map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", {})
 map("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", {})
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {})
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {})
+map("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
+map("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
 -- Maps For Double Leader
