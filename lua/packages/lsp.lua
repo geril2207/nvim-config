@@ -66,6 +66,7 @@ cmp.setup({
 			local kind = require("lspkind").cmp_format({
 				mode = "symbol_text",
 				maxwidth = 50,
+				preset = "codicons",
 				ellipsis_char = "...",
 			})(entry, vim_item)
 			local strings = vim.split(kind.kind, "%s", { trimempty = true })
