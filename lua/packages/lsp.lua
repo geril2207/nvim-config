@@ -13,6 +13,14 @@ require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.filetype_extend("typescript", { "typescriptreact", "javascript" })
 luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
 
+local function toggle_completion_menu()
+	if cmp.visible() then
+		cmp.close()
+	else
+		cmp.complete()
+	end
+end
+
 cmp.setup({
 	completion = {
 		completeopt = "menu,menuone,noinsert",
@@ -25,17 +33,17 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-s>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
+		["<C-s>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
+			select = false,
 		}),
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
+			if cmp.visible() and cmp.get_selected_entry() then
 				cmp.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
+					select = false,
 				})
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
