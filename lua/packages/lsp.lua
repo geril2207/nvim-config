@@ -76,12 +76,13 @@ cmp.setup({
 			return kind
 		end,
 	},
-	sources = {
+	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+	}, {
 		{ name = "buffer" },
-	},
+	}),
 })
 require("nvim-autopairs").setup({
 	disable_filetype = { "TelescopePrompt", "vim" },
