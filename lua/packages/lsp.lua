@@ -198,6 +198,13 @@ local on_attach = function(client, bufnr)
 	end
 	require("lsp_signature").on_attach({
 		bind = true,
+		-- floating_window = false,
+		doc_lines = 0,
+		handler_opts = {
+			border = "single", -- double, rounded, single, shadow, none, or a table of borders
+		},
+
+		floating_window_off_x = 10,
 	}, bufnr)
 
 	-- Mappings.
