@@ -125,7 +125,6 @@ local servers = {
 	"stylelint_lsp",
 	"jsonls",
 	"clangd",
-	"emmet_ls",
 	"tailwindcss",
 	"eslint",
 	"pylsp",
@@ -247,6 +246,27 @@ lspconfig.rust_analyzer.setup({
 	},
 })
 
+lspconfig.emmet_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+	filetypes = {
+		"astro",
+		"css",
+		"eruby",
+		"html",
+		"htmldjango",
+		"less",
+		"pug",
+		"sass",
+		"scss",
+		"svelte",
+		"vue",
+	},
+})
+
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = "󱌹 ", Info = " " }
 
@@ -285,3 +305,4 @@ null_ls.setup({
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
+
