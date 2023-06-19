@@ -197,14 +197,18 @@ local on_attach = function(client, bufnr)
 		end
 	end
 	require("lsp_signature").on_attach({
-		bind = true,
+		bind = false,
 		-- floating_window = false,
-		doc_lines = 0,
+		doc_lines = 5,
 		handler_opts = {
 			border = "single", -- double, rounded, single, shadow, none, or a table of borders
 		},
+		hint_enable = true,
+    hint_prefix = "",
+		toggle_key = "<A-s>",
+		floating_window = false,
 
-		floating_window_off_x = 7,
+		floating_window_off_x = -1,
 	}, bufnr)
 
 	-- Mappings.
@@ -305,4 +309,3 @@ null_ls.setup({
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
-
