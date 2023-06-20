@@ -197,14 +197,14 @@ local on_attach = function(client, bufnr)
 		end
 	end
 	require("lsp_signature").on_attach({
-		bind = false,
+		bind = true,
 		-- floating_window = false,
 		doc_lines = 5,
 		handler_opts = {
 			border = "single", -- double, rounded, single, shadow, none, or a table of borders
 		},
 		hint_enable = true,
-    hint_prefix = "",
+		hint_prefix = "",
 		toggle_key = "<A-s>",
 		floating_window = false,
 
