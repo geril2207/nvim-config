@@ -22,19 +22,19 @@ require("lazy").setup({
 	"jose-elias-alvarez/null-ls.nvim",
 	"MunifTanjim/prettier.nvim",
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({
-				char = "│",
-				show_foldtext = false,
-				context_char = "▎",
-				space_char_blankline = " ",
-				show_current_context = false,
-				show_current_context_start = false,
-			})
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	config = function()
+	-- 		require("indent_blankline").setup({
+	-- 			char = "│",
+	-- 			show_foldtext = false,
+	-- 			context_char = "▎",
+	-- 			space_char_blankline = " ",
+	-- 			show_current_context = false,
+	-- 			show_current_context_start = false,
+	-- 		})
+	-- 	end,
+	-- },
 
 	--Telescope
 	{
