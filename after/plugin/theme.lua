@@ -33,16 +33,15 @@ require("gruvbox").setup({
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
 	transparent_background = transparent,
-	highlight_overrides = {
-		all = function(colors)
-			return {
-				DiagnosticSignWarn = { fg = colors.yellow, bg = "none" },
-				DiagnosticSignHint = { fg = colors.teal, bg = "none" },
-				DiagnosticSignInfo = { fg = colors.peach, bg = "none" },
-				DiagnosticSignError = { fg = colors.red, bg = "none" },
-			}
-		end,
-	},
+	custom_highlights = function(colors)
+		return {
+			DiagnosticSignWarn = { fg = colors.yellow, bg = "none" },
+			DiagnosticSignHint = { fg = colors.teal, bg = "none" },
+			DiagnosticSignInfo = { fg = colors.peach, bg = "none" },
+			DiagnosticSignError = { fg = colors.red, bg = "none" },
+		}
+	end,
+
 	term_colors = false,
 	no_italic = true, -- Force no italic
 	no_bold = true, -- Force no bold
