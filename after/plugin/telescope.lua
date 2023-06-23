@@ -3,6 +3,7 @@ require("telescope").setup({
 		mappings = {
 			n = {
 				["q"] = require("telescope.actions").close,
+				["l"] = require("telescope.actions").select_default,
 			},
 		},
 		file_ignore_patterns = {
@@ -46,21 +47,11 @@ require("telescope").setup({
 		undo = {
 			mappings = {
 				i = {
-					-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-					-- you want to replicate these defaults and use the following actions. This means
-					-- installing as a dependency of telescope in it's `requirements` and loading this
-					-- extension from there instead of having the separate plugin definition as outlined
-					-- above.
 					["<cr>"] = require("telescope-undo.actions").restore,
 					["<C-d>"] = require("telescope-undo.actions").yank_deletions,
 					["<C-p"] = require("telescope-undo.actions").yank_additions,
 				},
 				n = {
-					-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-					-- you want to replicate these defaults and use the following actions. This means
-					-- installing as a dependency of telescope in it's `requirements` and loading this
-					-- extension from there instead of having the separate plugin definition as outlined
-					-- above.
 					["y"] = require("telescope-undo.actions").yank_additions,
 					["Y"] = require("telescope-undo.actions").yank_deletions,
 					["u"] = require("telescope-undo.actions").restore,
