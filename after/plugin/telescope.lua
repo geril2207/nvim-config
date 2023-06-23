@@ -1,5 +1,10 @@
 require("telescope").setup({
 	defaults = {
+		mappings = {
+			n = {
+				["q"] = require("telescope.actions").close,
+			},
+		},
 		file_ignore_patterns = {
 			".pnpm-store",
 			"build",
@@ -21,7 +26,7 @@ require("telescope").setup({
 	pickers = {
 		find_files = {
 			hidden = true,
-      no_ignore = false
+			no_ignore = false,
 		},
 		live_grep = {
 			additional_args = function()
