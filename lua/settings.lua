@@ -86,4 +86,4 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 })
 
 opt.cursorline = vim.fn.has("gui_running") == 1
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme catppuccin]])
