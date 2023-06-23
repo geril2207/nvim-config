@@ -59,10 +59,12 @@ map("n", "<leader>fb", ":Telescope buffers<CR>", {})
 map("n", "<leader>fh", ":Telescope help_tags<CR>", {})
 map("n", "<leader>fg", ":Telescope git_files<CR>", {})
 map("n", "<leader>u", "<cmd>Telescope undo<cr>", {})
+map("n", "<leader>fm", ":Telescope marks initial_mode=normal<CR>", {})
+map("n", "gf", ":Telescope lsp_references initial_mode=normal<CR>", {})
 
 -- LSP Saga
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", {})
-map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", {})
+-- map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", {})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("n", "<leader>r", "<cmd>Lspsaga rename<CR>", {})
