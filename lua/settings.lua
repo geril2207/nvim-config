@@ -53,11 +53,6 @@ vim.o.updatetime = 250
 
 --Harpoon
 -- cmd([[autocmd! CursorHold lua vim.diagnostic.open_float(nil, {focus=false})]])
-cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
-cmd("highlight! HarpoonActive guibg=NONE guifg=white")
-cmd("highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
-cmd("highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
-cmd("highlight! TabLineFill guibg=NONE guifg=white")
 
 local function open_diagnostic()
 	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
@@ -87,3 +82,9 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 
 opt.cursorline = vim.fn.has("gui_running") == 1
 vim.cmd([[colorscheme catppuccin]])
+
+vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
+vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
+vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
+vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
+vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
