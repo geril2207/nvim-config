@@ -33,8 +33,12 @@ map("v", "Y", '"+y', {})
 map("v", "<C-c>", '"+y', {})
 map("n", "Y", '"+y', {})
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>", {})
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-d>", "<C-d>zz")
+map("n", "M", "`", {})
+
+if vim.fn.has("gui_running") ~= 1 or vim.g.neovide then
+	map("n", "<C-u>", "<C-u>zz")
+	map("n", "<C-d>", "<C-d>zz")
+end
 
 map("n", "<Tab>", ':lua require("harpoon.ui").nav_next()<CR>', {})
 map("n", "<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>', {})
