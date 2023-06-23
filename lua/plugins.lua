@@ -46,6 +46,7 @@ require("lazy").setup({
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
 			},
+			"debugloop/telescope-undo.nvim",
 		},
 		lazy = true,
 	},

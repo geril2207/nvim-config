@@ -58,6 +58,7 @@ map("n", "<leader>fz", ":Telescope live_grep<CR>", {})
 map("n", "<leader>fb", ":Telescope buffers<CR>", {})
 map("n", "<leader>fh", ":Telescope help_tags<CR>", {})
 map("n", "<leader>fg", ":Telescope git_files<CR>", {})
+map("n", "<leader>u", "<cmd>Telescope undo<cr>", {})
 
 -- LSP Saga
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", {})
