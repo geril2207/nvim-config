@@ -85,3 +85,5 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	callback = open_diagnostic,
 	group = "lsp_diagnostics_hold",
 })
+
+vim.cmd([[colorscheme tokyonight]])
