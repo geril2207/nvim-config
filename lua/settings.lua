@@ -17,7 +17,7 @@ opt.relativenumber = true -- Вкл. относительную нумераци
 opt.so = 10
 opt.undofile = true -- Возможность отката назад
 opt.mouse = "a"
-opt.guicursor = ""
+-- opt.guicursor = ""
 g.mapleader = " "
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	group = "lsp_diagnostics_hold",
 })
 
-opt.cursorline = vim.fn.has("gui_running") == 1
+opt.cursorline = vim.fn.has("gui_running") == 1 and vim.g.fvim_loaded ~= 1
 vim.cmd([[colorscheme catppuccin]])
 
 vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")

@@ -26,3 +26,7 @@ if vim.g.neovide then
 		change_scale_factor(1 / diff)
 	end)
 end
+
+if vim.g.fvim_loaded then
+	vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+end

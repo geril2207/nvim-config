@@ -20,7 +20,7 @@ require("nvim-tree").setup({
 		enable = true,
 	},
 	view = {
-		width = 30,
+		width = 35,
 	},
 	git = {
 		enable = false,

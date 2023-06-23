@@ -56,10 +56,10 @@ map("n", "<leader>P", ":Telescope<CR>", {})
 map("n", "<C-p>", ":Telescope find_files<CR>", {})
 map("n", "<leader>fz", ":Telescope live_grep<CR>", {})
 map("n", "<leader>fb", ":Telescope buffers<CR>", {})
-map("n", "<leader>fh", ":Telescope help_tags<CR>", {})
 map("n", "<leader>fg", ":Telescope git_files<CR>", {})
 map("n", "<leader>u", "<cmd>Telescope undo<cr>", {})
 map("n", "<leader>fm", ":Telescope marks initial_mode=normal<CR>", {})
+map("n", "<leader>fh", ":Telescope harpoon marks<CR>", {})
 map("n", "gf", ":Telescope lsp_references initial_mode=normal<CR>", {})
 
 -- LSP Saga
