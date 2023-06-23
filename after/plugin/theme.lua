@@ -1,9 +1,4 @@
-local transparent
-if vim.g.neovide == nil then
-	transparent = true
-else
-	transparent = false
-end
+local transparent = vim.fn.has("gui_running") == 0
 
 require("gruvbox").setup({
 	undercurl = true,
@@ -157,4 +152,3 @@ require("tokyonight").setup({
 		}
 	end,
 })
-

@@ -17,7 +17,6 @@ opt.relativenumber = true -- Вкл. относительную нумераци
 opt.so = 10
 opt.undofile = true -- Возможность отката назад
 opt.mouse = "a"
-opt.cursorline = false
 opt.guicursor = ""
 g.mapleader = " "
 opt.tabstop = 2
@@ -86,4 +85,5 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	group = "lsp_diagnostics_hold",
 })
 
+opt.cursorline = vim.fn.has("gui_running") == 1
 vim.cmd([[colorscheme tokyonight]])
