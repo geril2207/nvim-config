@@ -18,7 +18,6 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	update_focused_file = {
 		enable = true,
-		-- update_root = true
 	},
 	view = {
 		width = 35,
@@ -29,7 +28,7 @@ require("nvim-tree").setup({
 	},
 	filters = {
 		dotfiles = false,
-		custom = { "^.git$" },
+		custom = { "^.git$", "node_modules" },
 		exclude = {},
 	},
 })

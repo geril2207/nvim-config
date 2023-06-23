@@ -1,6 +1,5 @@
 require("plugins")
 require("settings")
-require("packages")
 require("keymaps")
 
 -- vim.g.neovide_fullscreen = true

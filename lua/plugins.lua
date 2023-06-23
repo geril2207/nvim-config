@@ -95,9 +95,9 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		config = function()
-			require("packages.nvim-tree")
-		end,
+		-- config = function()
+		-- 	require("packages.nvim-tree")
+		-- end,
 	},
 	-- Snippets plugin
 	"rafamadriz/friendly-snippets",
