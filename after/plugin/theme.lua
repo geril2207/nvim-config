@@ -1,4 +1,4 @@
-local transparent = vim.fn.has("gui_running") == 0 or vim.g.fvim_loaded == 1
+local transparent = vim.fn.has("gui_running") == 0
 
 require("gruvbox").setup({
 	undercurl = true,

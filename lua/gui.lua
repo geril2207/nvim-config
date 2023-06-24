@@ -15,6 +15,7 @@ if vim.g.neovide then
 	vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
 
 	vim.g.neovide_scale_factor = 1.0
+
 	local change_scale_factor = function(delta)
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 	end
@@ -29,4 +30,5 @@ end
 
 if vim.g.fvim_loaded then
 	vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+  vim.cmd("hi NvimTreeNormal guibg='NONE'")
 end
