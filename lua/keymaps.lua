@@ -50,7 +50,7 @@ map("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
 map("n", "<leader>hl", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 
 --Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", {})
+-- map("n", "<leader>ff", ":Telescope find_files<CR>", {})
 map("n", "<leader>p", ":Telescope find_files<CR>", {})
 map("n", "<leader>P", ":Telescope<CR>", {})
 map("n", "<C-p>", ":Telescope find_files<CR>", {})
@@ -60,11 +60,11 @@ map("n", "<leader>fg", ":Telescope git_files<CR>", {})
 map("n", "<leader>u", "<cmd>Telescope undo<cr>", {})
 map("n", "<leader>fm", ":Telescope marks<CR>", {})
 map("n", "<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>", {})
-map("n", "gf", ":Telescope lsp_references <CR>", {})
+map("n", "<leader>ff", ":Telescope lsp_references <CR>", {})
 
 -- LSP Saga
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>", {})
--- map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", {})
+map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", {})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {})
 map("n", "<leader>r", "<cmd>Lspsaga rename<CR>", {})

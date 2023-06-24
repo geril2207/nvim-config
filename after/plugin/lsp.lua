@@ -91,7 +91,7 @@ local saga = require("lspsaga")
 
 saga.setup({
 	finder_action_keys = {
-		open = "o",
+		open = "l",
 		quit = "q",
 		scroll_down = "<C-f>",
 		scroll_up = "<C-d>", -- quit can be a table
@@ -105,6 +105,12 @@ saga.setup({
 	},
 	beacon = {
 		enable = false,
+	},
+
+	finder = {
+		keys = {
+			expand_or_jump = { "o", "l" },
+		},
 	},
 })
 require("mason").setup({
