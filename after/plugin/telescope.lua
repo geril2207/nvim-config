@@ -28,11 +28,24 @@ require("telescope").setup({
 		find_files = {
 			hidden = true,
 			no_ignore = false,
+			find_command = vim.fn.executable("fd") == 1 and { "fd", "--type", "f", "--path-separator", "/" } or nil,
 		},
 		live_grep = {
 			additional_args = function()
 				return { "--hidden" }
 			end,
+		},
+		lsp_references = {
+			path_display = { "tail" },
+			initial_mode = "normal",
+			layout_strategy = "vertical",
+			layout_config = {
+				prompt_position = "top",
+			},
+			sorting_strategy = "ascending",
+		},
+		marks = {
+			initial_mode = "normal",
 		},
 	},
 	extensions = {
