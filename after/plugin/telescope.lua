@@ -38,11 +38,6 @@ require("telescope").setup({
 		lsp_references = {
 			path_display = { "tail" },
 			initial_mode = "normal",
-			layout_strategy = "vertical",
-			layout_config = {
-				prompt_position = "top",
-			},
-			sorting_strategy = "ascending",
 		},
 		marks = {
 			initial_mode = "normal",
