@@ -87,32 +87,6 @@ cmp.setup({
 require("nvim-autopairs").setup({
 	disable_filetype = { "TelescopePrompt", "vim" },
 })
-local saga = require("lspsaga")
-
-saga.setup({
-	finder_action_keys = {
-		open = "l",
-		quit = "q",
-		scroll_down = "<C-f>",
-		scroll_up = "<C-d>", -- quit can be a table
-	},
-	code_action_keys = {
-		quit = "q",
-		exec = "<CR>",
-	},
-	definition_action_keys = {
-		quit = "q",
-	},
-	beacon = {
-		enable = false,
-	},
-
-	finder = {
-		keys = {
-			expand_or_jump = { "o", "l" },
-		},
-	},
-})
 require("mason").setup({
 	ui = {
 		icons = {
