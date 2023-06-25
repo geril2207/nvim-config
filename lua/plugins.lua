@@ -19,19 +19,19 @@ require("lazy").setup({
 	"olimorris/onedarkpro.nvim",
 
 	"jose-elias-alvarez/null-ls.nvim",
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent_blankline").setup({
-				char = "│",
-				show_foldtext = false,
-				context_char = "▎",
-				space_char_blankline = " ",
-				show_current_context = false,
-				show_current_context_start = false,
-			})
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	config = function()
+	-- 		require("indent_blankline").setup({
+	-- 			char = "│",
+	-- 			show_foldtext = false,
+	-- 			context_char = "▎",
+	-- 			space_char_blankline = " ",
+	-- 			show_current_context = true,
+	-- 			show_current_context_start = false,
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.0",
