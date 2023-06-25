@@ -18,7 +18,7 @@ map("v", "<C-v>", '"+p')
 map("i", "<C-v>", '<ESC>"+pa')
 --Back jump
 map("n", "<leader>b", "<C-o>")
-map("n", "<C-n>", ":noh<CR>" )
+map("n", "<C-n>", ":noh<CR>")
 map("n", "<Leader>e", ":NvimTreeFocus<CR>")
 --map("n", "<Leader>e", ":Neotree focus<CR>")
 map("i", "jk", "<ESC>")
@@ -35,10 +35,12 @@ map("n", "Y", '"+y')
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>")
 map("n", "M", "`")
 
--- if vim.fn.has("gui_running") ~= 1 or vim.g.neovide then
--- 	map("n", "<C-u>", "<C-u>zz")
--- 	map("n", "<C-d>", "<C-d>zz")
--- end
+local utils = require("utils")
+
+if not utils.is_gui or utils.is_neovide or utils.is_nvim_qt then
+	map("n", "<C-u>", "<C-u>zz")
+	map("n", "<C-d>", "<C-d>zz")
+end
 
 map("n", "<Tab>", ':lua require("harpoon.ui").nav_next()<CR>')
 map("n", "<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>')
