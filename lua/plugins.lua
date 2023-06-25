@@ -16,27 +16,22 @@ require("lazy").setup({
 	"ellisonleao/gruvbox.nvim",
 	{ "catppuccin/nvim", name = "catppuccin" },
 	"folke/tokyonight.nvim",
-	-- use("navarasu/onedark.nvim")
 	"olimorris/onedarkpro.nvim",
-	--Prettier
+
 	"jose-elias-alvarez/null-ls.nvim",
-	"MunifTanjim/prettier.nvim",
-
-	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	config = function()
-	-- 		require("indent_blankline").setup({
-	-- 			char = "│",
-	-- 			show_foldtext = false,
-	-- 			context_char = "▎",
-	-- 			space_char_blankline = " ",
-	-- 			show_current_context = false,
-	-- 			show_current_context_start = false,
-	-- 		})
-	-- 	end,
-	-- },
-
-	--Telescope
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("indent_blankline").setup({
+				char = "│",
+				show_foldtext = false,
+				context_char = "▎",
+				space_char_blankline = " ",
+				show_current_context = false,
+				show_current_context_start = false,
+			})
+		end,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.0",
