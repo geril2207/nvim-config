@@ -30,8 +30,8 @@ require("gruvbox").setup({
 	transparent_mode = transparent,
 })
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
+	flavour = "macchiato",
 	transparent_background = transparent,
 	highlight_overrides = {
 		all = function(colors)
