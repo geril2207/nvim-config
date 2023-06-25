@@ -44,7 +44,7 @@ map("n", "<Tab>", ':lua require("harpoon.ui").nav_next()<CR>')
 map("n", "<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>')
 
 for i = 1, 9, 1 do
-	if vim.fn.has("macunix") then
+	if vim.fn.has("macunix") == 1 then
 		map("n", "<D-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 	else
 		map("n", "<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
