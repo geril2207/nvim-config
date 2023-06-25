@@ -68,6 +68,9 @@ map("n", "<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
 map("n", "<leader>ff", ":Telescope lsp_references <CR>")
 
 -- LSP Saga
+map("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+map("n", "<leader>sw", "<cmd>Lspsaga show_workspace_diagnostics<CR>")
+map("n", "<leader>so", "<cmd>Lspsaga outline<CR>")
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>")
 map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>")
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
