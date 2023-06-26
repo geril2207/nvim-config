@@ -6,7 +6,9 @@ else
 end
 vim.opt.title = true
 
-vim.opt.titlestring = vim.loop.cwd()
+if not require("utils").is_goneovim then
+	vim.opt.titlestring = vim.loop.cwd()
+end
 
 if vim.g.neovide then
 	vim.g.neovide_cursor_animate_in_insert_mode = false
