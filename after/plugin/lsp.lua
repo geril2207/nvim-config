@@ -84,9 +84,11 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 })
+
 require("nvim-autopairs").setup({
 	disable_filetype = { "TelescopePrompt", "vim" },
 })
+
 require("mason").setup({
 	ui = {
 		icons = {
@@ -178,16 +180,13 @@ local on_attach = function(client, bufnr)
 	end
 	require("lsp_signature").on_attach({
 		bind = true,
-		-- floating_window = false,
-		doc_lines = 5,
+		doc_lines = 0,
 		handler_opts = {
 			border = "single", -- double, rounded, single, shadow, none, or a table of borders
 		},
-		hint_enable = true,
-		hint_prefix = "",
+		hint_enable = false,
 		toggle_key = "<A-s>",
 		floating_window = false,
-
 		floating_window_off_x = -1,
 	}, bufnr)
 
@@ -195,16 +194,12 @@ local on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	-- vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "<leader>f", formatFile, bufopts)
 	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
-	vim.keymap.set("n", "<Leader>k", function()
-		vim.lsp.buf.signature_help()
-	end, { silent = true, noremap = true, desc = "toggle signature" })
+	vim.keymap.set("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("n", "<Leader>k", vim.lsp.buf.signature_help, bufopts)
 end
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
