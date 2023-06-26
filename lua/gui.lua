@@ -1,6 +1,6 @@
 -- if nvim-qt, i can use fvim, neovide and nvy
 if require("utils").is_nvim_qt then
-	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h13.6"
+	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 else
 	vim.o.guifont = "JetBrainsMono Nerd Font:h13.6"
 end
