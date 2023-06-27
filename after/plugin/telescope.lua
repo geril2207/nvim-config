@@ -1,5 +1,11 @@
 require("telescope").setup({
 	defaults = {
+		sorting_strategy = "ascending",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+			},
+		},
 		mappings = {
 			n = {
 				["q"] = require("telescope.actions").close,
@@ -29,11 +35,19 @@ require("telescope").setup({
 			hidden = true,
 			no_ignore = false,
 			find_command = vim.fn.executable("fd") == 1 and { "fd", "--type", "f", "--path-separator", "/" } or nil,
+
+			sorting_strategy = "ascending",
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+				},
+			},
 		},
 		live_grep = {
 			additional_args = function()
 				return { "--hidden" }
 			end,
+			sorting_strategy = "ascending",
 			layout_strategy = "vertical",
 			layout_config = {
 				vertical = {
