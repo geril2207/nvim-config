@@ -35,12 +35,14 @@ map("n", "Y", '"+y')
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>")
 map("n", "M", "`")
 
+local prev_amount = 15
 local function get_amount_of_scrolling_lines()
 	local firstline = vim.fn.line("w0")
 	local lastline = vim.fn.line("w$")
-	local min_amount = 18
 
-	return math.max(math.floor((lastline - firstline) / 2), min_amount)
+	-- when last line of document, <C-u> scrolls <10 lines
+	prev_amount = math.max(math.floor((lastline - firstline) / 2), prev_amount)
+	return prev_amount
 end
 
 local function execute_scroll(direction)
