@@ -34,6 +34,14 @@ require("telescope").setup({
 			additional_args = function()
 				return { "--hidden" }
 			end,
+			layout_strategy = "vertical",
+			layout_config = {
+				vertical = {
+					preview_cutoff = 1,
+					prompt_position = "top",
+					mirror = true,
+				},
+			},
 		},
 		lsp_references = {
 			path_display = { "tail" },
