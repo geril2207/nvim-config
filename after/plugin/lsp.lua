@@ -288,3 +288,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = "single",
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
+	callback = function()
+		vim.diagnostic.disable(0)
+	end,
+})
