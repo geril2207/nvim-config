@@ -35,12 +35,26 @@ map("n", "Y", '"+y')
 map("n", "<leader>qq", ":q!<CR>:q!<CR>:q!<CR>:q!<CR>")
 map("n", "M", "`")
 
-local utils = require("utils")
+local function get_amount_of_scrolling_lines()
+	local firstline = vim.fn.line("w0")
+	local lastline = vim.fn.line("w$")
+	local min_amount = 18
 
-if not utils.is_gui or utils.is_neovide or utils.is_nvim_qt then
-	map("n", "<C-u>", "<C-u>zz")
-	map("n", "<C-d>", "<C-d>zz")
+	return math.max(math.floor((lastline - firstline) / 2), min_amount)
 end
+
+local function execute_scroll(direction)
+	local visible_lines_to_scroll = get_amount_of_scrolling_lines()
+	vim.api.nvim_command("normal!" .. visible_lines_to_scroll .. direction)
+	vim.api.nvim_command("normal! zz")
+end
+
+vim.keymap.set("n", "<C-d>", function()
+	execute_scroll("j")
+end)
+vim.keymap.set("n", "<C-u>", function()
+	execute_scroll("k")
+end)
 
 map("n", "<Tab>", ':lua require("harpoon.ui").nav_next()<CR>')
 map("n", "<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>')
