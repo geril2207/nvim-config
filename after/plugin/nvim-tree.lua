@@ -31,6 +31,9 @@ require("nvim-tree").setup({
 		custom = { "^.git$", "node_modules" },
 		exclude = {},
 	},
+	renderer = {
+		root_folder_label = false,
+	},
 })
 
 local function open_nvim_tree(data)
