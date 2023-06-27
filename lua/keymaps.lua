@@ -40,7 +40,7 @@ local function get_amount_of_scrolling_lines()
 	local firstline = vim.fn.line("w0")
 	local lastline = vim.fn.line("w$")
 
-	-- when last line of document, <C-u> scrolls <10 lines
+	-- when last line of document <C-u> scrolls <10 lines
 	prev_amount = math.max(math.floor((lastline - firstline) / 2), prev_amount)
 	return prev_amount
 end
@@ -83,7 +83,7 @@ map("n", "<leader>fg", ":Telescope git_files<CR>")
 map("n", "<leader>u", "<cmd>Telescope undo<cr>")
 map("n", "<leader>fm", ":Telescope marks<CR>")
 map("n", "<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
-map("n", "<leader>ff", ":Telescope lsp_references <CR>")
+map("n", "gf", ":Telescope lsp_references <CR>")
 map("n", "<leader>fs", ":Telescope lsp_document_symbols <CR>")
 
 -- LSP Saga
@@ -91,7 +91,7 @@ map("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 map("n", "<leader>sw", "<cmd>Lspsaga show_workspace_diagnostics<CR>")
 map("n", "<leader>so", "<cmd>Lspsaga outline<CR>")
 map("n", "gh", "<cmd>Lspsaga hover_doc<CR>")
-map("n", "gf", "<cmd>Lspsaga lsp_finder<CR>")
+map("n", "<leader>sf", "<cmd>Lspsaga lsp_finder<CR>")
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 map("v", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 map("n", "<leader>r", "<cmd>Lspsaga rename<CR>")
