@@ -198,6 +198,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
 	vim.keymap.set("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "<Leader>k", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, bufopts)
+	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, bufopts)
 end
 
 for _, lsp in ipairs(servers) do
