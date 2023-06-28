@@ -54,6 +54,9 @@ local function execute_scroll(direction)
 	vim.api.nvim_command("normal! zz")
 end
 
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+
 vim.keymap.set("n", "<C-d>", function()
 	execute_scroll("j")
 end)
