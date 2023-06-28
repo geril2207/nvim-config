@@ -1,9 +1,9 @@
 -- if nvim-qt, i can use fvim, neovide and nvy
 local utils = require("utils")
-if utils.is_nvim_qt or utils.is_goneovim then
+if utils.is_nvim_qt then
 	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 else
-	vim.o.guifont = "JetBrainsMono Nerd Font:h13.6"
+	vim.o.guifont = "JetBrainsMono Nerd Font:h14"
 end
 vim.opt.title = true
 
