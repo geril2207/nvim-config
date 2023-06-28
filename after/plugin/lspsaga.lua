@@ -1,7 +1,6 @@
 local saga = require("lspsaga")
 
-
-local quit_keys =  {"q", "<ESC>"}
+local quit_keys = { "q", "<ESC>" }
 
 saga.setup({
 	finder_action_keys = {
@@ -20,9 +19,9 @@ saga.setup({
 	beacon = {
 		enable = false,
 	},
-  rename = {
-    quit = "<ESC>"
-  },
+	rename = {
+		quit = "<ESC>",
+	},
 
 	finder = {
 		keys = {

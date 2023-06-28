@@ -80,7 +80,6 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
-	}, {
 		{ name = "buffer" },
 	}),
 })
@@ -190,10 +189,11 @@ local on_attach = function(client, bufnr)
 		floating_window_off_x = -1,
 	}, bufnr)
 
-	-- Mappings.
+	-- Mappings.lsp
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+	vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "<leader>f", formatFile, bufopts)
 	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
 	vim.keymap.set("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
@@ -288,6 +288,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config)
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "single",
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "single",
 })
 
