@@ -88,6 +88,7 @@ map("n", "<leader>fm", ":Telescope marks<CR>")
 map("n", "<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
 map("n", "gf", ":Telescope lsp_references <CR>")
 map("n", "<leader>fs", ":Telescope lsp_document_symbols <CR>")
+map("n", "<leader>fw", ":Telescope lsp_dynamic_workspace_symbols <CR>")
 
 -- LSP Saga
 map("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
