@@ -12,6 +12,8 @@ end
 
 map("n", "<A-j>", ":m +1 <CR>")
 map("n", "<A-k>", ":m -2 <CR>")
+map("v", "<A-j>", ":m '>+1<CR>gv=gv")
+map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 map("n", "<C-v>", '"+p')
 map("v", "<C-v>", '"+p')
@@ -33,7 +35,7 @@ map("n", "<C-s>", ":w<CR>")
 map("v", "Y", '"+y')
 map("v", "<C-c>", '"+y')
 map("n", "Y", '"+y')
-map("n", "<leader>qq", ":qa!<CR>")
+map("n", "<leader>qq", ":qa<CR>")
 map("n", "M", "`")
 
 local prev_amount = 15
