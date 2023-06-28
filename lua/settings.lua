@@ -81,6 +81,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 })
 
 opt.cursorline = vim.fn.has("gui_running") == 1 and vim.g.fvim_loaded ~= 1
+
 vim.cmd([[colorscheme catppuccin]])
 
 vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
@@ -88,3 +89,5 @@ vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
 vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
 vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
 vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
+
+opt.laststatus = 3
