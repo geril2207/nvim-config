@@ -3,15 +3,6 @@ local luasnip = require("luasnip")
 
 local cmp = require("cmp")
 
-luasnip.setup({
-	region_check_events = "InsertEnter",
-	delete_check_events = "TextChanged,InsertLeave",
-})
-
-require("luasnip.loaders.from_vscode").lazy_load()
-luasnip.filetype_extend("typescript", { "typescriptreact", "javascript" })
-luasnip.filetype_extend("javascript", { "typescript", "javascriptreact" })
-
 local function toggle_completion_menu()
 	if cmp.visible() then
 		cmp.close()
