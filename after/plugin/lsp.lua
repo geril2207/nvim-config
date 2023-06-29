@@ -44,8 +44,10 @@ cmp.setup({
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = false,
 				})
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
+			elseif luasnip.jumpable(1) then
+				luasnip.jump(1)
+			elseif luasnip.expandable() then
+				luasnip.expand()
 			else
 				fallback()
 			end
