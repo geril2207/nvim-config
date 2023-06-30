@@ -2,6 +2,8 @@
 local utils = require("utils")
 if utils.is_nvim_qt then
 	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+elseif utils.is_fvim then
+	vim.o.guifont = "JetBrainsMono Nerd Font:h19"
 else
 	vim.o.guifont = "JetBrainsMono Nerd Font:h14"
 end
@@ -44,9 +46,4 @@ if vim.g.neovide then
 			change_scale_factor(1 / diff)
 		end)
 	end
-end
-
-if vim.g.fvim_loaded then
-	vim.o.guifont = "JetBrainsMono Nerd Font:h14"
-	vim.cmd("hi NvimTreeNormal guibg='NONE'")
 end

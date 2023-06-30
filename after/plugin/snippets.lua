@@ -11,6 +11,8 @@ luasnip.setup({
 	update_events = "TextChanged,TextChangedI",
 })
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local jsx_snippets = {
 	s(
 		"useStateSnippet",
@@ -28,8 +30,3 @@ local jsx_snippets = {
 
 luasnip.add_snippets("typescriptreact", jsx_snippets)
 luasnip.add_snippets("javascriptreact", jsx_snippets)
-
-require("luasnip.loaders.from_vscode").lazy_load()
-
-luasnip.filetype_extend("typescript", { "typescriptreact" })
-luasnip.filetype_extend("javascript", { "javascriptreact" })
