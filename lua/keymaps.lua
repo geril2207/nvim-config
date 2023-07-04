@@ -112,6 +112,9 @@ map("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
 map("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
+map("n", "<leader>g", "<cmd>:Gitsigns<CR>")
+map("v", "<leader>g", "<cmd>:Gitsigns<CR>")
+
 -- Maps For Double Leader
 -- Easy Motions
 mapDoubleLeader("n", "w", ":HopWordAC<CR>")
