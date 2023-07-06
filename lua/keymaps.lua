@@ -20,6 +20,7 @@ map("v", "<C-v>", '"+p')
 map("i", "<C-v>", '<ESC>"+pa')
 --Back jump
 map("n", "<leader>b", "<C-o>")
+map("n", "<leader>n", "<C-i>")
 map("n", "<C-n>", ":noh<CR>")
 map("n", "<Leader>e", ":NvimTreeFocus<CR>")
 map("n", "<Leader>ab", ":NvimTreeClose<CR>")
