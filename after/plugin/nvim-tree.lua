@@ -1,7 +1,13 @@
 require("nvim-web-devicons").setup({
 	override = {
 		["gql"] = {
-			icon = "",
+			icon = "󰡷",
+			color = "#e535ab",
+			cterm_color = "199",
+			name = "GQL",
+		},
+		["graphql"] = {
+			icon = "󰡷",
 			color = "#e535ab",
 			cterm_color = "199",
 			name = "GQL",
