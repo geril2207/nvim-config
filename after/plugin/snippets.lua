@@ -16,7 +16,7 @@ luasnip.setup({
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local js_snippets = {
-	s("clo", fmt("console.log('{} :' {})", { i(1, "value"), rep(1) })),
+	s("clo", fmt("console.log('{} :', {})", { i(1, "value"), rep(1) })),
 	s("clg", fmt("console.log({})", { i(1, "value") })),
 	s(
 		"useStateSnippet",
