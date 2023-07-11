@@ -57,7 +57,7 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			local kind = require("lspkind").cmp_format({
-				mode = "symbol_text",
+				mode = "symbol",
 				maxwidth = 50,
 				preset = "codicons",
 				ellipsis_char = "...",
