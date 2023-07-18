@@ -57,6 +57,7 @@ require("lazy").setup({
 		end,
 	},
 	"windwp/nvim-ts-autotag",
+	"windwp/nvim-autopairs",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	{
 		"numToStr/Comment.nvim",
@@ -106,7 +107,6 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",
 	"onsails/lspkind-nvim",
-	"p00f/nvim-ts-rainbow",
 	"nvim-treesitter/nvim-treesitter",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/nvim-cmp",
@@ -116,7 +116,6 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	"windwp/nvim-autopairs",
 	{
 		"Pocco81/auto-save.nvim",
 		config = function()
