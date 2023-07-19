@@ -3,6 +3,8 @@ local luasnip = require("luasnip")
 local s = luasnip.snippet
 local i = luasnip.insert_node
 local f = luasnip.function_node
+local d = luasnip.dynamic_node
+local sn = luasnip.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 local extras = require("luasnip.extras")
@@ -16,8 +18,8 @@ luasnip.setup({
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local filename = function(snip)
-	local name = vim.split(snip.snippet.env.TM_FILENAME, ".", true)
+local filename = function()
+	local name = vim.split(vim.fn.fnamemodify(vim.fn.expand("%"), ":t"), ".", true)
 	return name[1] or ""
 end
 
@@ -44,13 +46,13 @@ local js_snippets = {
 	s(
 		"rhk",
 		fmt("const {} = ({}) => {}", {
-			f(function(args, snip)
-				local file_name = filename(snip)
-				local withUpperFirst = file_name:gsub("^%l", string.upper)
-				return "use" .. withUpperFirst
+			d(1, function()
+				return sn(nil, {
+					i(1, filename()),
+				})
 			end),
-			i(1),
 			i(2),
+			i(3),
 		})
 	),
 }
