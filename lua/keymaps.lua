@@ -3,7 +3,7 @@ local function map(mode, lhs, rhs, opts)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 local function mapDoubleLeader(mode, lhs, rhs, opts)
@@ -55,10 +55,10 @@ local function execute_scroll(direction)
 	vim.api.nvim_command("normal! zz")
 end
 
-vim.keymap.set("n", "<C-d>", function()
+map("n", "<C-d>", function()
 	execute_scroll("j")
 end)
-vim.keymap.set("n", "<C-u>", function()
+map("n", "<C-u>", function()
 	execute_scroll("k")
 end)
 
@@ -113,8 +113,7 @@ map("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
 map("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
-map("n", "<leader>g", "<cmd>:Gitsigns<CR>")
-map("v", "<leader>g", "<cmd>:Gitsigns<CR>")
+map({ "n", "v" }, "<leader>g", "<cmd>:Gitsigns<CR>")
 
 -- Maps For Double Leader
 -- Easy Motions
