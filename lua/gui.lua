@@ -10,7 +10,7 @@ end
 vim.opt.title = true
 
 if not require("utils").is_goneovim then
-	vim.opt.titlestring = vim.loop.cwd()
+	vim.opt.titlestring = vim.fn.fnamemodify(vim.loop.cwd(), ":t")
 end
 
 if vim.g.neovide then
