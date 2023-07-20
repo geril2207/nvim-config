@@ -20,7 +20,9 @@ saga.setup({
 		enable = false,
 	},
 	rename = {
-		quit = "<ESC>",
+		keys = {
+			quit = { "<C-k>", "q" },
+		},
 	},
 
 	finder = {
