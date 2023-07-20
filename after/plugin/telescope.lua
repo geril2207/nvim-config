@@ -1,3 +1,5 @@
+local actions = require("telescope.actions")
+
 require("telescope").setup({
 	defaults = {
 		sorting_strategy = "ascending",
@@ -8,8 +10,8 @@ require("telescope").setup({
 		},
 		mappings = {
 			n = {
-				["q"] = require("telescope.actions").close,
-				["l"] = require("telescope.actions").select_default,
+				["q"] = actions.close,
+				["l"] = actions.select_default,
 			},
 		},
 		file_ignore_patterns = {
