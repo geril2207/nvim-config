@@ -75,22 +75,6 @@ require("telescope").setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
-
-		undo = {
-			mappings = {
-				i = {
-					["<cr>"] = require("telescope-undo.actions").restore,
-					["<C-d>"] = require("telescope-undo.actions").yank_deletions,
-					["<C-p"] = require("telescope-undo.actions").yank_additions,
-				},
-				n = {
-					["y"] = require("telescope-undo.actions").yank_additions,
-					["Y"] = require("telescope-undo.actions").yank_deletions,
-					["u"] = require("telescope-undo.actions").restore,
-				},
-			},
-		},
 	},
 })
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("undo")
