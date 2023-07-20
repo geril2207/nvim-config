@@ -47,7 +47,7 @@ require("lazy").setup({
 	},
 
 	{
-		"ThePrimeagen/harpoon",
+		"geril2207/harpoon",
 		dependencies = "nvim-lua/plenary.nvim",
 		config = function()
 			require("harpoon").setup({
