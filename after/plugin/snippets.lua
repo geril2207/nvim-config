@@ -38,7 +38,7 @@ local js_snippets = {
 			initValue = i(2, "initialValue"),
 		})
 	),
-	s("imp", fmt("import {} from '{}'", { i(2, ""), i(1, "") })),
+	s("imp", fmt("import {} from '{}'", { i(2, "module"), i(1, "") })),
 	s("dob", fmt("const {{{values}}} = {obj}", { values = i(2, ""), obj = i(1, "") })),
 	s("dar", fmt("const [{values}] = {arr}", { values = i(2, ""), arr = i(1, "") })),
 	s("sti", fmt("setInterval(() => {}, {})", { i(1, ""), i(2, "") })),
