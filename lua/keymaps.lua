@@ -55,6 +55,10 @@ local function execute_scroll(direction)
 	vim.api.nvim_command("normal! zz")
 end
 
+map("n", "<A-z>", function()
+	vim.wo.wrap = not vim.wo.wrap
+end)
+
 map("n", "<C-d>", function()
 	execute_scroll("j")
 end)
