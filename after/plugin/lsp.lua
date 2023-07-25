@@ -12,6 +12,11 @@ local function toggle_completion_menu()
 end
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local confirm_options = {
+	behavior = cmp.ConfirmBehavior.Insert,
+	select = false,
+}
+
 cmp.setup({
 	completion = {
 		completeopt = "menu,menuone,noinsert",
@@ -28,16 +33,10 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
 		["<C-s>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = false,
-		}),
+		["<CR>"] = cmp.mapping.confirm(confirm_options),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() and cmp.get_selected_entry() then
-				cmp.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = false,
-				})
+				cmp.confirm(confirm_options)
 			elseif luasnip.jumpable(1) then
 				luasnip.jump(1)
 			elseif luasnip.expandable() then
