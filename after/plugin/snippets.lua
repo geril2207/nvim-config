@@ -45,7 +45,7 @@ local js_snippets = {
 	s("sto", fmt("setTimeout(() => {}, {})", { i(1, ""), i(2, "") })),
 	s(
 		"rhk",
-		fmt("const {} = ({}) => {}", {
+		fmt("export const {} = ({}) => {}", {
 			d(1, function()
 				return sn(nil, {
 					i(1, filename()),
