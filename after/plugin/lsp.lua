@@ -215,8 +215,10 @@ lspconfig.rust_analyzer.setup({
 	end,
 	settings = {
 		["rust-analyzer"] = {
-			rustfmt = {
-				-- extraArgs = { "--config", "tab_spaces=2" },
+			completion = {
+				callable = {
+					snippets = "none",
+				},
 			},
 		},
 	},
