@@ -1,4 +1,3 @@
--- luasnip setup
 local luasnip = require("luasnip")
 
 local cmp = require("cmp")
@@ -97,11 +96,12 @@ local servers = {
 	"tsserver",
 	"html",
 	"cssls",
-	"cssmodules_ls",
-	"stylelint_lsp",
+	-- "cssmodules_ls",
+	-- "stylelint_lsp",
+	-- "volar",
 	"jsonls",
 	"clangd",
-	"tailwindcss",
+	-- "tailwindcss",
 	"eslint",
 	"pylsp",
 	-- "graphql",
@@ -148,6 +148,7 @@ local function formatFile()
 end
 
 local servers_formatting_disable = {
+	"volar",
 	"tsserver",
 	"html",
 	"cssls",
@@ -162,6 +163,7 @@ local servers_formatting_disable = {
 	"lua_ls",
 	"astro",
 }
+
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
@@ -173,15 +175,16 @@ local on_attach = function(client, bufnr)
 		end
 	end
 	require("lsp_signature").on_attach({
-		bind = true,
-		doc_lines = 0,
+		bind = false,
+		doc_lines = 5,
 		handler_opts = {
 			border = "single", -- double, rounded, single, shadow, none, or a table of borders
 		},
-		hint_enable = false,
+		hint_enable = true,
+		hint_prefix = "",
 		toggle_key = "<A-s>",
+		select_signature_key = "<A-n>", -- cycle to next signature, e.g. '<M-n>' function overloading
 		floating_window = false,
-		floating_window_off_x = -1,
 	}, bufnr)
 
 	-- Mappings.lsp
@@ -275,9 +278,10 @@ null_ls.setup({
 	update_in_insert = false,
 	sources = {
 		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.pylint,
+		-- null_ls.builtins.diagnostics.pylint,
 	},
 })
 
