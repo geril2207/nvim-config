@@ -11,4 +11,33 @@ M.is_nvim_qt = vim.fn.has("gui_running") == 1
 	and not vim.g.nvy
 	and not M.is_goneovim
 
+M.transparent = vim.fn.has("gui_running") == 0
+
+function M.map(mode, lhs, rhs, opts)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
+end
+
+function M.map_double_leader(mode, lhs, rhs, opts)
+	M.map(mode, "<leader><leader>" .. lhs, rhs, opts)
+end
+
+function M.setup_color_scheme(name, lazy)
+	if lazy then
+		require("themes." .. name)
+	end
+	vim.cmd("colorscheme " .. name)
+	vim.opt.laststatus = 3
+
+	vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
+	vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
+	vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
+	vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
+	vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
+	vim.cmd("hi! NvimTreeNormal guibg='NONE'")
+end
+
 return M

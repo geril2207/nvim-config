@@ -54,6 +54,7 @@ vim.o.updatetime = 250
 --Harpoon
 -- cmd([[autocmd! CursorHold lua vim.diagnostic.open_float(nil, {focus=false})]])
 
+-- ! posible need to fix in 0.10 version
 local function open_diagnostic()
 	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
 		if vim.api.nvim_win_get_config(winid).zindex then
@@ -81,13 +82,3 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 })
 
 opt.cursorline = vim.fn.has("gui_running") == 1 and vim.g.fvim_loaded ~= 1
-
-vim.cmd([[colorscheme catppuccin]])
-
-vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
-vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
-vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
-vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
-vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
-
-opt.laststatus = 3

@@ -81,7 +81,7 @@ map("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
 map("n", "<leader>hl", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 
 --Telescope
--- map("n", "<leader>ff", ":Telescope find_files<CR>")
+map("n", "<leader>ff", ":Telescope find_files<CR>")
 map("n", "<leader>p", ":Telescope find_files<CR>")
 map("n", "<leader>P", ":Telescope<CR>")
 map("n", "<C-p>", ":Telescope find_files<CR>")
@@ -119,6 +119,8 @@ map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
 map({ "n", "v" }, "<leader>g", "<cmd>:Gitsigns<CR>")
 
+local setup_color_scheme = require("lua.utils").setup_color_scheme
+
 -- Maps For Double Leader
 -- Easy Motions
 mapDoubleLeader("n", "w", ":HopWordAC<CR>")
@@ -126,7 +128,15 @@ mapDoubleLeader("n", "b", ":HopWordBC<CR>")
 mapDoubleLeader("n", "f", ":HopChar1AC<CR>")
 mapDoubleLeader("n", "F", ":HopChar1BC<CR>")
 mapDoubleLeader("n", "W", ":HopWord<CR>")
-mapDoubleLeader("n", "tg", "<cmd>:colorscheme gruvbox<CR>")
-mapDoubleLeader("n", "tt", "<cmd>:colorscheme tokyonight<CR>")
-mapDoubleLeader("n", "to", "<cmd>:colorscheme onedark<CR>")
-mapDoubleLeader("n", "tc", "<cmd>:colorscheme catppuccin<CR>")
+mapDoubleLeader("n", "tg", function()
+	setup_color_scheme("gruvbox")
+end)
+mapDoubleLeader("n", "tt", function()
+	setup_color_scheme("tokyonight")
+end)
+mapDoubleLeader("n", "to", function()
+	setup_color_scheme("onedark")
+end)
+mapDoubleLeader("n", "tc", function()
+	setup_color_scheme("catppuccin")
+end)

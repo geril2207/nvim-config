@@ -13,10 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	--Themes
-	"ellisonleao/gruvbox.nvim",
+	{ "ellisonleao/gruvbox.nvim", lazy = true },
 	{ "catppuccin/nvim", name = "catppuccin" },
-	"folke/tokyonight.nvim",
-	"olimorris/onedarkpro.nvim",
+	{ "folke/tokyonight.nvim", lazy = true },
+	{ "olimorris/onedarkpro.nvim", lazy = true },
 
 	"jose-elias-alvarez/null-ls.nvim",
 	-- {
