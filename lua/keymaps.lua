@@ -6,7 +6,7 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local function mapDoubleLeader(mode, lhs, rhs, opts)
+local function map_double_leader(mode, lhs, rhs, opts)
 	map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end
 
@@ -123,20 +123,20 @@ local setup_color_scheme = require("utils").setup_color_scheme
 
 -- Maps For Double Leader
 -- Easy Motions
-mapDoubleLeader("n", "w", ":HopWordAC<CR>")
-mapDoubleLeader("n", "b", ":HopWordBC<CR>")
-mapDoubleLeader("n", "f", ":HopChar1AC<CR>")
-mapDoubleLeader("n", "F", ":HopChar1BC<CR>")
-mapDoubleLeader("n", "W", ":HopWord<CR>")
-mapDoubleLeader("n", "tg", function()
+map_double_leader("n", "w", ":HopWordAC<CR>")
+map_double_leader("n", "b", ":HopWordBC<CR>")
+map_double_leader("n", "f", ":HopChar1AC<CR>")
+map_double_leader("n", "F", ":HopChar1BC<CR>")
+map_double_leader("n", "W", ":HopWord<CR>")
+map_double_leader("n", "tg", function()
 	setup_color_scheme("gruvbox")
 end)
-mapDoubleLeader("n", "tt", function()
+map_double_leader("n", "tt", function()
 	setup_color_scheme("tokyonight")
 end)
-mapDoubleLeader("n", "to", function()
+map_double_leader("n", "to", function()
 	setup_color_scheme("onedark")
 end)
-mapDoubleLeader("n", "tc", function()
+map_double_leader("n", "tc", function()
 	setup_color_scheme("catppuccin")
 end)
