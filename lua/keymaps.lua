@@ -119,7 +119,7 @@ map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
 map({ "n", "v" }, "<leader>g", "<cmd>:Gitsigns<CR>")
 
-local setup_color_scheme = require("lua.utils").setup_color_scheme
+local setup_color_scheme = require("utils").setup_color_scheme
 
 -- Maps For Double Leader
 -- Easy Motions

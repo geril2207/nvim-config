@@ -1,4 +1,4 @@
-local utils = require("lua.utils")
+local utils = require("utils")
 local transparent = utils.transparent
 
 require("gruvbox").setup({
