@@ -62,6 +62,7 @@ end)
 map("n", "<C-d>", function()
 	execute_scroll("j")
 end)
+
 map("n", "<C-u>", function()
 	execute_scroll("k")
 end)
@@ -117,7 +118,11 @@ map("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>")
 map("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 map("i", "<C-u>", "<C-g>u<C-u>", { silent = true })
 
-map({ "n", "v" }, "<leader>g", "<cmd>:Gitsigns<CR>")
+-- Git
+map({ "n", "v" }, "<leader>g", ":Gitsigns<CR>")
+map({ "n", "v" }, "<leader>gbs", ":Gitsigns stage_buffer<CR>")
+map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>")
+map({ "n", "v" }, "<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
 
 local setup_color_scheme = require("utils").setup_color_scheme
 
@@ -131,12 +136,15 @@ map_double_leader("n", "W", ":HopWord<CR>")
 map_double_leader("n", "tg", function()
 	setup_color_scheme("gruvbox")
 end)
+
 map_double_leader("n", "tt", function()
 	setup_color_scheme("tokyonight")
 end)
+
 map_double_leader("n", "to", function()
 	setup_color_scheme("onedark")
 end)
+
 map_double_leader("n", "tc", function()
 	setup_color_scheme("catppuccin")
 end)
