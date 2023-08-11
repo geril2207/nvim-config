@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup({
 
 	autotag = {
 		enable = true,
+		enable_close_on_slash = false,
 		filetypes = {
 			"htmldjango",
 			"html",
