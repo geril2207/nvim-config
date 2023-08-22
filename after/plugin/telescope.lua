@@ -61,6 +61,7 @@ require("telescope").setup({
 		},
 		lsp_references = {
 			path_display = { "tail" },
+			file_ignore_patterns = {},
 			initial_mode = "normal",
 		},
 		marks = {
