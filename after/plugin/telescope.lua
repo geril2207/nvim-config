@@ -26,6 +26,7 @@ require("telescope").setup({
 			".png",
 			".svg",
 			".jpg",
+			".mp3",
 			".jpeg",
 			".ttf",
 			".eoff",
