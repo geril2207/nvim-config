@@ -170,13 +170,15 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
+	vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>", bufopts)
+	vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "<leader>f", formatFile, bufopts)
 	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
 	vim.keymap.set("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<Leader>k", vim.lsp.buf.signature_help, bufopts)
+	vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, bufopts)
 	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, bufopts)
-	vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts)
 end
 
