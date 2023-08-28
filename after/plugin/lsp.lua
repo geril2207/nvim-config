@@ -176,6 +176,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<Leader>k", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, bufopts)
 	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, bufopts)
+	vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts)
 end
 
@@ -361,6 +362,19 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "single",
 })
+-- Jump directly to the first available definition every time.
+vim.lsp.handlers["textDocument/definition"] = function(_, result)
+	if not result or vim.tbl_isempty(result) then
+		print("[LSP] Could not find definition")
+		return
+	end
+
+	if vim.tbl_islist(result) then
+		vim.lsp.util.jump_to_location(result[1], "utf-8")
+	else
+		vim.lsp.util.jump_to_location(result, "utf-8")
+	end
+end
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
