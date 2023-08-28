@@ -13,6 +13,26 @@ M.is_nvim_qt = vim.fn.has("gui_running") == 1
 
 M.transparent = vim.fn.has("gui_running") == 0
 
+function M.apply_font(opts)
+	opts = opts or {}
+	if opts.font_family then
+		FontFamily = opts.font_family
+	end
+	if opts.font_size then
+		FontSize = opts.font_size
+	end
+
+	vim.o.guifont = FontFamily .. ":h" .. FontSize
+end
+
+function M.increase_font_size(value)
+	M.apply_font({ font_size = FontSize + value })
+end
+
+function M.decrease_font_size(value)
+	M.apply_font({ font_size = FontSize - value })
+end
+
 function M.map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
 	if opts then
