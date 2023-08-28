@@ -142,6 +142,8 @@ local servers_formatting_disable = {
 	"astro",
 }
 
+local map = require("utils").map
+
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
@@ -168,18 +170,18 @@ local on_attach = function(client, bufnr)
 	-- Mappings.lsp
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>", bufopts)
-	vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "<leader>f", formatFile, bufopts)
-	vim.keymap.set("n", "<A-F>", formatFile, bufopts)
-	vim.keymap.set("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, bufopts)
-	vim.keymap.set("n", "]e", vim.diagnostic.goto_next, bufopts)
-	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts)
+	map("n", "gD", vim.lsp.buf.declaration, bufopts)
+	map("n", "gh", vim.lsp.buf.hover, bufopts)
+	map("n", "gi", ":Telescope lsp_implementations<CR>", bufopts)
+	map("n", "<leader>d", vim.lsp.buf.definition, bufopts)
+	map("n", "gd", vim.lsp.buf.definition, bufopts)
+	map("n", "<leader>f", formatFile, bufopts)
+	map("n", "<A-F>", formatFile, bufopts)
+	map("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
+	map("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
+	map("n", "[e", vim.diagnostic.goto_prev, bufopts)
+	map("n", "]e", vim.diagnostic.goto_next, bufopts)
+	map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts)
 end
 
 local servers = {

@@ -60,10 +60,24 @@ require("telescope").setup({
 				},
 			},
 		},
+		lsp_implementations = {
+			initial_mode = "normal",
+			layout_config = {
+				preview_width = 80,
+				mirror = true,
+				width = 0.7,
+			},
+		},
 		lsp_references = {
+			show_line = false,
 			path_display = { "tail" },
 			file_ignore_patterns = {},
 			initial_mode = "normal",
+			layout_config = {
+				preview_width = 80,
+				mirror = true,
+				width = 0.7,
+			},
 		},
 		marks = {
 			initial_mode = "normal",

@@ -1,14 +1,7 @@
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, lhs, rhs, options)
-end
+local utils = require("utils")
 
-local function map_double_leader(mode, lhs, rhs, opts)
-	map(mode, "<leader><leader>" .. lhs, rhs, opts)
-end
+local map = utils.map
+local map_double_leader = utils.map_double_leader
 
 map("n", "<A-j>", ":m +1 <CR>")
 map("n", "<A-k>", ":m -2 <CR>")
@@ -36,7 +29,6 @@ map("n", "<C-s>", ":w<CR>")
 map("v", "Y", '"+y')
 map("v", "<C-c>", '"+y')
 map("n", "Y", '"+y')
-map("n", "<leader>qq", ":qa<CR>")
 map("n", "M", "`")
 
 local prev_amount = 15

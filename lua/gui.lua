@@ -1,21 +1,47 @@
 -- if nvim-qt, i can use fvim, neovide and nvy
+FontSize = 14
+FontFamily = "JetBrainsMono Nerd Font"
+
 local utils = require("utils")
+local apply_font = utils.apply_font
+
 if utils.is_nvim_qt then
-	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+	apply_font({ font_family = "JetBrainsMono Nerd Font Mono" })
 elseif utils.is_fvim then
-	vim.o.guifont = "JetBrainsMono Nerd Font:h19"
+	apply_font({ font_size = 14 })
 else
-	vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+	apply_font()
 end
+
 vim.opt.title = true
 
-if not require("utils").is_goneovim then
-	vim.opt.titlestring = vim.fn.fnamemodify(vim.loop.cwd(), ":t")
+if utils.is_gui then
+	local function increase_fontsize()
+		utils.increase_font_size(1)
+	end
+
+	local function decrease_fontsize()
+		utils.decrease_font_size(1)
+	end
+
+	utils.map("n", "<C-=>", increase_fontsize)
+	utils.map("n", "<C-->", decrease_fontsize)
+	utils.map("n", "<leader>=", increase_fontsize)
+	utils.map("n", "<leader>-", decrease_fontsize)
+	utils.map("n", "<C-ScrollWheelUp>", increase_fontsize)
+	utils.map("n", "<C-ScrollWheelDown>", decrease_fontsize)
+end
+
+if not utils.is_goneovim then
+	vim.opt.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
 
 if vim.g.neovide then
+	vim.g.neovide_scroll_animation_length = 0
 	vim.g.neovide_cursor_animate_in_insert_mode = false
-	vim.g.neovide_cursor_antialiasing = true
+	vim.g.neovide_cursor_trail_size = 0
+	vim.g.neovide_scroll_animation_length = 0
+	vim.g.neovide_cursor_antialiasing = false
 	vim.g.neovide_fullscreen = false
 	-- vim.g.neovide_input_use_logo = 0 -- enable use of the logo (cmd) key
 	vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
