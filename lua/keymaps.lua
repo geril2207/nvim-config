@@ -51,6 +51,7 @@ end
 
 local function execute_scroll(direction)
 	local visible_lines_to_scroll = get_amount_of_scrolling_lines()
+	vim.api.nvim_command("normal! m'")
 	vim.api.nvim_command("normal!" .. visible_lines_to_scroll .. direction)
 	vim.api.nvim_command("normal! zz")
 end
