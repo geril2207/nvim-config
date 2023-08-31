@@ -9,6 +9,9 @@ require("telescope").setup({
 			},
 		},
 		mappings = {
+			i = {
+				["<ESC>"] = actions.close,
+			},
 			n = {
 				["q"] = actions.close,
 				["l"] = actions.select_default,
@@ -93,9 +96,10 @@ require("telescope").setup({
 		},
 
 		["ui-select"] = {
-			require("telescope.themes").get_dropdown({ initial_mode = "normal" }),
+			require("telescope.themes").get_dropdown(),
 		},
 	},
 })
+
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")

@@ -4,6 +4,7 @@ FontFamily = "JetBrainsMono Nerd Font"
 
 local utils = require("utils")
 local apply_font = utils.apply_font
+local map = utils.map
 
 if utils.is_nvim_qt then
 	apply_font({ font_family = "JetBrainsMono Nerd Font Mono" })
@@ -24,12 +25,12 @@ if utils.is_gui then
 		utils.decrease_font_size(1)
 	end
 
-	utils.map("n", "<C-=>", increase_fontsize)
-	utils.map("n", "<C-->", decrease_fontsize)
-	utils.map("n", "<leader>=", increase_fontsize)
-	utils.map("n", "<leader>-", decrease_fontsize)
-	utils.map("n", "<C-ScrollWheelUp>", increase_fontsize)
-	utils.map("n", "<C-ScrollWheelDown>", decrease_fontsize)
+	map("n", "<C-=>", increase_fontsize)
+	map("n", "<C-->", decrease_fontsize)
+	map("n", "<leader>=", increase_fontsize)
+	map("n", "<leader>-", decrease_fontsize)
+	map("n", "<C-ScrollWheelUp>", increase_fontsize)
+	map("n", "<C-ScrollWheelDown>", decrease_fontsize)
 end
 
 if not utils.is_goneovim then
@@ -37,19 +38,19 @@ if not utils.is_goneovim then
 end
 
 if vim.g.neovide then
-	vim.g.neovide_scroll_animation_length = 0
-	vim.g.neovide_cursor_animate_in_insert_mode = false
-	vim.g.neovide_cursor_trail_size = 0
-	vim.g.neovide_scroll_animation_length = 0
-	vim.g.neovide_cursor_antialiasing = false
+	-- vim.g.neovide_scroll_animation_length = 0
+	-- vim.g.neovide_cursor_animate_in_insert_mode = false
+	-- vim.g.neovide_cursor_trail_size = 0
+	-- vim.g.neovide_scroll_animation_length = 0
+	-- vim.g.neovide_cursor_antialiasing = false
 	vim.g.neovide_fullscreen = false
 	-- vim.g.neovide_input_use_logo = 0 -- enable use of the logo (cmd) key
-	vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
-	vim.keymap.set("v", "<D-c>", '"+y') -- Copy
-	vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
-	vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
-	vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
-	vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+	map("n", "<D-s>", ":w<CR>") -- Save
+	map("v", "<D-c>", '"+y') -- Copy
+	map("n", "<D-v>", '"+P') -- Paste normal mode
+	map("v", "<D-v>", '"+P') -- Paste visual mode
+	map("c", "<D-v>", "<C-R>+") -- Paste command mode
+	map("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
 
 	vim.g.neovide_scale_factor = 1.0
 
@@ -58,17 +59,17 @@ if vim.g.neovide then
 	end
 	local diff = 1.1
 	if vim.fn.has("macunix") then
-		vim.keymap.set("n", "<D-=>", function()
+		map("n", "<D-=>", function()
 			change_scale_factor(diff)
 		end)
-		vim.keymap.set("n", "<D-->", function()
+		map("n", "<D-->", function()
 			change_scale_factor(1 / diff)
 		end)
 	else
-		vim.keymap.set("n", "<A-=>", function()
+		map("n", "<A-=>", function()
 			change_scale_factor(diff)
 		end)
-		vim.keymap.set("n", "<A-->", function()
+		map("n", "<A-->", function()
 			change_scale_factor(1 / diff)
 		end)
 	end
