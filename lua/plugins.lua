@@ -107,7 +107,10 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",
 	"onsails/lspkind-nvim",
-	"nvim-treesitter/nvim-treesitter",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+	},
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-path",
