@@ -34,7 +34,6 @@ require("lazy").setup({
 	-- },
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "0.1.0",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -114,7 +113,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-path",
-	"glepnir/lspsaga.nvim",
+	"nvimdev/lspsaga.nvim",
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
