@@ -1,14 +1,17 @@
 -- require 'nvim-treesitter.install'.compilers = { "clang" }
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
+		"query",
+		"vim",
+		"vimdoc",
 		"javascript",
 		"lua",
 		"tsx",
 		"typescript",
+		"html",
 		"scss",
 		"css",
 		"json",
-		"dot",
 		"prisma",
 		"markdown",
 		"markdown_inline",

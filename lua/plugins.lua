@@ -109,6 +109,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+		build = ":TSUpdate",
 	},
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/nvim-cmp",
