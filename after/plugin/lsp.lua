@@ -111,8 +111,8 @@ require("mason-lspconfig").setup({
 		"yamlls",
 		"dockerls",
 		"prismals",
-		"gopls",
-		"rust_analyzer",
+		-- "gopls",
+		-- "rust_analyzer",
 	},
 })
 
