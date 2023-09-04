@@ -18,6 +18,8 @@ require("nvim-treesitter.configs").setup({
 		"python",
 		"go",
 		"rust",
+		"dot",
+		"bash",
 	},
 	sync_install = false,
 	indent = {
