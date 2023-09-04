@@ -26,6 +26,7 @@ local function on_attach(bufnr)
 	api.config.mappings.default_on_attach(bufnr)
 
 	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
 end
 
 -- empty setup using defaults
