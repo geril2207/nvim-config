@@ -370,7 +370,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 -- Jump directly to the first available definition every time.
 vim.lsp.handlers["textDocument/definition"] = function(_, result)
 	if not result or vim.tbl_isempty(result) then
-		print("[LSP] Could not find definition")
+		--print("[LSP] Could not find definition")
 		return
 	end
 
