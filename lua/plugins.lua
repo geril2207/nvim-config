@@ -33,6 +33,10 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 	{
+		"AckslD/nvim-neoclip.lua",
+		lazy = true,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",

@@ -75,6 +75,9 @@ map("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
 map("n", "<leader>hl", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 
 --Telescope
+map("n", "<leader>np", ":Telescope neoclip plus<CR>")
+map("n", "<leader>nu", ":Telescope neoclip unnamed<CR>")
+map("n", "<leader>ns", ":Telescope neoclip star<CR>")
 map("n", "<leader>ff", ":Telescope find_files<CR>")
 map("n", "<leader>p", ":Telescope find_files<CR>")
 map("n", "<leader>P", ":Telescope<CR>")
