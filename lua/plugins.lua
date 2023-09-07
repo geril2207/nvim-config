@@ -18,6 +18,13 @@ require("lazy").setup({
 	{ "folke/tokyonight.nvim", lazy = true },
 	{ "olimorris/onedarkpro.nvim", lazy = true },
 
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
+
 	"jose-elias-alvarez/null-ls.nvim",
 	-- {
 	-- 	"lukas-reineke/indent-blankline.nvim",
