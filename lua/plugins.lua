@@ -24,7 +24,15 @@ require("lazy").setup({
 			require("colorizer").setup()
 		end,
 	},
-
+	{
+		"stevearc/dressing.nvim",
+		config = function()
+			require("dressing").setup({
+				input = { enabled = true, win_options = { winblend = 0 } },
+				select = { enabled = true },
+			})
+		end,
+	},
 	"jose-elias-alvarez/null-ls.nvim",
 	-- {
 	-- 	"lukas-reineke/indent-blankline.nvim",

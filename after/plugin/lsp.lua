@@ -181,6 +181,7 @@ local on_attach = function(client, bufnr)
 	map("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
 	map("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
 	map("n", "[e", vim.diagnostic.goto_prev, bufopts)
+	map("n", "<leader>r", vim.lsp.buf.rename, bufopts)
 	map("n", "]e", vim.diagnostic.goto_next, bufopts)
 	map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, bufopts)
 end
