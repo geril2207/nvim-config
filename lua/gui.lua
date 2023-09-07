@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field, undefined-field
 -- if nvim-qt, i can use fvim, neovide and nvy
 FontSize = 14
 FontFamily = "JetBrainsMono Nerd Font"

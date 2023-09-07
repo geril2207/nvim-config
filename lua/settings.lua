@@ -1,5 +1,5 @@
 local cmd = vim.cmd
-local exec = vim.api.nvim_exec
+local exec = vim.api.nvim_exec2
 local g = vim.g
 local opt = vim.opt
 g.translate_source = "ru"
@@ -35,14 +35,14 @@ autocmd!
 autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}
 augroup end
 ]],
-	false
+	{ output = false }
 )
 cmd([[
 filetype indent plugin on
 syntax enable
 ]])
 
-exec([[autocmd FileType * set formatoptions-=cro]], false)
+exec([[autocmd FileType * set formatoptions-=cro]], { output = false })
 -- SET HTML AS HTML NOT DJANGO
 cmd([[au BufNewFile,BufRead *.html set filetype=html]])
 
@@ -61,7 +61,7 @@ local function open_diagnostic()
 			return
 		end
 	end
-	vim.diagnostic.open_float(0, {
+	vim.diagnostic.open_float({}, {
 		scope = "cursor",
 		focusable = false,
 		close_events = {
