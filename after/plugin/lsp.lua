@@ -186,7 +186,11 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-	tsserver = {},
+	tsserver = {
+		root_dir = function()
+			return vim.loop.cwd()
+		end,
+	},
 	html = {},
 	cssls = {},
 	cssmodules_ls = {},
