@@ -86,9 +86,6 @@ require("telescope").setup({
 				width = 0.7,
 			},
 		},
-		marks = {
-			initial_mode = "normal",
-		},
 	},
 	extensions = {
 		fzf = {
