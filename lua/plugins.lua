@@ -28,7 +28,7 @@ require("lazy").setup({
 		"stevearc/dressing.nvim",
 		config = function()
 			require("dressing").setup({
-				input = { enabled = true, win_options = { winblend = 0 } },
+				input = { enabled = true, win_options = { winblend = 0, sidescrolloff = 7 } },
 				select = { enabled = true },
 			})
 		end,
