@@ -184,6 +184,7 @@ local on_attach = function(client, bufnr)
 	map("n", "<leader>r", vim.lsp.buf.rename, bufopts)
 	map("n", "]e", vim.diagnostic.goto_next, bufopts)
 	map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, bufopts)
+	map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, bufopts)
 end
 
 local servers = {
