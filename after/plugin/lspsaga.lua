@@ -24,7 +24,9 @@ saga.setup({
 			quit = { "<C-k>", "q" },
 		},
 	},
-
+	symbol_in_winbar = {
+		enable = false,
+	},
 	finder = {
 		keys = {
 			expand_or_jump = { "o", "l" },
