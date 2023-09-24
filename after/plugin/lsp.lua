@@ -387,7 +387,7 @@ vim.lsp.handlers["textDocument/definition"] = function(_, result)
 end
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = { "**/node_modules/**", "node_modules", "/node_modules/*" },
+	pattern = { "**/node_modules/**", "node_modules", "/node_modules/*", "dist", "build" },
 	callback = function()
 		vim.diagnostic.disable(0)
 	end,
