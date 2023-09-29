@@ -41,9 +41,12 @@ local function get_amount_of_scrolling_lines()
 	return prev_amount
 end
 
-local function execute_scroll(direction)
+local function execute_scroll(direction, history)
+	history = history or false
 	local visible_lines_to_scroll = get_amount_of_scrolling_lines()
-	vim.api.nvim_command("normal! m'")
+	if history then
+		vim.api.nvim_command("normal! m'")
+	end
 	vim.api.nvim_command("normal!" .. visible_lines_to_scroll .. direction)
 	vim.api.nvim_command("normal! zz")
 end
@@ -87,8 +90,8 @@ map("n", "<leader>fz", ":Telescope live_grep<CR>")
 map("n", "<leader>fb", ":Telescope buffers<CR>")
 map("n", "<leader>fg", ":Telescope git_files<CR>")
 map("n", "<leader>u", "<cmd>Telescope undo<cr>")
-map("n", "<leader>fm", ":Telescope marks<CR>")
 map("n", "<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
+map("n", "<leader>fm", ":Telescope marks<CR>")
 map("n", "gf", ":Telescope lsp_references <CR>")
 map("n", "<leader>fs", ":Telescope lsp_document_symbols <CR>")
 map("n", "<leader>fw", ":Telescope lsp_dynamic_workspace_symbols <CR>")
