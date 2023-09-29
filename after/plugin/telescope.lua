@@ -14,6 +14,10 @@ require("telescope").setup({
 				["<ESC>"] = actions.close,
 				["<M-p>"] = action_layout.toggle_preview,
 				["<C-u>"] = false,
+				["<C-j>"] = actions.preview_scrolling_down,
+				["<C-k>"] = actions.preview_scrolling_up,
+				["<C-l>"] = actions.preview_scrolling_right,
+				["<C-h>"] = actions.preview_scrolling_left,
 			},
 			n = {
 				["q"] = actions.close,
