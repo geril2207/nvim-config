@@ -294,7 +294,9 @@ local servers = {
 	},
 	dockerls = {},
 	prismals = {},
-	gopls = {},
+	gopls = {
+		settings = { gopls = { completeFunctionCalls = false } },
+	},
 	emmet_ls = {
 		filetypes = {
 			"astro",
