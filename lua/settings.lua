@@ -25,6 +25,9 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
 
+opt.guicursor = ""
+opt.showmode = false
+
 -- don't auto commenting new lines
 -- cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 -- Copy highlight
