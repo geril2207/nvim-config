@@ -11,13 +11,12 @@ opt.signcolumn = "yes"
 opt.ignorecase = true
 opt.cmdheight = 1
 opt.termguicolors = true
-opt.spelllang = { "en_us", "ru" } -- Словари рус eng
-opt.number = true -- Включаем нумерацию строк
-opt.relativenumber = true -- Вкл. относительную нумерацию строк
+opt.spelllang = { "en_us", "ru" }
+opt.number = true
+opt.relativenumber = true
 opt.so = 10
-opt.undofile = true -- Возможность отката назад
+opt.undofile = true
 opt.mouse = "a"
--- opt.guicursor = ""
 g.mapleader = " "
 opt.tabstop = 2
 opt.softtabstop = 2
@@ -25,7 +24,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
 
-opt.guicursor = ""
+-- opt.guicursor = ""
 opt.showmode = false
 
 -- don't auto commenting new lines
