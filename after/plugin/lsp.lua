@@ -17,6 +17,7 @@ local confirm_options = {
 }
 
 cmp.setup({
+	preselect = cmp.PreselectMode.None,
 	completion = {
 		completeopt = "menu,menuone,noinsert",
 	},
