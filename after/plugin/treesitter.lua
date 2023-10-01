@@ -20,6 +20,7 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"dot",
 		"bash",
+    "comment"
 	},
 	sync_install = false,
 	indent = {
@@ -39,29 +40,6 @@ require("nvim-treesitter.configs").setup({
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
 				["ac"] = "@class.outer",
-			},
-		},
-		move = {
-			enable = true,
-			set_jumps = true,
-
-			goto_next_start = {
-				["]p"] = "@parameter.inner",
-				["]m"] = "@function.outer",
-				["]]"] = "@class.outer",
-			},
-			goto_next_end = {
-				["]M"] = "@function.outer",
-				["]["] = "@class.outer",
-			},
-			goto_previous_start = {
-				["[p"] = "@parameter.inner",
-				["[m"] = "@function.outer",
-				["[["] = "@class.outer",
-			},
-			goto_previous_end = {
-				["[M"] = "@function.outer",
-				["[]"] = "@class.outer",
 			},
 		},
 	},
