@@ -19,6 +19,9 @@ saga.setup({
 	beacon = {
 		enable = false,
 	},
+
+	lightbulb = { enable = false },
+
 	rename = {
 		keys = {
 			quit = { "<C-k>", "q" },
