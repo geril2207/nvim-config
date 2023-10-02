@@ -26,7 +26,13 @@ local function on_attach(bufnr)
 	api.config.mappings.default_on_attach(bufnr)
 
 	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
-	vim.keymap.set("n", "t", api.node.open.tab, opts("Open: New Tab"))
+	vim.keymap.set("n", "t", function()
+		api.node.open.edit()
+		api.tree.close()
+	end, opts("Open With closing"))
+
+	vim.keymap.set("n", "sv", api.node.open.vertical, opts("Open Split: Vertical"))
+	vim.keymap.set("n", "sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
 end
 
 -- empty setup using defaults

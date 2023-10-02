@@ -73,12 +73,3 @@ require("nvim-treesitter.configs").setup({
 		enable_autocmd = false,
 	},
 })
---[[
-    -- rainbowcol1 = { fg = "#FFD700"},
-    -- rainbowcol2 = { fg = "#da70d6"},
-    -- rainbowcol3 = { fg = "#87CEFA"},
-    -- rainbowcol4 = { fg = "#FFD700"},
-    -- rainbowcol5 = { fg = "#da70d6"},
-    -- rainbowcol6 = { fg = "#87CEFA"},
-    -- rainbowcol7 = { fg = "#FFD700"},
-]]
