@@ -27,8 +27,20 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+		["<C-p>"] = function()
+			if cmp.visible() then
+				cmp.select_prev_item(cmp_select)
+			else
+				cmp.complete()
+			end
+		end,
+		["<C-n>"] = function()
+			if cmp.visible() then
+				cmp.select_next_item(cmp_select)
+			else
+				cmp.complete()
+			end
+		end,
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
