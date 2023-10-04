@@ -45,6 +45,7 @@ require("nvim-tree").setup({
 	},
 	view = {
 		width = 35,
+		-- width = {},
 	},
 	git = {
 		enable = false,
@@ -58,6 +59,12 @@ require("nvim-tree").setup({
 	renderer = {
 		root_folder_label = false,
 	},
+
+	-- actions = {
+	-- 	open_file = {
+	-- 		quit_on_open = true,
+	-- 	},
+	-- },
 })
 
 local function open_nvim_tree(data)
