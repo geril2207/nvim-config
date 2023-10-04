@@ -41,8 +41,8 @@ cmp.setup({
 				cmp.complete()
 			end
 		end,
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-k>"] = cmp.mapping.scroll_docs(-4),
+		["<C-j>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
 		["<C-s>"] = cmp.mapping(toggle_completion_menu, { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm(confirm_options),
