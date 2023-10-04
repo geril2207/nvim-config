@@ -142,6 +142,7 @@ end
 local servers_formatting_disable = {
 	"volar",
 	"tsserver",
+	"biome",
 	"html",
 	"cssls",
 	"cssmodules_ls",
@@ -206,10 +207,20 @@ local servers = {
 			return vim.loop.cwd()
 		end,
 	},
+	bashls = {
+		root_dir = function()
+			return vim.loop.cwd()
+		end,
+	},
 	html = {},
 	cssls = {},
-	cssmodules_ls = {},
-	stylelint_lsp = {},
+	-- cssmodules_ls = {},
+	-- stylelint_lsp = {},
+	sqlls = {
+		root_dir = function()
+			return vim.loop.cwd()
+		end,
+	},
 	volar = {
 		disabled = true,
 	},
@@ -263,7 +274,7 @@ local servers = {
 			},
 		},
 	},
-	clangd = {},
+	-- clangd = {},
 	tailwindcss = {
 		disabled = true,
 	},
@@ -374,6 +385,7 @@ null_ls.setup({
 		-- null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.sqlfmt,
 		-- null_ls.builtins.diagnostics.pylint,
 	},
 })
