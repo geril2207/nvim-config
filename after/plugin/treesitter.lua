@@ -1,4 +1,16 @@
 -- require 'nvim-treesitter.install'.compilers = { "clang" }
+local function disable()
+	local is_disable = false
+	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
+
+	if ok and stats ~= nil and stats.size > 1000 * 100 then
+		is_disable = true
+		-- return true
+	end
+
+	return is_disable
+end
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"query",
@@ -20,7 +32,7 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"dot",
 		"bash",
-    "comment"
+		"comment",
 	},
 	sync_install = false,
 	indent = {
@@ -31,11 +43,13 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
+		disable = disable,
 	},
 
 	textobjects = {
 		select = {
 			enable = true,
+			disable = disable,
 			keymaps = {
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
@@ -46,6 +60,7 @@ require("nvim-treesitter.configs").setup({
 
 	autotag = {
 		enable = true,
+		disable = disable,
 		enable_close_on_slash = false,
 		filetypes = {
 			"htmldjango",
@@ -70,6 +85,7 @@ require("nvim-treesitter.configs").setup({
 
 	context_commentstring = {
 		enable = true,
+		disable = disable,
 		enable_autocmd = false,
 	},
 })
