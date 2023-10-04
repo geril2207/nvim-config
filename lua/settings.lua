@@ -78,8 +78,8 @@ end
 -- Show diagnostics under the cursor when holding position
 vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	-- pattern = "*",
-	pattern = "\\v(.*)(node_modules|build|dist)/.*$@<!",
+	pattern = "*",
+	-- pattern = "\\v(.*)(node_modules|build|dist)/.*$@<!",
 	callback = open_diagnostic,
 	group = "lsp_diagnostics_hold",
 })
