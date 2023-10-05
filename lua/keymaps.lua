@@ -11,6 +11,7 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv")
 map("n", "<C-v>", '"+p')
 map("v", "<C-v>", '"+p')
 map("i", "<C-v>", '<ESC>"+pa')
+map("v", "<leader>p", [["_dP]])
 --Back jump
 map("n", "<leader>b", "<C-o>")
 map("n", "<leader>n", "<C-i>")
