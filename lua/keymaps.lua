@@ -121,8 +121,6 @@ map({ "n", "v" }, "<leader>gbs", ":Gitsigns stage_buffer<CR>")
 map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>")
 map({ "n", "v" }, "<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
 
-local setup_color_scheme = require("utils").setup_color_scheme
-
 -- Maps For Double Leader
 -- Easy Motions
 map_double_leader("n", "w", ":HopWordAC<CR>")
@@ -130,18 +128,3 @@ map_double_leader("n", "b", ":HopWordBC<CR>")
 map_double_leader("n", "f", ":HopChar1AC<CR>")
 map_double_leader("n", "F", ":HopChar1BC<CR>")
 map_double_leader("n", "W", ":HopWord<CR>")
-map_double_leader("n", "tg", function()
-	setup_color_scheme("gruvbox")
-end)
-
-map_double_leader("n", "tt", function()
-	setup_color_scheme("tokyonight")
-end)
-
-map_double_leader("n", "to", function()
-	setup_color_scheme("onedark")
-end)
-
-map_double_leader("n", "tc", function()
-	setup_color_scheme("catppuccin")
-end)
