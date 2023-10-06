@@ -33,6 +33,8 @@ require("nvim-treesitter.configs").setup({
 		"dot",
 		"bash",
 		"comment",
+		"jsdoc",
+		"yaml",
 	},
 	sync_install = false,
 	indent = {
