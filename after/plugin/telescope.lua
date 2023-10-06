@@ -13,7 +13,8 @@ require("telescope").setup({
 			i = {
 				["<ESC>"] = actions.close,
 				["<M-p>"] = action_layout.toggle_preview,
-				["<C-u>"] = false,
+				["<M-k>"] = actions.cycle_history_prev,
+				["<M-j>"] = actions.cycle_history_next,
 				["<C-j>"] = actions.preview_scrolling_down,
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-l>"] = actions.preview_scrolling_right,
