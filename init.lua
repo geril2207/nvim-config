@@ -1,4 +1,4 @@
-require("settings")
-require("plugins")
-require("keymaps")
-require("gui")
+require("config.settings")
+require("config.lazy")
+require("config.keymaps")
+require("config.gui")
