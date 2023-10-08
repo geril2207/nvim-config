@@ -2,6 +2,7 @@ return {
 	{
 
 		"nvimdev/lspsaga.nvim",
+		cmd = "Lspsaga",
 		config = function()
 			local saga = require("lspsaga")
 
