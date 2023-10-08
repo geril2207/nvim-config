@@ -30,6 +30,7 @@ return {
 							["<C-k>"] = actions.preview_scrolling_up,
 							["<C-l>"] = actions.preview_scrolling_right,
 							["<C-h>"] = actions.preview_scrolling_left,
+							["<C-u>"] = false,
 						},
 						n = {
 							["q"] = actions.close,
