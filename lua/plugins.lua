@@ -111,6 +111,7 @@ require("lazy").setup({
 		lazy = false,
 		priority = 1000,
 		version = "*",
+		commit = "d8e495b2354058276cad6dd32e3efdd1d02f4da6",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
