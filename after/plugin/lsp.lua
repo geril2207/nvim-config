@@ -202,6 +202,11 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
+	ocamllsp = {
+		root_dir = function()
+			return vim.loop.cwd()
+		end,
+	},
 	tsserver = {
 		root_dir = function()
 			return vim.loop.cwd()
@@ -386,6 +391,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.sqlfmt,
+		null_ls.builtins.formatting.ocamlformat,
 		-- null_ls.builtins.diagnostics.pylint,
 	},
 })
