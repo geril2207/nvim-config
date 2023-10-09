@@ -1,7 +1,7 @@
 return {
 	{
 		"geril2207/harpoon",
-		dependencies = "nvim-lua/plenary.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("harpoon").setup({
 				tabline = true,

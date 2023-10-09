@@ -7,7 +7,7 @@ return {
 			"windwp/nvim-autopairs",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
-    event = "VeryLazy",
+		event = "VeryLazy",
 		build = ":TSUpdate",
 		config = function()
 			-- require 'nvim-treesitter.install'.compilers = { "clang" }
