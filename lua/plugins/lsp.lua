@@ -14,17 +14,15 @@ return {
 				"j-hui/fidget.nvim",
 				event = "VeryLazy",
 				branch = "legacy",
-				config = function()
-					require("fidget").setup({
-						text = {
-							spinner = "dots",
-							done = "󰸞 ",
-						},
-						window = {
-							blend = 0,
-						},
-					})
-				end,
+				opts = {
+					text = {
+						spinner = "dots",
+						done = "󰸞 ",
+					},
+					window = {
+						blend = 0,
+					},
+				},
 			},
 			"ray-x/lsp_signature.nvim",
 		},

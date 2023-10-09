@@ -31,7 +31,7 @@ require("telescope").setup({
 			"build",
 			"dist",
 			"node_modules",
-			".git",
+			"^.git",
 			".png",
 			".svg",
 			".jpg",
