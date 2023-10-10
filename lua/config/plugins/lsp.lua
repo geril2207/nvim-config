@@ -271,7 +271,9 @@ end
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
-	underline = true,
+	underline = {
+		severity_limit = "Warning",
+	},
 	signs = {
 		severity_limit = "Hint",
 	},
