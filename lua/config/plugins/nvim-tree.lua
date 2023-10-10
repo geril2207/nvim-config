@@ -21,6 +21,12 @@ local function on_attach(bufnr)
 
 	vim.keymap.set("n", "sv", api.node.open.vertical, opts("Open Split: Vertical"))
 	vim.keymap.set("n", "sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
+
+	local open_file_opts = require("nvim-tree.actions.node.open-file")
+
+	vim.keymap.set("n", "st", function()
+		open_file_opts.quit_on_open = not open_file_opts.quit_on_open
+	end, opts("NvimTree Always Open Toggle State"))
 end
 
 -- empty setup using defaults
@@ -48,11 +54,11 @@ require("nvim-tree").setup({
 		root_folder_label = false,
 	},
 
-	-- actions = {
-	-- 	open_file = {
-	-- 		quit_on_open = true,
-	-- 	},
-	-- },
+	actions = {
+		open_file = {
+			quit_on_open = false,
+		},
+	},
 })
 
 local function open_nvim_tree(data)
