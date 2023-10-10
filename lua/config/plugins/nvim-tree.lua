@@ -1,6 +1,32 @@
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+local Path = require("plenary.path")
+
+local cacheFilePath = string.format("%s/nvimtree.json", vim.fn.stdpath("data"))
+local quit_on_open = false
+
+local ok, cache = pcall(function()
+	return vim.fn.json_decode(Path.new(cacheFilePath):read())
+end)
+
+if ok then
+	if cache.quit_on_open ~= nil then
+		quit_on_open = cache.quit_on_open
+	end
+end
+
+local function toggle_quit_on_open()
+	local open_file_opts = require("nvim-tree.actions.node.open-file")
+	quit_on_open = not quit_on_open
+	open_file_opts.quit_on_open = quit_on_open
+	-- Path
+	local cache = {
+		quit_on_open = quit_on_open,
+	}
+	Path.new(cacheFilePath):write(vim.fn.json_encode(cache), "w")
+end
+
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
 
@@ -22,11 +48,7 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "sv", api.node.open.vertical, opts("Open Split: Vertical"))
 	vim.keymap.set("n", "sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
 
-	local open_file_opts = require("nvim-tree.actions.node.open-file")
-
-	vim.keymap.set("n", "st", function()
-		open_file_opts.quit_on_open = not open_file_opts.quit_on_open
-	end, opts("NvimTree Always Open Toggle State"))
+	vim.keymap.set("n", "st", toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
 end
 
 -- empty setup using defaults
@@ -56,7 +78,7 @@ require("nvim-tree").setup({
 
 	actions = {
 		open_file = {
-			quit_on_open = false,
+			quit_on_open = quit_on_open,
 		},
 	},
 })
