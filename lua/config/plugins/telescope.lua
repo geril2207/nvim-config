@@ -72,6 +72,7 @@ require("telescope").setup({
 					mirror = true,
 				},
 			},
+			previewer = false,
 		},
 		lsp_implementations = {
 			initial_mode = "normal",
@@ -82,13 +83,13 @@ require("telescope").setup({
 			},
 		},
 		lsp_references = {
-			show_line = false,
+			previewer = false,
+			show_line = true,
 			path_display = { "tail" },
 			file_ignore_patterns = {},
-			initial_mode = "normal",
+			-- initial_mode = "normal",
 			layout_config = {
-				preview_width = 80,
-				mirror = true,
+				preview_width = 50,
 				width = 0.7,
 			},
 		},
