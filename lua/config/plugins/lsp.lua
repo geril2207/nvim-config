@@ -33,76 +33,10 @@ require("mason-lspconfig").setup({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-local function formatFile()
-	vim.lsp.buf.format({
-		async = true,
-	})
-end
-
-local servers_formatting_disable = {
-	"volar",
-	"tsserver",
-	"biome",
-	"html",
-	"cssls",
-	"cssmodules_ls",
-	"stylelint_lsp",
-	"jsonls",
-	"emmet_ls",
-	"tailwindcss",
-	"eslint",
-	"pylsp",
-	"graphql",
-	"lua_ls",
-	"astro",
-}
-
-local map = require("utils").map
-
 local lspconfig = require("lspconfig")
-local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	-- Disable formatting for some servers to use external utils like prettier
-	for _, server in ipairs(servers_formatting_disable) do
-		if client.name == server then
-			client.server_capabilities.documentFormattingProvider = false
-		end
-	end
-	require("lsp_signature").on_attach({
-		bind = false,
-		doc_lines = 5,
-		handler_opts = {
-			border = "single", -- double, rounded, single, shadow, none, or a table of borders
-		},
-		hint_enable = true,
-		hint_prefix = "",
-		toggle_key = "<A-s>",
-		select_signature_key = "<A-n>", -- cycle to next signature, e.g. '<M-n>' function overloading
-		floating_window = false,
-	}, bufnr)
 
-	-- Mappings.lsp
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	map("n", "gD", vim.lsp.buf.declaration, bufopts)
-	map("n", "gh", vim.lsp.buf.hover, bufopts)
-	map("n", "gi", ":Telescope lsp_implementations<CR>", bufopts)
-	map("n", "<leader>d", vim.lsp.buf.definition, bufopts)
-	map("n", "gd", vim.lsp.buf.definition, bufopts)
-	map("n", "gt", vim.lsp.buf.type_definition, bufopts)
-	map({ "n", "v" }, "<leader>f", formatFile, bufopts)
-	map({ "n", "v" }, "<A-F>", formatFile, bufopts)
-	map("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
-	map("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
-	map("n", "[e", vim.diagnostic.goto_prev, bufopts)
-	map("n", "<leader>r", vim.lsp.buf.rename, bufopts)
-	map("n", "]e", vim.diagnostic.goto_next, bufopts)
-	map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, bufopts)
-end
+local on_attach = require("utils.on_attach")
 
 local servers = {
 	ocamllsp = {
@@ -331,3 +265,35 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 		vim.diagnostic.disable(0)
 	end,
 })
+
+-- ! posible need to fix in 0.10 version
+local function open_diagnostic()
+	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+		local zindex = vim.api.nvim_win_get_config(winid).zindex
+		print("winid", winid, zindex)
+		if zindex then
+			return
+		end
+	end
+
+	vim.diagnostic.open_float({
+		scope = "cursor",
+		focusable = false,
+		close_events = {
+			"CursorMoved",
+			"CursorMovedI",
+			"BufHidden",
+			"InsertCharPre",
+			"WinLeave",
+		},
+	})
+end
+
+-- Show diagnostics under the cursor when holding position
+-- vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+-- 	pattern = "*",
+-- 	-- pattern = "\\v(.*)(node_modules|build|dist)/.*$@<!",
+-- 	callback = open_diagnostic,
+-- 	group = "lsp_diagnostics_hold",
+-- })

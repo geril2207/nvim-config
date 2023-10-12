@@ -53,35 +53,4 @@ cmd([[au BufNewFile,BufRead *.html set filetype=html]])
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
 
---Harpoon
--- cmd([[autocmd! CursorHold lua vim.diagnostic.open_float(nil, {focus=false})]])
-
--- ! posible need to fix in 0.10 version
-local function open_diagnostic()
-	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-		if vim.api.nvim_win_get_config(winid).zindex then
-			return
-		end
-	end
-	vim.diagnostic.open_float({}, {
-		scope = "cursor",
-		focusable = false,
-		close_events = {
-			"CursorMoved",
-			"CursorMovedI",
-			"BufHidden",
-			"InsertCharPre",
-			"WinLeave",
-		},
-	})
-end
--- Show diagnostics under the cursor when holding position
-vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-	pattern = "*",
-	-- pattern = "\\v(.*)(node_modules|build|dist)/.*$@<!",
-	callback = open_diagnostic,
-	group = "lsp_diagnostics_hold",
-})
-
 opt.cursorline = vim.fn.has("gui_running") == 1 and vim.g.fvim_loaded ~= 1
