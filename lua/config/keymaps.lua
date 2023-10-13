@@ -32,6 +32,12 @@ map("v", "<C-c>", '"+y')
 map("n", "Y", '"+y')
 map("n", "M", "`")
 
+-- windows
+map("n", "<M-h>", "<C-w>h")
+map("n", "<M-l>", "<C-w>l")
+map("n", "<M-j>", "<C-w>j")
+map("n", "<M-k>", "<C-w>k")
+
 local prev_amount = 15
 local function get_amount_of_scrolling_lines()
 	local firstline = vim.fn.line("w0")
