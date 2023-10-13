@@ -23,6 +23,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
+opt.timeoutlen = 500
 
 -- opt.guicursor = ""
 opt.showmode = false
