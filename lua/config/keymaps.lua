@@ -96,6 +96,7 @@ map("n", "<leader>fm", ":Telescope marks<CR>")
 map("n", "gf", ":Telescope lsp_references <CR>")
 map("n", "<leader>fs", ":Telescope lsp_document_symbols <CR>")
 map("n", "<leader>fw", ":Telescope lsp_dynamic_workspace_symbols <CR>")
+map("n", "<leader>fd", ":Telescope diagnostics <CR>")
 
 -- LSP Saga
 map("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
@@ -120,6 +121,8 @@ map({ "n", "v" }, "<leader>gs", ":Gitsigns<CR>")
 map({ "n", "v" }, "<leader>gbs", ":Gitsigns stage_buffer<CR>")
 map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>")
 map({ "n", "v" }, "<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
+map({ "n", "v" }, "<leader>ghn", ":Gitsigns next_hunk<CR>")
+map({ "n", "v" }, "<leader>ghN", ":Gitsigns prev_hunk<CR>")
 
 -- Maps For Double Leader
 -- Easy Motions
