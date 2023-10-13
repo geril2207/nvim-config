@@ -61,6 +61,10 @@ function M.map_double_leader(mode, lhs, rhs, opts)
 	M.map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end
 
+function M.nmap_double_leader(lhs, rhs, opts)
+	M.map("n", "<leader><leader>" .. lhs, rhs, opts)
+end
+
 function M.setup_color_scheme(name, lazy)
 	if lazy then
 		require("themes." .. name)

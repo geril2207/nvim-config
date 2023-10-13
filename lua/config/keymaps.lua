@@ -1,11 +1,10 @@
 local utils = require("utils")
 
-local map = utils.map
 local imap = utils.imap
 local vmap = utils.vmap
 local nmap = utils.nmap
 local nvmap = utils.nvmap
-local map_double_leader = utils.map_double_leader
+local nmap_double_leader = utils.nmap_double_leader
 
 nmap("<A-j>", ":m +1 <CR>")
 nmap("<A-k>", ":m -2 <CR>")
@@ -131,8 +130,8 @@ nvmap("<leader>ghN", ":Gitsigns prev_hunk<CR>")
 
 -- Maps For Double Leader
 -- Easy Motions
-map_double_leader("n", "w", ":HopWordAC<CR>")
-map_double_leader("n", "b", ":HopWordBC<CR>")
-map_double_leader("n", "f", ":HopChar1AC<CR>")
-map_double_leader("n", "F", ":HopChar1BC<CR>")
-map_double_leader("n", "W", ":HopWord<CR>")
+nmap_double_leader("w", ":HopWordAC<CR>")
+nmap_double_leader("b", ":HopWordBC<CR>")
+nmap_double_leader("f", ":HopChar1AC<CR>")
+nmap_double_leader("F", ":HopChar1BC<CR>")
+nmap_double_leader("W", ":HopWord<CR>")
