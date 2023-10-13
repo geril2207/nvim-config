@@ -25,8 +25,6 @@ local servers_formatting_disable = {
 local map = require("utils").map
 
 local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	-- Disable formatting for some servers to use external utils like prettier
 	for _, server in ipairs(servers_formatting_disable) do
 		if client.name == server then
