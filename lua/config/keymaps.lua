@@ -97,9 +97,10 @@ nmap("<leader>fg", ":Telescope git_files<CR>")
 nmap("<leader>u", ":Telescope undo<cr>")
 nmap("<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
 nmap("<leader>fm", ":Telescope marks<CR>")
-nmap("gf", ":Telescope lsp_references <CR>")
 nmap("<leader>fs", ":Telescope lsp_document_symbols <CR>")
 nmap("<leader>fw", ":Telescope lsp_dynamic_workspace_symbols <CR>")
+nmap("gf", ":Telescope lsp_references <CR>")
+nmap("gt", ":Telescope lsp_type_definitions <CR>")
 nmap("<leader>fd", ":Telescope diagnostics <CR>")
 
 -- LSP Saga
