@@ -41,6 +41,22 @@ function M.map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function M.nmap(lhs, rhs, opts)
+	M.map("n", lhs, rhs, opts)
+end
+
+function M.imap(lhs, rhs, opts)
+	M.map("i", lhs, rhs, opts)
+end
+
+function M.vmap(lhs, rhs, opts)
+	M.map("v", lhs, rhs, opts)
+end
+
+function M.nvmap(lhs, rhs, opts)
+	M.map({ "n", "v" }, lhs, rhs, opts)
+end
+
 function M.map_double_leader(mode, lhs, rhs, opts)
 	M.map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end

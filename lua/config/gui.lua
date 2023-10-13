@@ -6,6 +6,9 @@ FontFamily = "JetBrainsMono Nerd Font"
 local utils = require("utils")
 local apply_font = utils.apply_font
 local map = utils.map
+local imap = utils.imap
+local nmap = utils.nmap
+local vmap = utils.vmap
 
 if utils.is_nvim_qt then
 	apply_font({ font_family = "JetBrainsMono Nerd Font Mono" })
@@ -26,12 +29,12 @@ if utils.is_gui then
 		utils.decrease_font_size(1)
 	end
 
-	map("n", "<C-=>", increase_fontsize)
-	map("n", "<C-->", decrease_fontsize)
-	map("n", "<leader>=", increase_fontsize)
-	map("n", "<leader>-", decrease_fontsize)
-	map("n", "<C-ScrollWheelUp>", increase_fontsize)
-	map("n", "<C-ScrollWheelDown>", decrease_fontsize)
+	nmap("<C-=>", increase_fontsize)
+	nmap("<C-->", decrease_fontsize)
+	nmap("n", "<leader>=", increase_fontsize)
+	nmap("<leader>-", decrease_fontsize)
+	nmap("<C-ScrollWheelUp>", increase_fontsize)
+	nmap("<C-ScrollWheelDown>", decrease_fontsize)
 end
 
 if not utils.is_goneovim then
@@ -46,12 +49,12 @@ if vim.g.neovide then
 	-- vim.g.neovide_cursor_antialiasing = false
 	vim.g.neovide_fullscreen = false
 	-- vim.g.neovide_input_use_logo = 0 -- enable use of the logo (cmd) key
-	map("n", "<D-s>", ":w<CR>") -- Save
-	map("v", "<D-c>", '"+y') -- Copy
-	map("n", "<D-v>", '"+P') -- Paste normal mode
-	map("v", "<D-v>", '"+P') -- Paste visual mode
+	nmap("<D-s>", ":w<CR>") -- Save
+	vmap("<D-c>", '"+y') -- Copy
+	nmap("<D-v>", '"+P') -- Paste normal mode
+	vmap("<D-v>", '"+P') -- Paste visual mode
 	map("c", "<D-v>", "<C-R>+") -- Paste command mode
-	map("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+	imap("<D-v>", '<ESC>l"+Pli') -- Paste insert mode
 
 	vim.g.neovide_scale_factor = 1.0
 
@@ -60,17 +63,17 @@ if vim.g.neovide then
 	end
 	local diff = 1.1
 	if vim.fn.has("macunix") then
-		map("n", "<D-=>", function()
+		nmap("<D-=>", function()
 			change_scale_factor(diff)
 		end)
-		map("n", "<D-->", function()
+		nmap("<D-->", function()
 			change_scale_factor(1 / diff)
 		end)
 	else
-		map("n", "<A-=>", function()
+		nmap("<A-=>", function()
 			change_scale_factor(diff)
 		end)
-		map("n", "<A-->", function()
+		nmap("<A-->", function()
 			change_scale_factor(1 / diff)
 		end)
 	end

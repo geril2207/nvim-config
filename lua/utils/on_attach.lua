@@ -22,7 +22,9 @@ local servers_formatting_disable = {
 	"astro",
 }
 
-local map = require("utils").map
+local nmap = require("utils").nmap
+local imap = require("utils").imap
+local nvmap = require("utils").nvmap
 
 local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier
@@ -47,22 +49,22 @@ local on_attach = function(client, bufnr)
 	-- Mappings.lsp
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	map("n", "gD", vim.lsp.buf.declaration, bufopts)
-	map("n", "gh", vim.lsp.buf.hover, bufopts)
-	map("n", "gi", ":Telescope lsp_implementations<CR>", bufopts)
-	map("n", "<leader>d", vim.lsp.buf.definition, bufopts)
-	map("n", "gd", vim.lsp.buf.definition, bufopts)
-	map("n", "gt", vim.lsp.buf.type_definition, bufopts)
-	map({ "n", "v" }, "<leader>f", formatFile, bufopts)
-	map({ "n", "v" }, "<A-F>", formatFile, bufopts)
-	map("i", "<A-w>", vim.lsp.buf.signature_help, bufopts)
-	map("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
-	map("n", "[e", vim.diagnostic.goto_prev, bufopts)
-	map("n", "<leader>r", vim.lsp.buf.rename, bufopts)
-	map("n", "]e", vim.diagnostic.goto_next, bufopts)
-	map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, bufopts)
+	nmap("gD", vim.lsp.buf.declaration, bufopts)
+	nmap("gh", vim.lsp.buf.hover, bufopts)
+	nmap("gi", ":Telescope lsp_implementations<CR>", bufopts)
+	nmap("<leader>d", vim.lsp.buf.definition, bufopts)
+	nmap("gd", vim.lsp.buf.definition, bufopts)
+	nmap("gt", vim.lsp.buf.type_definition, bufopts)
+	nmap("<leader>k", vim.lsp.buf.signature_help, bufopts)
+	nmap("[e", vim.diagnostic.goto_prev, bufopts)
+	nmap("<leader>r", vim.lsp.buf.rename, bufopts)
+	nmap("]e", vim.diagnostic.goto_next, bufopts)
+	nvmap("<A-F>", formatFile, bufopts)
+	nvmap("<leader>f", formatFile, bufopts)
+	nvmap("<leader>la", vim.lsp.buf.code_action, bufopts)
+	imap("<A-w>", vim.lsp.buf.signature_help, bufopts)
 
-	map("n", "<leader>ld", function()
+	nmap("<leader>ld", function()
 		vim.diagnostic.open_float({
 			scope = "line",
 			source = "if_many",
