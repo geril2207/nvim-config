@@ -123,6 +123,7 @@ imap("<C-u>", "<C-g>u<C-u>", { silent = true })
 
 -- Git
 nvmap("<leader>gs", ":Gitsigns<CR>")
+nvmap("<leader>gp", ":Gitsigns preview_hunk<CR>")
 nvmap("<leader>gbs", ":Gitsigns stage_buffer<CR>")
 nvmap("<leader>ghs", ":Gitsigns stage_hunk<CR>")
 nvmap("<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
