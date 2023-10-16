@@ -3,11 +3,11 @@ vim.g.loaded_netrwPlugin = 1
 
 local Path = require("plenary.path")
 
-local cacheFilePath = string.format("%s/nvimtree.json", vim.fn.stdpath("data"))
+local cache_file_path = string.format("%s/nvimtree.json", vim.fn.stdpath("data"))
 local quit_on_open = false
 
 local ok, cache = pcall(function()
-	return vim.fn.json_decode(Path.new(cacheFilePath):read())
+	return vim.fn.json_decode(Path.new(cache_file_path):read())
 end)
 
 if ok then
@@ -24,7 +24,7 @@ local function toggle_quit_on_open()
 	local cache = {
 		quit_on_open = quit_on_open,
 	}
-	Path.new(cacheFilePath):write(vim.fn.json_encode(cache), "w")
+	Path.new(cache_file_path):write(vim.fn.json_encode(cache), "w")
 end
 
 local function on_attach(bufnr)

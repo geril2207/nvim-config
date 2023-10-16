@@ -51,6 +51,7 @@ require("telescope").setup({
 			hidden = true,
 			no_ignore = false,
 			find_command = vim.fn.executable("fd") == 1 and { "fd", "--type", "f", "--path-separator", "/" } or nil,
+			previewer = false,
 
 			sorting_strategy = "ascending",
 			layout_config = {

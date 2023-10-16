@@ -116,7 +116,7 @@ local servers = {
 			},
 		},
 	},
-	-- clangd = {},
+	clangd = {},
 	tailwindcss = {
 		disabled = true,
 	},
@@ -155,6 +155,7 @@ local servers = {
 					["http://json.schemastore.org/prettierrc.json"] = ".prettierrc.{yml,yaml}",
 					["http://json.schemastore.org/stylelintrc.json"] = ".stylelintrc.{yml,yaml}",
 					["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
+					["http://json.schemastore.org/lazydocker.json"] = "lazydocker/**/*.{yml,yaml}",
 				},
 			},
 		},
@@ -267,27 +268,27 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 -- ! posible need to fix in 0.10 version
-local function open_diagnostic()
-	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-		local zindex = vim.api.nvim_win_get_config(winid).zindex
-		print("winid", winid, zindex)
-		if zindex then
-			return
-		end
-	end
-
-	vim.diagnostic.open_float({
-		scope = "cursor",
-		focusable = false,
-		close_events = {
-			"CursorMoved",
-			"CursorMovedI",
-			"BufHidden",
-			"InsertCharPre",
-			"WinLeave",
-		},
-	})
-end
+-- local function open_diagnostic()
+-- 	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+-- 		local zindex = vim.api.nvim_win_get_config(winid).zindex
+-- 		print("winid", winid, zindex)
+-- 		if zindex then
+-- 			return
+-- 		end
+-- 	end
+--
+-- 	vim.diagnostic.open_float({
+-- 		scope = "cursor",
+-- 		focusable = false,
+-- 		close_events = {
+-- 			"CursorMoved",
+-- 			"CursorMovedI",
+-- 			"BufHidden",
+-- 			"InsertCharPre",
+-- 			"WinLeave",
+-- 		},
+-- 	})
+-- end
 
 -- Show diagnostics under the cursor when holding position
 -- vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
