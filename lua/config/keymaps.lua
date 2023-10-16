@@ -137,3 +137,12 @@ nmap_double_leader("b", ":HopWordBC<CR>")
 nmap_double_leader("f", ":HopChar1AC<CR>")
 nmap_double_leader("F", ":HopChar1BC<CR>")
 nmap_double_leader("W", ":HopWord<CR>")
+
+nmap("<leader>aw", function()
+	local input = vim.fn.input("Width: ")
+	local ok, input_int = pcall(tonumber, input)
+
+	if ok and input_int then
+		vim.api.nvim_win_set_width(0, input_int)
+	end
+end)
