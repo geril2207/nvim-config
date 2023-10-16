@@ -53,5 +53,3 @@ cmd([[au BufNewFile,BufRead *.html set filetype=html]])
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once
 vim.o.updatetime = 250
-
-opt.cursorline = vim.fn.has("gui_running") == 1 and vim.g.fvim_loaded ~= 1
