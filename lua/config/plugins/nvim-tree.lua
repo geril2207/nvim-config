@@ -65,7 +65,7 @@ require("nvim-tree").setup({
 	},
 	view = {
 		preserve_window_proportions = true,
-		relativenumber = false,
+		relativenumber = true,
 		width = function()
 			if is_float then
 				return math.floor(vim.opt.columns:get() * width_ratio)
