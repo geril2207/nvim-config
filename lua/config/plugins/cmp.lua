@@ -93,10 +93,10 @@ cmp.setup({
 	sorting = {
 		-- TODO: Would be cool to add stuff like "See variable names before method names" in rust, or something like that.
 		comparators = {
-			cmp.config.compare.offset,
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
 			cmp.config.compare.locality,
+			cmp.config.compare.offset,
 			cmp.config.compare.length,
 
 			-- copied from cmp-under, but I don't think I need the plugin for this.
