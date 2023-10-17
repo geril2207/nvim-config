@@ -1,20 +1,10 @@
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
-local Path = require("plenary.path")
+local tree_utils = require("config.plugins.nvim-tree.utils")
 
-local cache_file_path = string.format("%s/nvimtree.json", vim.fn.stdpath("data"))
-local quit_on_open = false
-
-local ok, cache = pcall(function()
-	return vim.fn.json_decode(Path.new(cache_file_path):read())
-end)
-
-if ok then
-	if cache.quit_on_open ~= nil then
-		quit_on_open = cache.quit_on_open
-	end
-end
+local quit_on_open = tree_utils.quit_on_open
+local write_cache = tree_utils.write_cache
 
 local function toggle_quit_on_open()
 	local open_file_opts = require("nvim-tree.actions.node.open-file")
@@ -24,7 +14,7 @@ local function toggle_quit_on_open()
 	local cache = {
 		quit_on_open = quit_on_open,
 	}
-	Path.new(cache_file_path):write(vim.fn.json_encode(cache), "w")
+	write_cache(cache)
 end
 
 local nvim_tree_group = vim.api.nvim_create_augroup("NvimTreeeCLGroup", { clear = true })
@@ -65,11 +55,8 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
 
 	vim.keymap.set("n", "st", toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
+	vim.keymap.set("n", "sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
 end
-
-local height_ratio = 0.8 -- You can change this
-local width_ratio = 0.5 -- You can change this too
-local is_float = false
 
 -- empty setup using defaults
 require("nvim-tree").setup({
@@ -80,23 +67,19 @@ require("nvim-tree").setup({
 		enable = true,
 	},
 	view = {
-		preserve_window_proportions = true,
+		-- preserve_window_proportions = true,
 		cursorline = true,
+		-- adaptive_size = quit_on_open,
 		relativenumber = true,
-		width = function()
-			if is_float then
-				return math.floor(vim.opt.columns:get() * width_ratio)
-			else
-				return 35
-			end
-		end,
+		width = tree_utils.width,
 		float = {
-			enable = is_float,
+			enable = tree_utils.is_float,
+			quit_on_focus_loss = false,
 			open_win_config = function()
 				local screen_w = vim.opt.columns:get()
 				local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-				local window_w = screen_w * width_ratio
-				local window_h = screen_h * height_ratio
+				local window_w = screen_w * tree_utils.width_ratio
+				local window_h = screen_h * tree_utils.height_ratio
 				local window_w_int = math.floor(window_w)
 				local window_h_int = math.floor(window_h)
 				local center_x = (screen_w - window_w) / 2
@@ -138,6 +121,10 @@ local function open_nvim_tree(data)
 
 	if directory then
 		vim.cmd.cd(data.file)
+	end
+
+	if real_file and tree_utils.is_float then
+		return
 	end
 
 	if real_file then
