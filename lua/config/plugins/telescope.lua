@@ -19,6 +19,8 @@ require("telescope").setup({
 				["<C-k>"] = actions.preview_scrolling_up,
 				["<C-l>"] = actions.preview_scrolling_right,
 				["<C-h>"] = actions.preview_scrolling_left,
+				["<M-v>"] = actions.select_vertical,
+				["<M-h>"] = actions.select_horizontal,
 				["<C-u>"] = false,
 			},
 			n = {
