@@ -6,6 +6,8 @@ local tree_utils = require("config.plugins.nvim-tree.utils")
 local quit_on_open = tree_utils.quit_on_open
 local write_cache = tree_utils.write_cache
 
+local nmap = require("utils").nmap
+
 local function toggle_quit_on_open()
 	local open_file_opts = require("nvim-tree.actions.node.open-file")
 	quit_on_open = not quit_on_open
@@ -45,17 +47,19 @@ local function on_attach(bufnr)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
 
-	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
-	vim.keymap.set("n", "t", function()
+	nmap("l", api.node.open.edit, opts("Open"))
+	nmap("t", function()
 		api.node.open.edit()
 		api.tree.close()
 	end, opts("Open With closing"))
 
-	vim.keymap.set("n", "sv", api.node.open.vertical, opts("Open Split: Vertical"))
-	vim.keymap.set("n", "sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
+	nmap("<ESC>", api.tree.close, opts("Close"))
 
-	vim.keymap.set("n", "st", toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
-	vim.keymap.set("n", "sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
+	nmap("sv", api.node.open.vertical, opts("Open Split: Vertical"))
+	nmap("sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
+
+	nmap("st", toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
+	nmap("sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
 end
 
 -- empty setup using defaults
