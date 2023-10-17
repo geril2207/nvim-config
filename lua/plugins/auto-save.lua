@@ -1,4 +1,6 @@
 return {
 	"Pocco81/auto-save.nvim",
-	opts = {},
+	opts = {
+		write_all_buffers = false,
+	},
 }
