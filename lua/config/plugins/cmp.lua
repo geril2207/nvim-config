@@ -95,8 +95,8 @@ cmp.setup({
 		comparators = {
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
-			cmp.config.compare.locality,
 			cmp.config.compare.offset,
+			cmp.config.compare.locality,
 			cmp.config.compare.length,
 
 			-- copied from cmp-under, but I don't think I need the plugin for this.

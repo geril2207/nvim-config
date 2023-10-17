@@ -7,9 +7,9 @@ local nmap = require("utils").nmap
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
-	api.events.subscribe(api.events.Event.FileCreated, function(file)
-		vim.cmd("edit " .. file.fname)
-	end)
+	-- api.events.subscribe(api.events.Event.FileCreated, function(file)
+	-- 	vim.cmd("edit " .. file.fname)
+	-- end)
 	api.config.mappings.default_on_attach(bufnr)
 
 	local function opts(desc)
@@ -27,6 +27,8 @@ local function on_attach(bufnr)
 
 	nmap("sv", api.node.open.vertical, opts("Open Split: Vertical"))
 	nmap("sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
+	nmap("<M-v>", api.node.open.vertical, opts("Open Split: Vertical"))
+	nmap("<M-h>", api.node.open.horizontal, opts("Open Split: Horizontal"))
 
 	nmap("st", tree_utils.toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
 	nmap("sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
