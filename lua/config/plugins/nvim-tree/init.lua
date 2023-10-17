@@ -47,8 +47,8 @@ local function on_attach(bufnr)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
 
-	nmap("l", api.node.open.edit, opts("Open"))
-	nmap("L", api.node.open.no_window_picker, opts("Open: No Picker"))
+	nmap("L", api.node.open.edit, opts("Open"))
+	nmap("l", api.node.open.no_window_picker, opts("Open: No Picker"))
 	nmap("t", function()
 		api.node.open.edit()
 		api.tree.close()
