@@ -3,40 +3,9 @@ vim.g.loaded_netrwPlugin = 1
 
 local tree_utils = require("config.plugins.nvim-tree.utils")
 
-local quit_on_open = tree_utils.quit_on_open
-local write_cache = tree_utils.write_cache
-
 local nmap = require("utils").nmap
 
-local function toggle_quit_on_open()
-	local open_file_opts = require("nvim-tree.actions.node.open-file")
-	quit_on_open = not quit_on_open
-	open_file_opts.quit_on_open = quit_on_open
-	-- Path
-	local cache = {
-		quit_on_open = quit_on_open,
-	}
-	write_cache(cache)
-end
-
-local nvim_tree_group = vim.api.nvim_create_augroup("NvimTreeeCLGroup", { clear = true })
-local colors = require("catppuccin.palettes").get_palette("mocha")
 local function on_attach(bufnr)
-	vim.api.nvim_create_autocmd("BufEnter", {
-		pattern = "NvimTree*",
-		callback = function()
-			vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = colors.peach, bg = colors.surface0 })
-		end,
-		group = nvim_tree_group,
-	})
-	vim.api.nvim_create_autocmd("BufLeave", {
-		pattern = "NvimTree*",
-		callback = function()
-			vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = colors.peach, bg = colors.none })
-		end,
-		group = nvim_tree_group,
-	})
-
 	local api = require("nvim-tree.api")
 	api.events.subscribe(api.events.Event.FileCreated, function(file)
 		vim.cmd("edit " .. file.fname)
@@ -59,7 +28,7 @@ local function on_attach(bufnr)
 	nmap("sv", api.node.open.vertical, opts("Open Split: Vertical"))
 	nmap("sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
 
-	nmap("st", toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
+	nmap("st", tree_utils.toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
 	nmap("sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
 end
 
@@ -115,7 +84,7 @@ require("nvim-tree").setup({
 
 	actions = {
 		open_file = {
-			quit_on_open = quit_on_open,
+			quit_on_open = tree_utils.quit_on_open,
 		},
 	},
 })
@@ -141,3 +110,5 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+require("config.plugins.nvim-tree.cursorline")

@@ -12,7 +12,7 @@ local rep = extras.rep
 
 luasnip.setup({
 	region_check_events = "InsertEnter",
-	delete_check_events = "TextChanged,InsertLeave",
+	delete_check_events = "TextChanged,InsertLeave,InsertEnter",
 	update_events = "TextChanged,TextChangedI",
 })
 
