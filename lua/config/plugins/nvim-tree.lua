@@ -27,9 +27,25 @@ local function toggle_quit_on_open()
 	Path.new(cache_file_path):write(vim.fn.json_encode(cache), "w")
 end
 
+local nvim_tree_group = vim.api.nvim_create_augroup("NvimTreeeCLGroup", { clear = true })
+local colors = require("catppuccin.palettes").get_palette("mocha")
 local function on_attach(bufnr)
-	local api = require("nvim-tree.api")
+	vim.api.nvim_create_autocmd("BufEnter", {
+		pattern = "NvimTree*",
+		callback = function()
+			vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = colors.peach, bg = colors.surface0 })
+		end,
+		group = nvim_tree_group,
+	})
+	vim.api.nvim_create_autocmd("BufLeave", {
+		pattern = "NvimTree*",
+		callback = function()
+			vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = colors.peach, bg = colors.none })
+		end,
+		group = nvim_tree_group,
+	})
 
+	local api = require("nvim-tree.api")
 	api.events.subscribe(api.events.Event.FileCreated, function(file)
 		vim.cmd("edit " .. file.fname)
 	end)
@@ -65,6 +81,7 @@ require("nvim-tree").setup({
 	},
 	view = {
 		preserve_window_proportions = true,
+		cursorline = true,
 		relativenumber = true,
 		width = function()
 			if is_float then
