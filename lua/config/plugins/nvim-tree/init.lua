@@ -48,6 +48,7 @@ local function on_attach(bufnr)
 	end
 
 	nmap("l", api.node.open.edit, opts("Open"))
+	nmap("L", api.node.open.no_window_picker, opts("Open: No Picker"))
 	nmap("t", function()
 		api.node.open.edit()
 		api.tree.close()
