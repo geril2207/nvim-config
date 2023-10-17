@@ -1,2 +1,2 @@
 require("config.settings.common")
-require("config.settings.cursorline")
+require("config.settings.filetype")
