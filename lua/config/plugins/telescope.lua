@@ -137,3 +137,11 @@ require("neoclip").setup({
 
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("neoclip")
+
+local nvim_tree_api = require("nvim-tree.api")
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TelescopeFindPre",
+	callback = function()
+		nvim_tree_api.tree.close()
+	end,
+})
