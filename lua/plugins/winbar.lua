@@ -6,8 +6,8 @@ return {
 			local colors = require("catppuccin.palettes").get_palette("mocha")
 			require("winbar").setup({
 				enabled = true,
-				show_file_path = true,
-				show_symbols = true,
+				show_file_path = false,
+				show_symbols = false,
 
 				colors = {
 					path = colors.overlay0,
