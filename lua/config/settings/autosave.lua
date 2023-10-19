@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 				end
 			end
 
-			vim.cmd("w " .. file)
+			vim.cmd("silent w " .. file)
 		end
 	end,
 })
