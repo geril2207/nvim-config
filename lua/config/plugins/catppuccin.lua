@@ -23,6 +23,7 @@ require("catppuccin").setup({
 					bg = transparent and colors.none or colors.surface0,
 					style = { "bold" },
 				},
+				WinBar = { fg = colors.text },
 			}
 		end,
 	},

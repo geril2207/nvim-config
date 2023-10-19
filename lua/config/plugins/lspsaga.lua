@@ -28,11 +28,17 @@ saga.setup({
 		},
 	},
 	symbol_in_winbar = {
-		enable = false,
+		enable = true,
+		hide_keywords = true,
 	},
 	finder = {
 		keys = {
 			expand_or_jump = { "o", "l" },
 		},
+	},
+
+	outline = {
+		layout = "float",
+		win_position = "center",
 	},
 })
