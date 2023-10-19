@@ -1,13 +1,9 @@
 local function harpoon_files()
-	if vim.bo.buftype ~= "" then
-		return ""
-	end
-
 	local marks = require("harpoon").get_mark_config()["marks"]
 	local current_file = vim.fn.split(vim.api.nvim_buf_get_name(0), "/")
 	current_file = current_file[#current_file]
 	local ret = {}
-	for key, value in pairs(marks) do
+	for _, value in pairs(marks) do
 		local file = vim.fn.split(value["filename"], "/")
 		file = file[#file]
 		file = file == current_file and file .. "*" or file .. " "
