@@ -11,7 +11,7 @@ local function harpoon_files()
 		local file = vim.fn.split(value["filename"], "/")
 		file = file[#file]
 		file = file == current_file and file .. "*" or file .. " "
-		table.insert(ret, "  " .. key .. " " .. file)
+		table.insert(ret, " " .. file)
 	end
 	return table.concat(ret)
 end
@@ -27,14 +27,15 @@ return {
 				lualine_c = {
 					{
 						"filename",
-						file_status = true, -- displays file status (readonly status, modified status)
-						path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+						file_status = false, -- displays file status (readonly status, modified status)
+						path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
 					},
 				},
 				lualine_x = { harpoon_files, "filetype" },
 				lualine_y = { "progress" },
 
-				lualine_z = { "location" },
+				-- lualine_z = { "location" },
+				lualine_z = {},
 			},
 		},
 	},
