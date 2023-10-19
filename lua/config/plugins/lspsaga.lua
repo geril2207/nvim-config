@@ -28,7 +28,7 @@ saga.setup({
 		},
 	},
 	symbol_in_winbar = {
-		enable = true,
+		enable = false,
 		hide_keywords = true,
 	},
 	finder = {
