@@ -31,7 +31,7 @@ function M.toggle_floating()
 	if M.is_float then
 		open_file_opts.quit_on_open = true
 	else
-		open_file_opts.quit_on_open = M.quit_on_open
+		open_file_opts.quit_on_open = open_file_opts.quit_on_open
 	end
 end
 
