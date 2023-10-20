@@ -127,8 +127,8 @@ nvmap("<leader>gp", ":Gitsigns preview_hunk<CR>")
 nvmap("<leader>gbs", ":Gitsigns stage_buffer<CR>")
 nvmap("<leader>ghs", ":Gitsigns stage_hunk<CR>")
 nvmap("<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
-nvmap("<leader>ghn", ":Gitsigns next_hunk<CR>")
-nvmap("<leader>ghN", ":Gitsigns prev_hunk<CR>")
+nvmap("]g", ":Gitsigns next_hunk<CR>")
+nvmap("[g", ":Gitsigns prev_hunk<CR>")
 
 -- Maps For Double Leader
 -- Easy Motions
