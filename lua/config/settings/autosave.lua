@@ -7,10 +7,11 @@ vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 	desc = "AutoSave",
 	callback = function(opts)
 		local modifiable = vim.bo.modifiable
+		local readonly = vim.bo.readonly
 		local filetype = vim.bo.filetype
 		local file = opts.file
 
-		if modifiable and file ~= "" then
+		if modifiable and not readonly and file ~= "" then
 			for _, value in ipairs(filetypes_to_ignore) do
 				if value == filetype then
 					return
