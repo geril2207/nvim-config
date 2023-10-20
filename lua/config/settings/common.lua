@@ -24,6 +24,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
 opt.timeoutlen = 500
+opt.clipboard = "unnamedplus"
 
 -- opt.guicursor = ""
 opt.showmode = false
