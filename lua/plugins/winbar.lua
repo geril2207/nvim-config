@@ -1,12 +1,12 @@
 return {
 	{
-		"fgheng/winbar.nvim",
+		"geril2207/winbar.nvim",
 		priority = 1,
 		config = function()
 			local colors = require("catppuccin.palettes").get_palette("mocha")
 			require("winbar").setup({
 				enabled = true,
-				show_file_path = false,
+				show_file_path = true,
 				show_symbols = false,
 
 				colors = {
