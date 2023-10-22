@@ -3,6 +3,11 @@ vim.g.loaded_netrwPlugin = 1
 
 local tree_utils = require("config.plugins.nvim-tree.utils")
 
+local default_values = tree_utils.get_nvim_tree_values_from_cache()
+
+local is_float = default_values.is_float
+local quit_on_open = is_float or default_values.quit_on_open
+
 local nmap = require("utils").nmap
 
 local function on_attach(bufnr)
@@ -49,7 +54,7 @@ require("nvim-tree").setup({
 		relativenumber = true,
 		width = tree_utils.width,
 		float = {
-			enable = tree_utils.is_float,
+			enable = is_float,
 			quit_on_focus_loss = false,
 			open_win_config = function()
 				local screen_w = vim.opt.columns:get()
@@ -71,6 +76,11 @@ require("nvim-tree").setup({
 			end,
 		},
 	},
+	actions = {
+		open_file = {
+			quit_on_open = quit_on_open,
+		},
+	},
 	git = {
 		enable = false,
 		ignore = false,
@@ -82,12 +92,6 @@ require("nvim-tree").setup({
 	},
 	renderer = {
 		root_folder_label = false,
-	},
-
-	actions = {
-		open_file = {
-			quit_on_open = tree_utils.quit_on_open,
-		},
 	},
 })
 

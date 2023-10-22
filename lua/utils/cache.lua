@@ -16,10 +16,13 @@ function M.get_cache()
 	return nil
 end
 
-function M.get_cache_value(key)
+function M.get_cache_value(key, default_value)
 	local cache = M.get_cache()
 
 	if not cache then
+		if default_value ~= nil then
+			return default_value
+		end
 		return nil
 	end
 
@@ -28,8 +31,6 @@ end
 
 function M.set_cache(cache)
 	local prev_cache = M.get_cache()
-
-	print(prev_cache, cache)
 
 	local new_cache = vim.tbl_extend("force", prev_cache or {}, cache)
 
