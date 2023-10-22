@@ -1,4 +1,4 @@
-local function formatFile()
+local function format_file()
 	vim.lsp.buf.format({
 		async = true,
 	})
@@ -59,8 +59,8 @@ local on_attach = function(client, bufnr)
 	nmap("[e", vim.diagnostic.goto_prev, bufopts)
 	nmap("<leader>r", vim.lsp.buf.rename, bufopts)
 	nmap("]e", vim.diagnostic.goto_next, bufopts)
-	nvmap("<A-F>", formatFile, bufopts)
-	nvmap("<leader>f", formatFile, bufopts)
+	nvmap("<A-F>", format_file, bufopts)
+	nvmap("<leader>f", format_file, bufopts)
 	nvmap("<leader>la", vim.lsp.buf.code_action, bufopts)
 	imap("<A-w>", vim.lsp.buf.signature_help, bufopts)
 
