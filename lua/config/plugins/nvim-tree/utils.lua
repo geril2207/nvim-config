@@ -1,3 +1,8 @@
+local open_file_opts = require("nvim-tree.actions.node.open-file")
+local cache_utils = require("utils.cache")
+
+local cache = cache_utils.get_cache()
+
 local M = {
 	is_float = true,
 	quit_on_open = true,
@@ -5,23 +10,14 @@ local M = {
 	width_ratio = 0.5, -- You can change this too
 }
 
-local Path = require("plenary.path")
-local open_file_opts = require("nvim-tree.actions.node.open-file")
+if cache then
+	if cache.is_float ~= nil then
+		M.is_float = cache.is_float
+	end
 
-local cache_file_path = string.format("%s/nvimtree.json", vim.fn.stdpath("data"))
-
-local ok, cache = pcall(function()
-	return vim.fn.json_decode(Path.new(cache_file_path):read())
-end)
-
-if ok then
-	if cache.quit_on_open ~= nil and not M.is_float then
+	if cache.quit_on_open ~= nil then
 		M.quit_on_open = cache.quit_on_open
 	end
-end
-
-local function write_cache(new_cache)
-	Path.new(cache_file_path):write(vim.fn.json_encode(new_cache), "w")
 end
 
 function M.toggle_floating()
@@ -33,6 +29,8 @@ function M.toggle_floating()
 	else
 		open_file_opts.quit_on_open = open_file_opts.quit_on_open
 	end
+
+	cache_utils.set_cache({ quit_on_open = open_file_opts.quit_on_open, is_float = M.is_float })
 end
 
 function M.width()
@@ -46,12 +44,8 @@ end
 function M.toggle_quit_on_open()
 	M.quit_on_open = not M.quit_on_open
 	open_file_opts.quit_on_open = M.quit_on_open
-	-- Path
-	local cache = {
-		quit_on_open = M.quit_on_open,
-	}
 
-	write_cache(cache)
+	cache_utils.set_cache_value("quit_on_open", M.quit_on_open)
 end
 
 return M

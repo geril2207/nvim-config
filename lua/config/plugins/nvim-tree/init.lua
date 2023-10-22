@@ -99,7 +99,7 @@ local function open_nvim_tree(data)
 		vim.cmd.cd(data.file)
 	end
 
-	if real_file and tree_utils.is_float then
+	if real_file and is_float then
 		return
 	end
 
