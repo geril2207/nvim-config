@@ -2,6 +2,8 @@ local group = vim.api.nvim_create_augroup("AutoSave", { clear = true })
 
 local filetypes_to_ignore = { "harpoon" }
 
+local api = vim.api
+
 vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 	group = group,
 	desc = "AutoSave",
@@ -11,6 +13,12 @@ vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 		local filetype = vim.bo.filetype
 		local file = opts.file
 
+		local is_modified = api.nvim_get_option_value("modified", { buf = 0 })
+
+		if not is_modified then
+			return
+		end
+
 		if modifiable and not readonly and file ~= "" then
 			for _, value in ipairs(filetypes_to_ignore) do
 				if value == filetype then
@@ -18,7 +26,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 				end
 			end
 
-			vim.cmd("silent w " .. file)
+			vim.cmd("silent! write")
 		end
 	end,
 })
