@@ -12,9 +12,14 @@ local nmap = require("utils").nmap
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
-	-- api.events.subscribe(api.events.Event.FileCreated, function(file)
-	-- 	vim.cmd("edit " .. file.fname)
-	-- end)
+	local view_opts = require("nvim-tree.view").View
+
+	api.events.subscribe(api.events.Event.FileCreated, function(file)
+		if view_opts.float and view_opts.float.enable then
+			api.tree.close()
+		end
+		vim.cmd("edit " .. file.fname)
+	end)
 	api.config.mappings.default_on_attach(bufnr)
 
 	local function opts(desc)
