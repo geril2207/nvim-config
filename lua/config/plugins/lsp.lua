@@ -267,27 +267,32 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	end,
 })
 
+-- local api = vim.api
 -- ! posible need to fix in 0.10 version
 -- local function open_diagnostic()
--- 	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
--- 		local zindex = vim.api.nvim_win_get_config(winid).zindex
--- 		print("winid", winid, zindex)
--- 		if zindex then
--- 			return
+-- 	local diagnostics = vim.diagnostic.get(0)
+-- 	local cursor = api.nvim_win_get_cursor(0)
+--
+-- 	local cursor_line = cursor[1] - 1
+-- 	local cursor_col = cursor[2]
+--
+-- 	for _, diagnostic in ipairs(diagnostics) do
+-- 		if cursor_line == diagnostic.lnum then
+-- 			if cursor_col >= diagnostic.col and cursor_col <= diagnostic.end_col then
+-- 				vim.diagnostic.open_float({
+-- 					scope = "cursor",
+-- 					focusable = false,
+-- 					close_events = {
+-- 						"CursorMoved",
+-- 						"CursorMovedI",
+-- 						"BufHidden",
+-- 						"InsertCharPre",
+-- 						"WinLeave",
+-- 					},
+-- 				})
+-- 			end
 -- 		end
 -- 	end
---
--- 	vim.diagnostic.open_float({
--- 		scope = "cursor",
--- 		focusable = false,
--- 		close_events = {
--- 			"CursorMoved",
--- 			"CursorMovedI",
--- 			"BufHidden",
--- 			"InsertCharPre",
--- 			"WinLeave",
--- 		},
--- 	})
 -- end
 
 -- Show diagnostics under the cursor when holding position
