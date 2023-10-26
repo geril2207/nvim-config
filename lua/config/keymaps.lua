@@ -4,6 +4,7 @@ local imap = utils.imap
 local vmap = utils.vmap
 local nmap = utils.nmap
 local nvmap = utils.nvmap
+local tmap = utils.tmap
 local nmap_double_leader = utils.nmap_double_leader
 
 nmap("<A-j>", ":m +1 <CR>")
@@ -22,6 +23,7 @@ nmap("<C-n>", ":noh<CR>")
 nmap("<Leader>e", ":NvimTreeFocus<CR>")
 nmap("<Leader>ab", ":NvimTreeClose<CR>")
 --map("n", "<Leader>e", ":Neotree focus<CR>")
+tmap("<ESC>", "<C-\\><C-n>")
 imap("jk", "<ESC>")
 imap("jj", "<ESC>")
 

@@ -57,6 +57,10 @@ function M.nvmap(lhs, rhs, opts)
 	M.map({ "n", "v" }, lhs, rhs, opts)
 end
 
+function M.tmap(lhs, rhs, opts)
+	M.map("t", lhs, rhs, opts)
+end
+
 function M.map_double_leader(mode, lhs, rhs, opts)
 	M.map(mode, "<leader><leader>" .. lhs, rhs, opts)
 end
