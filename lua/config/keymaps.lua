@@ -84,6 +84,7 @@ nmap("<leader>hl", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 
 --Telescope
 nmap("<leader>snp", ":Telescope neoclip plus<CR>")
+nmap("<leader>sn", ":Telescope neoclip<CR>")
 nmap("<leader>snu", ":Telescope neoclip unnamed<CR>")
 nmap("<leader>sns", ":Telescope neoclip star<CR>")
 nmap("<leader>ff", ":Telescope find_files<CR>")
