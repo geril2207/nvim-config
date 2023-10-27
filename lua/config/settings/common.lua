@@ -30,6 +30,13 @@ opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.showmode = false
 
+api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		opt.formatoptions = opt.formatoptions - "o" - "r" - "c"
+	end,
+})
+
 api.nvim_create_autocmd("TextYankPost", {
 	group = api.nvim_create_augroup("YankHighlight", { clear = true }),
 	callback = function()
