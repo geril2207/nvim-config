@@ -90,10 +90,13 @@ require("telescope").setup({
 			show_line = true,
 			path_display = { "tail" },
 			file_ignore_patterns = {},
-			-- initial_mode = "normal",
+			layout_strategy = "vertical",
 			layout_config = {
-				preview_width = 50,
-				width = 0.7,
+				vertical = {
+					preview_cutoff = 1,
+					prompt_position = "top",
+					mirror = true,
+				},
 			},
 		},
 	},
