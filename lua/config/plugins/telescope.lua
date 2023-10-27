@@ -144,7 +144,7 @@ local tree_utils = require("config.plugins.nvim-tree.utils")
 vim.api.nvim_create_autocmd("User", {
 	pattern = "TelescopeFindPre",
 	callback = function()
-		if tree_utils.is_float then
+		if tree_utils.is_floating() then
 			tree_api.tree.close()
 		end
 	end,
