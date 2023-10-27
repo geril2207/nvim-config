@@ -8,7 +8,7 @@ local default_values = tree_utils.get_nvim_tree_values_from_cache()
 local is_float = default_values.is_float
 local quit_on_open = is_float or default_values.quit_on_open
 
-local nmap = require("utils").nmap
+local nmap = require("config.utils").nmap
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")

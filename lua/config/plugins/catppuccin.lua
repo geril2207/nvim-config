@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require("config.utils")
 local transparent = utils.transparent
 
 require("catppuccin").setup({

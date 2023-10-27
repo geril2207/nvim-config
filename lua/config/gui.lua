@@ -3,7 +3,7 @@
 FontSize = 14
 FontFamily = "JetBrainsMono Nerd Font"
 
-local utils = require("utils")
+local utils = require("config.utils")
 local apply_font = utils.apply_font
 local map = utils.map
 local imap = utils.imap

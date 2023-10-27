@@ -22,9 +22,9 @@ local servers_formatting_disable = {
 	"astro",
 }
 
-local nmap = require("utils").nmap
-local imap = require("utils").imap
-local nvmap = require("utils").nvmap
+local nmap = require("config.utils").nmap
+local imap = require("config.utils").imap
+local nvmap = require("config.utils").nvmap
 
 local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier

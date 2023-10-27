@@ -1,6 +1,6 @@
 local open_file_opts = require("nvim-tree.actions.node.open-file")
 local view_opts = require("nvim-tree.view").View
-local cache_utils = require("utils.cache")
+local cache_utils = require("config.utils.cache")
 
 local M = {
 	height_ratio = 0.8,
