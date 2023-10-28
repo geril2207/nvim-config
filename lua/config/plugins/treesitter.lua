@@ -31,7 +31,6 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"dot",
 		"bash",
-		"comment",
 		"jsdoc",
 		"yaml",
 	},
