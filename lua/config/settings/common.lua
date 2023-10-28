@@ -33,7 +33,7 @@ opt.showmode = false
 api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()
-		opt.formatoptions = opt.formatoptions - "o" - "r" - "c"
+		opt.formatoptions = opt.formatoptions - "o" - "c"
 	end,
 })
 
