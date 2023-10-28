@@ -15,4 +15,9 @@ require("lazy").setup("plugins", {
 	change_detection = {
 		enabled = false,
 	},
+	dev = {
+		-- directory where you store your local plugin projects
+		path = "~/my/nvim-plugins",
+		fallback = false, -- Fallback to git when local plugin doesn't exist
+	},
 })
