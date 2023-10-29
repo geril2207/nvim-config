@@ -69,19 +69,17 @@ function M.nmap_double_leader(lhs, rhs, opts)
 	M.map("n", "<leader><leader>" .. lhs, rhs, opts)
 end
 
-function M.setup_color_scheme(name, lazy)
-	if lazy then
-		require("themes." .. name)
-	end
-	vim.cmd("colorscheme " .. name)
-	vim.opt.laststatus = 3
-
-	vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
-	vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
-	vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
-	vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
-	vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
-	vim.cmd("hi! NvimTreeNormal guibg='NONE'")
-end
+-- function M.setup_color_scheme(name, lazy)
+-- 	if lazy then
+-- 		require("themes." .. name)
+-- 	end
+-- 	vim.cmd("colorscheme " .. name)
+--
+--  vim.cmd("hi! HarpoonInactive guibg=NONE guifg=#63698c")
+-- 	vim.cmd("hi! HarpoonActive guibg=NONE guifg=white")
+-- 	vim.cmd("hi! HarpoonNumberActive guibg=NONE guifg=#7aa2f7")
+-- 	vim.cmd("hi! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7")
+-- 	vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
+-- end
 
 return M

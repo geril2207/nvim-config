@@ -58,4 +58,4 @@ require("catppuccin").setup({
 	},
 })
 
-utils.setup_color_scheme("catppuccin")
+vim.cmd("colorscheme catppuccin")

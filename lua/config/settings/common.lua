@@ -18,17 +18,22 @@ opt.relativenumber = true
 opt.so = 10
 opt.undofile = true
 opt.mouse = "a"
+
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
+
 opt.expandtab = true
 opt.smartindent = true
-opt.timeoutlen = 500
-opt.clipboard = "unnamedplus"
-opt.updatetime = 250
-opt.cursorline = true
+
 opt.cursorlineopt = "number"
+opt.clipboard = "unnamedplus"
+
+opt.updatetime = 250
+opt.timeoutlen = 500
+opt.cursorline = true
 opt.showmode = false
+opt.laststatus = 3
 
 api.nvim_create_autocmd("FileType", {
 	pattern = "*",
