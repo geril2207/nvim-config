@@ -122,7 +122,6 @@ nmap("<leader>cd", ":Lspsaga show_cursor_diagnostics<CR>")
 -- map("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>")
 -- map("n", "]e", ":Lspsaga diagnostic_jump_next<CR>")
 nmap("gp", ":Lspsaga peek_definition<CR>")
-imap("<C-u>", "<C-g>u<C-u>", { silent = true })
 
 -- Git
 nvmap("<leader>gs", ":Gitsigns<CR>")
