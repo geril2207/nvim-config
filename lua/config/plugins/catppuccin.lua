@@ -28,7 +28,7 @@ require("catppuccin").setup({
 		end,
 	},
 
-	term_colors = true,
+	term_colors = false,
 	no_italic = true, -- Force no italic
 	no_bold = true, -- Force no bold
 	styles = {

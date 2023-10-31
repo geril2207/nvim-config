@@ -26,21 +26,14 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
 
-opt.cursorlineopt = "number"
 opt.clipboard = "unnamedplus"
+opt.cursorlineopt = "number"
 
 opt.updatetime = 250
 opt.timeoutlen = 500
 opt.cursorline = true
 opt.showmode = false
 opt.laststatus = 3
-
-api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		opt.formatoptions = opt.formatoptions - "o" - "c"
-	end,
-})
 
 api.nvim_create_autocmd("TextYankPost", {
 	group = api.nvim_create_augroup("YankHighlight", { clear = true }),

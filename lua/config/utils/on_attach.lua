@@ -67,7 +67,7 @@ local on_attach = function(client, bufnr)
 	nmap("<leader>ld", function()
 		vim.diagnostic.open_float({
 			scope = "line",
-			source = "if_many",
+			source = "always",
 		})
 	end)
 end
