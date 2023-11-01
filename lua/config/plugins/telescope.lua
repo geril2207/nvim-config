@@ -25,7 +25,7 @@ require("telescope").setup({
 			},
 			n = {
 				["q"] = actions.close,
-				["l"] = actions.select_default,
+				["o"] = actions.select_default,
 			},
 		},
 		file_ignore_patterns = {
