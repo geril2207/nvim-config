@@ -85,6 +85,9 @@ require("nvim-tree").setup({
 		open_file = {
 			quit_on_open = quit_on_open,
 		},
+		remove_file = {
+			close_window = false,
+		},
 	},
 	git = {
 		enable = false,
