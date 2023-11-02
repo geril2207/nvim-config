@@ -2,6 +2,7 @@ return {
 	{
 		"geril2207/winbar.nvim",
 		priority = 1,
+		branch = "feat/folder-icon",
 		config = function()
 			local colors = require("catppuccin.palettes").get_palette("mocha")
 			require("winbar").setup({
