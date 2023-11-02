@@ -1,10 +1,10 @@
-local group = vim.api.nvim_create_augroup("AutoSave", { clear = true })
+local api = vim.api
+
+local group = api.nvim_create_augroup("AutoSave", { clear = true })
 
 local filetypes_to_ignore = { "harpoon" }
 
-local api = vim.api
-
-vim.api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
+api.nvim_create_autocmd({ "BufLeave", "TextChanged", "InsertLeave" }, {
 	group = group,
 	desc = "AutoSave",
 	callback = function(opts)

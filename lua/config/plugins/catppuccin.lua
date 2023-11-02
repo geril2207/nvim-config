@@ -2,7 +2,8 @@ local utils = require("config.utils")
 local transparent = utils.transparent
 
 require("catppuccin").setup({
-	flavour = "mocha",
+	flavour = "macchiato",
+	-- flavour = "mocha",
 	transparent_background = transparent,
 	highlight_overrides = {
 		all = function(colors)
@@ -19,7 +20,7 @@ require("catppuccin").setup({
 				-- NvimTreeCursorLine = { fg = colors.flamingo, bg = colors.surface0 },
 				NvimTreeCursorLineNr = { fg = colors.text, bg = colors.none },
 				TelescopeSelection = {
-					fg = transparent and colors.peach or colors.text,
+					fg = transparent and colors.peach or colors.peach,
 					bg = transparent and colors.none or colors.surface0,
 					style = { "bold" },
 				},
