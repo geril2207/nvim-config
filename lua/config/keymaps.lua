@@ -1,41 +1,8 @@
-local utils = require("config.utils")
-
-local imap = utils.imap
-local vmap = utils.vmap
-local nmap = utils.nmap
-local nvmap = utils.nvmap
-local tmap = utils.tmap
-local nmap_double_leader = utils.nmap_double_leader
-
-nmap("<A-j>", ":m +1 <CR>")
-nmap("<A-k>", ":m -2 <CR>")
-vmap("<A-j>", ":m '>+1<CR>gv=gv")
-vmap("<A-k>", ":m '<-2<CR>gv=gv")
-
-nmap("<C-v>", '"+p')
-vmap("<C-v>", '"+p')
-imap("<C-v>", '<ESC>"+pa')
-vmap("<leader>p", [["_dP]])
---Back jump
-nmap("<leader>b", "<C-o>")
-nmap("<leader>n", "<C-i>")
-nmap("<C-n>", ":noh<CR>")
-nmap("<Leader>e", ":NvimTreeFocus<CR>")
-nmap("<Leader>ab", ":NvimTreeClose<CR>")
-tmap("<ESC>", "<C-\\><C-n>")
-imap("jk", "<ESC>")
-imap("jj", "<ESC>")
-
-nmap("K", "<ESC>")
-vmap("K", "<ESC>")
-nmap("<C-z>", ":undo<CR>")
-nmap("<C-Z>", ":redo<CR>")
-nmap("<C-s>", ":w<CR>")
-vmap("Y", '"+y')
-vmap("y", "ygv<ESC>")
-vmap("<C-c>", '"+y')
-nmap("Y", '"+y')
-nmap("M", "`")
+local map_utils = require("config.utils.map")
+local map = map_utils.map
+local map_tbl = map_utils.map_tbl
+local mcmd = map_utils.cmd
+local double_leader = map_utils.double_leader
 
 local prev_amount = 15
 local function get_amount_of_scrolling_lines()
@@ -58,93 +25,116 @@ local function execute_scroll(direction, history)
 	cmd("normal! zz")
 end
 
-nmap("<A-z>", function()
-	vim.wo.wrap = not vim.wo.wrap
-end)
+map_tbl({
+	i = {
+		["jk"] = "<ESC>",
+		["jj"] = "<ESC>",
+		["<C-v>"] = '<ESC>"+pa',
+	},
 
-nvmap("<C-d>", function()
-	execute_scroll("j")
-end)
+	n = {
+		["<A-j>"] = ":m +1 <CR>",
+		["<A-k>"] = ":m -2 <CR>",
+		["<C-v>"] = '"+p',
+		["<leader>b"] = "<C-o>",
+		["<leader>n"] = "<C-i>",
+		["<C-n>"] = mcmd("noh"),
+		["<leader>e"] = mcmd("NvimTreeFocus"),
+		["<leader>ab"] = mcmd("NvimTreeClose"),
+		["K"] = "<ESC>",
+		["<C-z>"] = mcmd("undo"),
+		["<C-Z>"] = mcmd("redo"),
+		["<C-s>"] = mcmd("w"),
+		["Y"] = '"+y',
+		["M"] = "`",
+		["<Tab>"] = mcmd('lua require("harpoon.ui",.nav_next()'),
+		["<S-Tab>"] = mcmd('lua require("harpoon.ui",.nav_prev()'),
 
-nvmap("<C-u>", function()
-	execute_scroll("k")
-end)
+		["<leader>snp"] = mcmd("Telescope neoclip plus"),
+		["<leader>sn"] = mcmd("Telescope neoclip"),
+		["<leader>snu"] = mcmd("Telescope neoclip unnamed"),
+		["<leader>sns"] = mcmd("Telescope neoclip star"),
+		["<leader>ff"] = mcmd("Telescope find_files"),
+		["<leader>p"] = mcmd("Telescope find_files"),
+		["<leader>P"] = mcmd("Telescope"),
+		["<leader>fp"] = mcmd("Telescope resume"),
+		["<C-p>"] = mcmd("Telescope find_files"),
+		["<leader>fz"] = mcmd("Telescope live_grep"),
+		["<leader>fb"] = mcmd("Telescope buffers"),
+		["<leader>fg"] = mcmd("Telescope git_files"),
+		["<leader>u"] = mcmd("Telescope undo"),
+		["<leader>fh"] = mcmd("Telescope harpoon marks initial_mode=normal"),
+		["<leader>fm"] = mcmd("Telescope marks"),
+		["<leader>fs"] = mcmd("Telescope lsp_document_symbols"),
+		["<leader>fw"] = mcmd("Telescope lsp_dynamic_workspace_symbols"),
+		["gf"] = mcmd("Telescope lsp_references"),
+		["gt"] = mcmd("Telescope lsp_type_definitions"),
+		["<leader>fd"] = mcmd("Telescope diagnostics "),
+		["<leader>sb"] = mcmd("Lspsaga show_buf_diagnostics"),
+		["<leader>sw"] = mcmd("Lspsaga show_workspace_diagnostics"),
+		["<leader>so"] = mcmd("Lspsaga outline"),
+		["<leader>sh"] = mcmd("Lspsaga hover_doc"),
+		["<leader>sf"] = mcmd("Lspsaga lsp_finder"),
+		["<leader>ha"] = mcmd("lua require('harpoon.mark').add_file()"),
+		["<leader>hl"] = mcmd("lua require('harpoon.ui').toggle_quick_menu()"),
+		["<leader>cd"] = mcmd("Lspsaga show_line_diagnostics"),
+		--?
+		-- ["<leader>cd"] = ":Lspsaga show_cursor_diagnostics<CR>",
+		["gp"] = mcmd("Lspsaga peek_definition"),
 
-nmap("<Tab>", ':lua require("harpoon.ui").nav_next()<CR>')
-nmap("<S-Tab>", ':lua require("harpoon.ui").nav_prev()<CR>')
+		-- Git
+
+		["<A-z>"] = function()
+			vim.wo.wrap = not vim.wo.wrap
+		end,
+
+		[double_leader("w")] = mcmd("HopWordAC"),
+		[double_leader("b")] = mcmd("HopWordBC"),
+		[double_leader("f")] = mcmd("HopChar1AC"),
+		[double_leader("F")] = mcmd("HopChar1BC"),
+		[double_leader("W")] = mcmd("HopWord"),
+	},
+
+	nv = {
+		["<leader>ca"] = mcmd("Lspsaga code_action"),
+		["<leader>gs"] = mcmd("Gitsigns"),
+		["<leader>gp"] = mcmd("Gitsigns preview_hunk"),
+		["<leader>gbs"] = mcmd("Gitsigns stage_buffer"),
+		["<leader>ghs"] = mcmd("Gitsigns stage_hunk"),
+		["<leader>ghu"] = mcmd("Gitsigns undo_stage_hunk"),
+		["]g"] = mcmd("Gitsigns next_hunk"),
+		["[g"] = mcmd("Gitsigns prev_hunk"),
+
+		["<C-d>"] = function()
+			execute_scroll("j")
+		end,
+
+		["<C-u>"] = function()
+			execute_scroll("k")
+		end,
+	},
+
+	v = {
+		["<A-j>"] = ":m '>+1<CR>gv=gv",
+		["<A-k>"] = ":m '<-2<CR>gv=gv",
+		["<C-v>"] = '"+p',
+		["<leader>p"] = [["_dP]],
+		["Y"] = '"+y',
+		["y"] = "ygv<ESC>",
+		["<C-c>"] = '"+y',
+		["K"] = "<ESC>",
+	},
+
+	t = {
+		["<ESC>"] = "<C-\\><C-n>",
+	},
+})
 
 for i = 1, 9, 1 do
 	if vim.fn.has("macunix") == 1 then
-		nmap("<D-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+		map("n", "<D-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 	else
-		nmap("<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+		map("n", "<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 	end
-	nmap("<leader>" .. i, ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+	map("n", "<leader>" .. i, ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 end
-nmap("<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
-nmap("<leader>hl", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-
---Telescope
-nmap("<leader>snp", ":Telescope neoclip plus<CR>")
-nmap("<leader>sn", ":Telescope neoclip<CR>")
-nmap("<leader>snu", ":Telescope neoclip unnamed<CR>")
-nmap("<leader>sns", ":Telescope neoclip star<CR>")
-nmap("<leader>ff", ":Telescope find_files<CR>")
-nmap("<leader>p", ":Telescope find_files<CR>")
-nmap("<leader>P", ":Telescope<CR>")
-nmap("<leader>fp", ":Telescope resume<CR>")
-nmap("<C-p>", ":Telescope find_files<CR>")
-nmap("<leader>fz", ":Telescope live_grep<CR>")
-nmap("<leader>fb", ":Telescope buffers<CR>")
-nmap("<leader>fg", ":Telescope git_files<CR>")
-nmap("<leader>u", ":Telescope undo<cr>")
-nmap("<leader>fh", ":Telescope harpoon marks initial_mode=normal<CR>")
-nmap("<leader>fm", ":Telescope marks<CR>")
-nmap("<leader>fs", ":Telescope lsp_document_symbols <CR>")
-nmap("<leader>fw", ":Telescope lsp_dynamic_workspace_symbols <CR>")
-nmap("gf", ":Telescope lsp_references <CR>")
-nmap("gt", ":Telescope lsp_type_definitions <CR>")
-nmap("<leader>fd", ":Telescope diagnostics <CR>")
-
--- LSP Saga
-nmap("<leader>sb", ":Lspsaga show_buf_diagnostics<CR>")
-nmap("<leader>sw", ":Lspsaga show_workspace_diagnostics<CR>")
-nmap("<leader>so", ":Lspsaga outline<CR>")
-nmap("<leader>sh", ":Lspsaga hover_doc<CR>")
-nmap("<leader>sf", ":Lspsaga lsp_finder<CR>")
-nvmap("<leader>ca", ":Lspsaga code_action<CR>")
--- map("n", "<leader>r", ":Lspsaga rename<CR>")
--- map("n", "gd", ":Lspsaga peek_definition<CR>")
--- map("n", "gd", ":Lspsaga goto_definition<CR>")
--- map("n", "<leader>d", ":Lspsaga goto_definition<CR>")
-nmap("<leader>cd", ":Lspsaga show_line_diagnostics<CR>")
-nmap("<leader>cd", ":Lspsaga show_cursor_diagnostics<CR>")
--- map("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>")
--- map("n", "]e", ":Lspsaga diagnostic_jump_next<CR>")
-nmap("gp", ":Lspsaga peek_definition<CR>")
-
--- Git
-nvmap("<leader>gs", ":Gitsigns<CR>")
-nvmap("<leader>gp", ":Gitsigns preview_hunk<CR>")
-nvmap("<leader>gbs", ":Gitsigns stage_buffer<CR>")
-nvmap("<leader>ghs", ":Gitsigns stage_hunk<CR>")
-nvmap("<leader>ghu", ":Gitsigns undo_stage_hunk<CR>")
-nvmap("]g", ":Gitsigns next_hunk<CR>")
-nvmap("[g", ":Gitsigns prev_hunk<CR>")
-
--- Maps For Double Leader
--- Easy Motions
-nmap_double_leader("w", ":HopWordAC<CR>")
-nmap_double_leader("b", ":HopWordBC<CR>")
-nmap_double_leader("f", ":HopChar1AC<CR>")
-nmap_double_leader("F", ":HopChar1BC<CR>")
-nmap_double_leader("W", ":HopWord<CR>")
-
--- nmap("<leader>aw", function()
--- 	local input = vim.fn.input("Width: ")
--- 	local ok, input_int = pcall(tonumber, input)
---
--- 	if ok and input_int then
--- 		vim.api.nvim_win_set_width(0, input_int)
--- 	end
--- end)

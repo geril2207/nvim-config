@@ -8,7 +8,7 @@ local default_values = tree_utils.get_nvim_tree_values_from_cache()
 local is_float = default_values.is_float
 local quit_on_open = is_float or default_values.quit_on_open
 
-local nmap = require("config.utils").nmap
+local map_tbl = require("config.utils.map").map_tbl
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
@@ -26,22 +26,26 @@ local function on_attach(bufnr)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
 
-	nmap("O", api.node.open.edit, opts("Open"))
-	nmap("o", api.node.open.no_window_picker, opts("Open: No Picker"))
-	nmap("t", function()
-		api.node.open.edit()
-		api.tree.close()
-	end, opts("Open With closing"))
-
-	nmap("<ESC>", api.tree.close, opts("Close"))
-
-	nmap("sv", api.node.open.vertical, opts("Open Split: Vertical"))
-	nmap("sh", api.node.open.horizontal, opts("Open Split: Horizontal"))
-	nmap("<M-v>", api.node.open.vertical, opts("Open Split: Vertical"))
-	nmap("<M-h>", api.node.open.horizontal, opts("Open Split: Horizontal"))
-
-	nmap("st", tree_utils.toggle_quit_on_open, opts("NvimTree Always Open Toggle State"))
-	nmap("sf", tree_utils.toggle_floating, opts("NvimTree Toggle Floating"))
+	map_tbl({
+		n = {
+			["O"] = { api.node.open.edit, opts("Open") },
+			["o"] = { api.node.open.no_window_picker, opts("Open: No Picker") },
+			["t"] = {
+				function()
+					api.node.open.edit()
+					api.tree.close()
+				end,
+				opts("Open With closing"),
+			},
+			["<ESC>"] = { api.tree.close, opts("Close") },
+			["sv"] = { api.node.open.vertical, opts("Open Split: Vertical") },
+			["sh"] = { api.node.open.horizontal, opts("Open Split: Horizontal") },
+			["<M-v>"] = { api.node.open.vertical, opts("Open Split: Vertical") },
+			["<M-h>"] = { api.node.open.horizontal, opts("Open Split: Horizontal") },
+			["st"] = { tree_utils.toggle_quit_on_open, opts("NvimTree Always Open Toggle State") },
+			["sf"] = { tree_utils.toggle_floating, opts("NvimTree Toggle Floating") },
+		},
+	})
 end
 
 -- empty setup using defaults
