@@ -4,7 +4,7 @@ return {
 		priority = 1,
 		branch = "feat/folder-icon",
 		config = function()
-			local colors = require("catppuccin.palettes").get_palette("mocha")
+			local colors = require("onedarkpro").get_palette()
 			require("winbar").setup({
 				enabled = true,
 				show_file_path = true,

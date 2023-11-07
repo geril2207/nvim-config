@@ -1,5 +1,5 @@
 local nvim_tree_group = vim.api.nvim_create_augroup("NvimTreeeCLGroup", { clear = true })
-local colors = require("catppuccin.palettes").get_palette("mocha")
+local colors = require("onedarkpro").get_palette("mocha")
 
 local tree_utils = require("config.plugins.nvim-tree.utils")
 
