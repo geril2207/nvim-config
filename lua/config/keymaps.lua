@@ -22,7 +22,6 @@ nmap("<leader>n", "<C-i>")
 nmap("<C-n>", ":noh<CR>")
 nmap("<Leader>e", ":NvimTreeFocus<CR>")
 nmap("<Leader>ab", ":NvimTreeClose<CR>")
---map("n", "<Leader>e", ":Neotree focus<CR>")
 tmap("<ESC>", "<C-\\><C-n>")
 imap("jk", "<ESC>")
 imap("jj", "<ESC>")
@@ -63,11 +62,11 @@ nmap("<A-z>", function()
 	vim.wo.wrap = not vim.wo.wrap
 end)
 
-nmap("<C-d>", function()
+nvmap("<C-d>", function()
 	execute_scroll("j")
 end)
 
-nmap("<C-u>", function()
+nvmap("<C-u>", function()
 	execute_scroll("k")
 end)
 

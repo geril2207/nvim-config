@@ -89,6 +89,9 @@ require("nvim-tree").setup({
 			close_window = false,
 		},
 	},
+	notify = {
+		threshold = vim.log.levels.WARN,
+	},
 	git = {
 		enable = false,
 		ignore = false,
@@ -100,6 +103,9 @@ require("nvim-tree").setup({
 	},
 	renderer = {
 		root_folder_label = false,
+		indent_markers = {
+			enable = true,
+		},
 	},
 })
 
@@ -125,4 +131,4 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-require("config.plugins.nvim-tree.cursorline")
+require("config.plugins.nvim-tree.cursor")

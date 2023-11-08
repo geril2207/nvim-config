@@ -25,6 +25,9 @@ require("catppuccin").setup({
 					style = { "bold" },
 				},
 				WinBar = { fg = colors.text },
+				Cursor = { blend = 100 },
+
+				["@keyword.export"] = { fg = colors.mauve },
 			}
 		end,
 	},
