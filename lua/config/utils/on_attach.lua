@@ -22,9 +22,8 @@ local servers_formatting_disable = {
 	"astro",
 }
 
-local nmap = require("config.utils").nmap
-local imap = require("config.utils").imap
-local nvmap = require("config.utils").nvmap
+local map_utils = require("config.utils.map")
+local map_tbl = map_utils.map_tbl
 
 local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier
@@ -49,27 +48,34 @@ local on_attach = function(client, bufnr)
 	-- Mappings.lsp
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	nmap("gD", vim.lsp.buf.declaration, bufopts)
-	nmap("gh", vim.lsp.buf.hover, bufopts)
-	nmap("gi", ":Telescope lsp_implementations<CR>", bufopts)
-	nmap("<leader>d", vim.lsp.buf.definition, bufopts)
-	nmap("gd", vim.lsp.buf.definition, bufopts)
-	-- nmap("gt", vim.lsp.buf.type_definition, bufopts)
-	nmap("<leader>k", vim.lsp.buf.signature_help, bufopts)
-	nmap("[e", vim.diagnostic.goto_prev, bufopts)
-	nmap("<leader>r", vim.lsp.buf.rename, bufopts)
-	nmap("]e", vim.diagnostic.goto_next, bufopts)
-	nvmap("<A-F>", format_file, bufopts)
-	nvmap("<leader>f", format_file, bufopts)
-	nvmap("<leader>la", vim.lsp.buf.code_action, bufopts)
-	imap("<A-w>", vim.lsp.buf.signature_help, bufopts)
+	map_tbl({
+		i = {
+			["<A-w>"] = { vim.lsp.buf.signature_help, bufopts },
+		},
 
-	nmap("<leader>ld", function()
-		vim.diagnostic.open_float({
-			scope = "line",
-			source = "always",
-		})
-	end)
+		n = {
+			["gD"] = { vim.lsp.buf.declaration, bufopts },
+			["gh"] = { vim.lsp.buf.hover, bufopts },
+			["gi"] = { ":Telescope lsp_implementations<CR>", bufopts },
+			["<leader>d"] = { vim.lsp.buf.definition, bufopts },
+			["gd"] = { vim.lsp.buf.definition, bufopts },
+			-- nmap("gt", vim.lsp.buf.type_definition, bufopts)
+			["<leader>k"] = { vim.lsp.buf.signature_help, bufopts },
+			["[e"] = { vim.diagnostic.goto_prev, bufopts },
+			["<leader>r"] = { vim.lsp.buf.rename, bufopts },
+			["]e"] = { vim.diagnostic.goto_next, bufopts },
+			["<A-F>"] = { format_file, bufopts },
+			["<leader>f"] = { format_file, bufopts },
+			["<leader>la"] = { vim.lsp.buf.code_action, bufopts },
+
+			["<leader>ld"] = function()
+				vim.diagnostic.open_float({
+					scope = "line",
+					source = "always",
+				})
+			end,
+		},
+	})
 end
 
 return on_attach
