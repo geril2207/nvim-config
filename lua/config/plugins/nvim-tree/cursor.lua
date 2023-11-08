@@ -5,20 +5,25 @@ local nvim_tree_cursor_line_fg = colors.peach
 
 local tree_utils = require("config.plugins.nvim-tree.utils")
 
-api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
-	pattern = "NvimTree*",
-	callback = function()
+local function toggle_tree_focus()
+	if vim.bo.filetype == "NvimTree" then
+		vim.opt_local.guicursor:append("n:Cursor/lCursor")
 		if not tree_utils.is_float then
 			api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = nvim_tree_cursor_line_fg, bg = colors.surface0 })
 		end
-	end,
-})
-
-api.nvim_create_autocmd("BufLeave", {
-	pattern = "NvimTree*",
-	callback = function()
+	else
+		vim.opt_local.guicursor:remove("n:Cursor/lCursor")
 		if not tree_utils.is_float then
 			api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = nvim_tree_cursor_line_fg, bg = colors.none })
 		end
-	end,
+	end
+end
+
+api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = toggle_tree_focus,
+})
+
+api.nvim_create_autocmd({ "Filetype" }, {
+	pattern = "lazy",
+	callback = toggle_tree_focus,
 })
