@@ -22,6 +22,7 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		priority = 100,
+		dev = false,
 		version = "*",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
