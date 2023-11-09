@@ -17,7 +17,7 @@ require("catppuccin").setup({
 				DiagnosticVirtualTextInfo = { fg = colors.peach, bg = colors.none },
 				DiagnosticVirtualTextError = { fg = colors.red, bg = colors.none },
 				-- CursorLineNr = { fg = colors.text, bg = colors.none },
-				NvimTreeCursorLine = { fg = colors.peach, bg = colors.none },
+				NvimTreeCursorLine = { fg = colors.peach, bg = transparent and colors.none or colors.surface0 },
 				NvimTreeCursorLineNr = { fg = colors.text, bg = colors.none },
 				-- NvimTreeIndentMarker = { fg = colors.text, force = true },
 				TelescopeSelection = {
