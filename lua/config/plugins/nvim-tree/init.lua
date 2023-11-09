@@ -57,6 +57,7 @@ require("nvim-tree").setup({
 		enable = true,
 	},
 	view = {
+		centralize_selection = false,
 		-- preserve_window_proportions = true,
 		cursorline = true,
 		-- adaptive_size = quit_on_open,
