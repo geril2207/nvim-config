@@ -47,8 +47,8 @@ map_tbl({
 		["<C-s>"] = mcmd("w"),
 		["Y"] = '"+y',
 		["M"] = "`",
-		["<Tab>"] = mcmd('lua require("harpoon.ui",.nav_next()'),
-		["<S-Tab>"] = mcmd('lua require("harpoon.ui",.nav_prev()'),
+		["<Tab>"] = mcmd('lua require("harpoon.ui").nav_next()'),
+		["<S-Tab>"] = mcmd('lua require("harpoon.ui").nav_prev()'),
 
 		["<leader>snp"] = mcmd("Telescope neoclip plus"),
 		["<leader>sn"] = mcmd("Telescope neoclip"),
