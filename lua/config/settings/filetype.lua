@@ -7,6 +7,6 @@ vim.filetype.add({
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()
-		vim.opt.formatoptions = vim.opt.formatoptions - "o" - "c"
+		vim.opt.formatoptions:remove({ "o", "c" })
 	end,
 })

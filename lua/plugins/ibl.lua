@@ -5,7 +5,6 @@ return {
 		event = "VeryLazy",
 		opts = {
 			indent = { char = "▏" },
-			-- indent = { char = "│" },
 			scope = {
 				enabled = false,
 				show_start = false,
@@ -19,3 +18,4 @@ return {
 		},
 	},
 }
+
