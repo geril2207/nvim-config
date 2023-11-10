@@ -13,6 +13,6 @@ api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 api.nvim_create_autocmd({ "Filetype" }, {
-	pattern = "lazy",
+	pattern = { "lazy", "DressingInput" },
 	callback = toggle_tree_focus,
 })
