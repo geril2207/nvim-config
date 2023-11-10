@@ -25,7 +25,9 @@ require("catppuccin").setup({
 					bg = transparent and colors.none or colors.surface0,
 					style = { "bold" },
 				},
-				WinBar = { fg = colors.text },
+				WinBarFilePath = { fg = colors.overlay0 },
+				WinbarFile = { fg = colors.flamingo },
+				WinbarSeparator = { fg = colors.text },
 				Cursor = { blend = 100 },
 
 				["@keyword.export"] = { fg = colors.mauve },
