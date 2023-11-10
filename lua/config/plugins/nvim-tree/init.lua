@@ -57,6 +57,7 @@ require("nvim-tree").setup({
 		enable = true,
 	},
 	view = {
+		centralize_selection = false,
 		-- preserve_window_proportions = true,
 		cursorline = true,
 		-- adaptive_size = quit_on_open,
@@ -85,6 +86,9 @@ require("nvim-tree").setup({
 			end,
 		},
 	},
+	live_filter = {
+		always_show_folders = false,
+	},
 	actions = {
 		open_file = {
 			quit_on_open = quit_on_open,
@@ -108,7 +112,7 @@ require("nvim-tree").setup({
 	renderer = {
 		root_folder_label = false,
 		indent_markers = {
-			enable = true,
+			enable = false,
 		},
 	},
 })
