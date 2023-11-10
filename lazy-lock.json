@@ -36,3 +36,4 @@
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "master", "commit": "20bf20500c95208c3ac0ef07245065bf94dcab15" },
   "winbar.nvim": { "branch": "feat/folder-icon", "commit": "fcf3197fd4f77b70254d473d4158a4ed6c0f82f9" }
+}
