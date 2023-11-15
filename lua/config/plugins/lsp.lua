@@ -38,6 +38,20 @@ local lspconfig = require("lspconfig")
 
 local on_attach = require("config.utils.on_attach")
 
+local function get_lua_runtime()
+	local result = {}
+	for _, path in pairs(vim.api.nvim_list_runtime_paths()) do
+		local lua_path = path .. "/lua"
+		local stat = vim.loop.fs_stat(lua_path)
+		if stat and stat.type == "directory" then
+			result[lua_path] = true
+		end
+	end
+
+	result[vim.fn.expand("$VIMRUNTIME/lua")] = true
+	return result
+end
+
 local servers = {
 	ocamllsp = {
 		root_dir = function()
@@ -136,7 +150,25 @@ local servers = {
 			},
 		},
 	},
-	lua_ls = {},
+	lua_ls = {
+		settings = {
+			Lua = {
+				telemetry = {
+					enable = false,
+				},
+				runtime = {
+					version = "LuaJIT",
+					path = vim.split(package.path, ";"),
+				},
+				workspace = {
+					library = get_lua_runtime(),
+					maxPreload = 1000,
+					preloadFileSize = 1000,
+					checkThirdParty = false,
+				},
+			},
+		},
+	},
 	astro = {},
 	yamlls = {
 		settings = {
