@@ -6,7 +6,9 @@ local function toggle_tree_focus()
 			vim.opt_local.guicursor:append("n:Cursor/lCursor")
 		end)
 	else
-		vim.opt_local.guicursor:remove("n:Cursor/lCursor")
+		vim.schedule(function()
+			vim.opt_local.guicursor:remove("n:Cursor/lCursor")
+		end)
 	end
 end
 
