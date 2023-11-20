@@ -118,7 +118,7 @@ local servers = {
 	},
 	clangd = {},
 	tailwindcss = {
-		disabled = true,
+		disabled = false,
 	},
 	eslint = {},
 	pylsp = {},
@@ -232,7 +232,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.sqlfmt,
 		null_ls.builtins.formatting.ocamlformat,
-		-- null_ls.builtins.diagnostics.pylint,
 		null_ls.builtins.diagnostics.jsonlint,
 	},
 })

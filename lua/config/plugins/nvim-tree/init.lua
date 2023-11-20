@@ -12,7 +12,7 @@ local map_tbl = require("config.utils.map").map_tbl
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
-	local view_opts = require("nvim-tree.view").View
+	-- local view_opts = require("nvim-tree.view").View
 
 	-- api.events.subscribe(api.events.Event.FileCreated, function(file)
 	-- 	if view_opts.float and view_opts.float.enable then

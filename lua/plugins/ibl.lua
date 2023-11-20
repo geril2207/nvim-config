@@ -4,6 +4,7 @@ return {
 		main = "ibl",
 		event = "VeryLazy",
 		opts = {
+			enabled = true,
 			indent = { char = "▏" },
 			scope = {
 				enabled = false,
@@ -18,4 +19,3 @@ return {
 		},
 	},
 }
-

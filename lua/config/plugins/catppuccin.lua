@@ -19,7 +19,6 @@ require("catppuccin").setup({
 				-- CursorLineNr = { fg = colors.text, bg = colors.none },
 				NvimTreeCursorLine = { fg = colors.peach, bg = transparent and colors.none or colors.surface0 },
 				NvimTreeCursorLineNr = { fg = colors.text, bg = colors.none },
-				-- NvimTreeIndentMarker = { fg = colors.text, force = true },
 				TelescopeSelection = {
 					fg = transparent and colors.peach or colors.peach,
 					bg = transparent and colors.none or colors.surface0,

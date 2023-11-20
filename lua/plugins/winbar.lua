@@ -2,8 +2,10 @@ return {
 	{
 		"geril2207/simple-winbar.nvim",
 		priority = 1,
+		dev = false,
 		config = function()
 			require("simple-winbar").setup({
+				show_path = false,
 				exclude_filetypes = {
 					"help",
 					"startify",
@@ -22,16 +24,16 @@ return {
 					"TelescopePrompt",
 				},
 
-				left_spacing = function()
-					local textoff = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].textoff
-					local value = ""
-
-					for _ = 1, textoff - 2, 1 do
-						value = value .. " "
-					end
-
-					return value
-				end,
+				-- left_spacing = function()
+				-- 	local textoff = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].textoff
+				-- 	local value = ""
+				--
+				-- 	for _ = 1, textoff - 2, 1 do
+				-- 		value = value .. " "
+				-- 	end
+				--
+				-- 	return value
+				-- end,
 			})
 		end,
 	},

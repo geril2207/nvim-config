@@ -46,15 +46,17 @@ end
 -- 	vim.cmd("hi! TabLineFill guibg=NONE guifg=white")
 -- end
 
----@param label string?
-function M.exec_time(label)
+function M.exec_time()
+	local label
 	local start_time
 	return {
-		start = function()
+		---@param new_label string?
+		start = function(new_label)
+			label = new_label or "EXEC TIME: "
 			start_time = os.clock()
 		end,
 		finish = function()
-			print("EXEC TIME: " .. (os.clock() - start_time) * 1000)
+			print(label .. (os.clock() - start_time) * 1000)
 		end,
 	}
 end

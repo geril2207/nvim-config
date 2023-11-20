@@ -2,7 +2,7 @@ local function disable()
 	local is_disable = false
 	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
 
-	if ok and stats ~= nil and stats.size > 1000 * 100 then
+	if ok and stats ~= nil and stats.size > 2000 * 100 then
 		is_disable = true
 		-- return true
 	end
@@ -57,35 +57,35 @@ require("nvim-treesitter.configs").setup({
 			},
 		},
 	},
+})
 
-	autotag = {
-		enable = true,
-		disable = disable,
-		enable_close_on_slash = false,
-		filetypes = {
-			"htmldjango",
-			"html",
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
-			"svelte",
-			"vue",
-			"tsx",
-			"jsx",
-			"rescript",
-			"xml",
-			"php",
-			"markdown",
-			"glimmer",
-			"handlebars",
-			"hbs",
-		},
+require("nvim-ts-autotag").setup({
+	enable = true,
+	disable = disable,
+	enable_close_on_slash = false,
+	filetypes = {
+		"htmldjango",
+		"html",
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"svelte",
+		"vue",
+		"tsx",
+		"jsx",
+		"rescript",
+		"xml",
+		"php",
+		"markdown",
+		"glimmer",
+		"handlebars",
+		"hbs",
 	},
+})
 
-	context_commentstring = {
-		enable = true,
-		disable = disable,
-		enable_autocmd = false,
-	},
+require("ts_context_commentstring").setup({
+	enable = true,
+	disable = disable,
+	enable_autocmd = false,
 })
