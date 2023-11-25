@@ -44,7 +44,7 @@ map_tbl({
 		["K"] = "<ESC>",
 		["<C-z>"] = mcmd("undo"),
 		["<C-Z>"] = mcmd("redo"),
-		["<C-s>"] = mcmd("w"),
+		["<C-s>"] = mcmd("silent! w"),
 		["Y"] = '"+y',
 		["M"] = "`",
 		["<Tab>"] = mcmd('lua require("harpoon.ui").nav_next()'),
