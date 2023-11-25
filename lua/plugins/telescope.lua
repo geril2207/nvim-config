@@ -8,10 +8,6 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
 			},
-			{
-				"AckslD/nvim-neoclip.lua",
-				lazy = true,
-			},
 		},
 		cmd = "Telescope",
 		config = function()
