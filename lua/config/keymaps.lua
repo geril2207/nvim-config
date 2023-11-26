@@ -82,8 +82,6 @@ map_tbl({
 		-- ["<leader>cd"] = ":Lspsaga show_cursor_diagnostics<CR>",
 		["gp"] = mcmd("Lspsaga peek_definition"),
 
-		-- Git
-
 		["<A-z>"] = function()
 			vim.wo.wrap = not vim.wo.wrap
 		end,
