@@ -60,6 +60,7 @@ map_tbl({
 		["<leader>fp"] = mcmd("Telescope resume"),
 		["<C-p>"] = mcmd("Telescope find_files"),
 		["<leader>fz"] = mcmd("Telescope live_grep"),
+		["<leader>fl"] = mcmd("Telescope grep_string"),
 		["<leader>fb"] = mcmd("Telescope buffers"),
 		["<leader>fg"] = mcmd("Telescope git_files"),
 		["<leader>u"] = mcmd("Telescope undo"),
