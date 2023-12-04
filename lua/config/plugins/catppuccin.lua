@@ -27,6 +27,8 @@ require("catppuccin").setup({
 				WinBarFilePath = { fg = colors.overlay0 },
 				WinbarFile = { fg = colors.flamingo },
 				WinbarSeparator = { fg = colors.text },
+				InclineNormal = { bg = colors.none, fg = colors.flamingo },
+				InclineNormalNC = { bg = colors.none, fg = colors.overlay0 },
 				Cursor = { blend = 100 },
 
 				["@keyword.export"] = { fg = colors.mauve },
@@ -58,7 +60,7 @@ require("catppuccin").setup({
 		gitsigns = true,
 		nvimtree = true,
 		treesitter = true,
-		fidget = true,
+		fidget = false,
 		telescope = true,
 		lsp_saga = false,
 	},

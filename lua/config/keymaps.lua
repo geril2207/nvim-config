@@ -47,8 +47,13 @@ map_tbl({
 		["<C-s>"] = mcmd("silent! w"),
 		["Y"] = '"+y',
 		["M"] = "`",
-		["<Tab>"] = mcmd('lua require("harpoon.ui").nav_next()'),
-		["<S-Tab>"] = mcmd('lua require("harpoon.ui").nav_prev()'),
+
+		-- ["<Tab>"] = mcmd("BufferLineCycleNext"),
+		-- ["<S-Tab>"] = mcmd("BufferLineCyclePrev"),
+		["<Tab>"] = mcmd("tabnext"),
+		["<S-Tab>"] = mcmd("tabprev"),
+		["<leader>td"] = mcmd("BufferLineCloseOthers"),
+		["<leader>tp"] = mcmd("BufferLinePick"),
 
 		["<leader>snp"] = mcmd("Telescope neoclip plus"),
 		["<leader>sn"] = mcmd("Telescope neoclip"),
@@ -135,5 +140,10 @@ for i = 1, 9, 1 do
 	else
 		map("n", "<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
 	end
-	map("n", "<leader>" .. i, ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+	-- map("n", "<leader>" .. i, ':lua require("bufferline").go_to(' .. i .. ")<CR>")
+	map("n", "<leader>" .. i, function()
+		pcall(function()
+			vim.api.nvim_set_current_tabpage(i)
+		end)
+	end)
 end
