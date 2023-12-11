@@ -15,7 +15,7 @@ opt.termguicolors = true
 opt.spelllang = { "en_us", "ru" }
 opt.number = true
 opt.relativenumber = true
-opt.so = 10
+opt.so = 15
 opt.undofile = true
 opt.mouse = "a"
 
