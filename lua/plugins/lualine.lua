@@ -1,13 +1,13 @@
 local function harpoon_files()
-	local marks = require("harpoon").get_mark_config()["marks"]
-	local active_index = require("harpoon.mark").get_index_of(vim.fn.bufname())
+	local marks = require("harpoon"):list():display()
+	local cur_buf = vim.fn.bufname()
 
 	local result = {}
-	for index, value in pairs(marks) do
-		local file = vim.fn.split(value["filename"], "/")
-		file = file[#file]
-		file = index == active_index and file .. "*" or file .. " "
-		table.insert(result, " " .. file)
+	for index, file in pairs(marks) do
+		local filename_tail = vim.fn.split(file, "/")
+		filename_tail = filename_tail[#filename_tail]
+		local displayed = file == cur_buf and filename_tail .. "*" or filename_tail .. " "
+		table.insert(result, " " .. displayed)
 	end
 	return table.concat(result)
 end

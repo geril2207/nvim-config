@@ -25,6 +25,8 @@ local function execute_scroll(direction, history)
 	cmd("normal! zz")
 end
 
+local harpoon = require("harpoon")
+
 map_tbl({
 	i = {
 		["jk"] = "<ESC>",
@@ -77,8 +79,12 @@ map_tbl({
 		["<leader>so"] = mcmd("Lspsaga outline"),
 		["<leader>sh"] = mcmd("Lspsaga hover_doc"),
 		["<leader>sf"] = mcmd("Lspsaga lsp_finder"),
-		["<leader>ha"] = mcmd("lua require('harpoon.mark').add_file()"),
-		["<leader>hl"] = mcmd("lua require('harpoon.ui').toggle_quick_menu()"),
+		["<leader>ha"] = function()
+			harpoon:list():append()
+		end,
+		["<leader>hl"] = function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end,
 		["<leader>cd"] = mcmd("Lspsaga show_line_diagnostics"),
 		--?
 		-- ["<leader>cd"] = ":Lspsaga show_cursor_diagnostics<CR>",
@@ -145,9 +151,9 @@ end
 
 for i = 1, 9, 1 do
 	if vim.fn.has("macunix") == 1 then
-		map("n", "<D-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+		map("n", "<D-" .. i .. ">", ':lua require("harpoon"):list():select(' .. i .. ")<CR>")
 	else
-		map("n", "<A-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
+		map("n", "<A-" .. i .. ">", ':lua require("harpoon"):list():select(' .. i .. ")<CR>")
 	end
 	-- map("n", "<leader>" .. i, ':lua require("bufferline").go_to(' .. i .. ")<CR>")
 	map("n", "<leader>" .. i, function()

@@ -1,13 +1,10 @@
 return {
 	{
-		"geril2207/harpoon",
+		"Theprimeagen/harpoon",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			tabline = false,
-			save_on_toggle = false,
-			global_settings = {
-				tabline = false,
-			},
-		},
+		branch = "harpoon2",
+		config = function()
+			require("harpoon").setup()
+		end,
 	},
 }
