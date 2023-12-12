@@ -18,6 +18,7 @@ opt.relativenumber = true
 opt.so = 15
 opt.undofile = true
 opt.mouse = "a"
+opt.swb = "usetab,useopen,uselast"
 
 opt.tabstop = 2
 opt.softtabstop = 2

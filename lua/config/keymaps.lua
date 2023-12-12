@@ -134,6 +134,19 @@ map_tbl({
 	},
 })
 
+---@param index integer
+local function go_to_tab(index)
+	local list_tabs = vim.api.nvim_list_tabpages()
+
+	for i = 1, #list_tabs, 1 do
+		if index == i then
+			pcall(function()
+				vim.api.nvim_set_current_tabpage(list_tabs[index])
+			end)
+		end
+	end
+end
+
 for i = 1, 9, 1 do
 	if vim.fn.has("macunix") == 1 then
 		map("n", "<D-" .. i .. ">", ':lua require("harpoon.ui").nav_file(' .. i .. ")<CR>")
@@ -142,8 +155,6 @@ for i = 1, 9, 1 do
 	end
 	-- map("n", "<leader>" .. i, ':lua require("bufferline").go_to(' .. i .. ")<CR>")
 	map("n", "<leader>" .. i, function()
-		pcall(function()
-			vim.api.nvim_set_current_tabpage(i)
-		end)
+		go_to_tab(i)
 	end)
 end

@@ -26,6 +26,7 @@ require("catppuccin").setup({
 				},
 				WinBarFilePath = { fg = colors.overlay0 },
 				WinbarFile = { fg = colors.flamingo },
+				WinBarNC = { bg = colors.none },
 				WinbarSeparator = { fg = colors.text },
 				InclineNormal = { bg = colors.none, fg = colors.flamingo },
 				InclineNormalNC = { bg = colors.none, fg = colors.overlay0 },

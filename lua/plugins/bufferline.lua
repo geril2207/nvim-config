@@ -2,7 +2,7 @@ return {
 	{
 		"crispgm/nvim-tabline",
 		opts = {
-			modify_indicator = "",
+			show_modify = false,
 		},
 	},
 	{
