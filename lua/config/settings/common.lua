@@ -19,9 +19,9 @@ opt.so = 15
 opt.undofile = true
 opt.mouse = "a"
 opt.swb = "usetab,useopen,uselast"
-
 opt.tabstop = 2
 opt.softtabstop = 2
+opt.wrap = false
 opt.shiftwidth = 2
 
 opt.expandtab = true

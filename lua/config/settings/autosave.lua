@@ -29,12 +29,6 @@ api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "BufLeave" }, {
 	group = group,
 	desc = "AutoSave",
 	callback = function(opts)
-		-- local can_write = get_is_need_write_buf(opts.buf)
-		--
-		-- if not can_write then
-		-- 	return
-		-- end
-
 		vim.cmd("silent! wa")
 	end,
 })

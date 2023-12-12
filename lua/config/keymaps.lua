@@ -48,12 +48,8 @@ map_tbl({
 		["Y"] = '"+y',
 		["M"] = "`",
 
-		-- ["<Tab>"] = mcmd("BufferLineCycleNext"),
-		-- ["<S-Tab>"] = mcmd("BufferLineCyclePrev"),
 		["<Tab>"] = mcmd("tabnext"),
 		["<S-Tab>"] = mcmd("tabprev"),
-		["<leader>td"] = mcmd("BufferLineCloseOthers"),
-		["<leader>tp"] = mcmd("BufferLinePick"),
 
 		["<leader>snp"] = mcmd("Telescope neoclip plus"),
 		["<leader>sn"] = mcmd("Telescope neoclip"),
