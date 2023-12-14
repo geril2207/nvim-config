@@ -26,11 +26,13 @@ require("catppuccin").setup({
 				},
 				WinBarFilePath = { fg = colors.overlay0 },
 				WinbarFile = { fg = colors.flamingo },
-				WinBarNC = { bg = colors.none },
 				WinbarSeparator = { fg = colors.text },
 				InclineNormal = { bg = colors.none, fg = colors.flamingo },
 				InclineNormalNC = { bg = colors.none, fg = colors.overlay0 },
 				Cursor = { blend = 100 },
+				WinBarNC = { link = "WinBar" },
+				TabLine = { bg = transparent and colors.none or colors.mantle },
+				TabLineSel = { bg = transparent and colors.none or colors.surface1 },
 
 				["@keyword.export"] = { fg = colors.mauve },
 			}
