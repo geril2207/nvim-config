@@ -195,14 +195,6 @@ for server, config in pairs(servers) do
 	end
 end
 
--- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "󱌹 ", Info = " " }
-
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
@@ -211,11 +203,19 @@ local diagnostic_config = {
 	},
 	signs = {
 		severity_limit = "Hint",
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.HINT] = "󱌹 ",
+		},
 	},
 	virtual_text = {
 		severity_limit = "Warning",
 	},
 }
+
+vim.diagnostic.config(diagnostic_config)
 
 local null_ls = require("null-ls")
 
