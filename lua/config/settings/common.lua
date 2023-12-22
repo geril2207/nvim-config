@@ -35,7 +35,7 @@ opt.cursorlineopt = "number"
 
 opt.updatetime = 250
 opt.timeoutlen = 500
-opt.cursorline = true
+opt.cursorline = false
 opt.showmode = false
 opt.laststatus = 3
 
