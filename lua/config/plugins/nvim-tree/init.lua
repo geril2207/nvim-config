@@ -98,7 +98,7 @@ require("nvim-tree").setup({
 		},
 	},
 	notify = {
-		threshold = vim.log.levels.WARN,
+		threshold = vim.log.levels.INFO,
 	},
 	git = {
 		enable = false,
