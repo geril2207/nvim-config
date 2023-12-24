@@ -76,6 +76,7 @@ map_tbl({
 		["<leader>sw"] = mcmd("Lspsaga show_workspace_diagnostics"),
 		["<leader>so"] = mcmd("Lspsaga outline"),
 		["<leader>sh"] = mcmd("Lspsaga hover_doc"),
+		["gh"] = mcmd("Lspsaga hover_doc"),
 		["<leader>sf"] = mcmd("Lspsaga lsp_finder"),
 		["<leader>ha"] = mcmd("lua require('harpoon.mark').add_file()"),
 		["<leader>hl"] = mcmd("lua require('harpoon.ui').toggle_quick_menu()"),

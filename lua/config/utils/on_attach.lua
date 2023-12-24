@@ -55,7 +55,8 @@ local on_attach = function(client, bufnr)
 
 		n = {
 			["gD"] = { vim.lsp.buf.declaration, bufopts },
-			["gh"] = { vim.lsp.buf.hover, bufopts },
+			-- ["gh"] = { vim.lsp.buf.hover, bufopts },
+			["<leader>lh"] = { vim.lsp.buf.hover, bufopts },
 			["gi"] = { ":Telescope lsp_implementations<CR>", bufopts },
 			["<leader>d"] = { vim.lsp.buf.definition, bufopts },
 			["gd"] = { vim.lsp.buf.definition, bufopts },
