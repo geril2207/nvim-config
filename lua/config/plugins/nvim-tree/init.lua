@@ -52,6 +52,7 @@ end
 require("nvim-tree").setup({
 	on_attach = on_attach,
 	hijack_netrw = true,
+	hijack_cursor = true,
 	disable_netrw = true,
 	update_focused_file = {
 		enable = true,
@@ -60,6 +61,7 @@ require("nvim-tree").setup({
 		centralize_selection = false,
 		-- preserve_window_proportions = true,
 		cursorline = true,
+		-- cursorlineopt = "line",
 		-- adaptive_size = quit_on_open,
 		relativenumber = true,
 		width = tree_utils.width,

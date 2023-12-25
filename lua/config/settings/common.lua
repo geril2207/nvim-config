@@ -26,6 +26,7 @@ opt.shiftwidth = 2
 opt.splitright = true
 opt.splitbelow = true
 opt.showtabline = 0
+opt.guicursor = ""
 
 opt.expandtab = true
 opt.smartindent = true
