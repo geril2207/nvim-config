@@ -54,6 +54,8 @@ require("nvim-tree").setup({
 	hijack_netrw = true,
 	hijack_cursor = true,
 	disable_netrw = true,
+	hijack_unnamed_buffer_when_opening = false,
+	sync_root_with_cwd = true,
 	update_focused_file = {
 		enable = true,
 	},
@@ -140,5 +142,3 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
-
-require("config.plugins.nvim-tree.cursor")
