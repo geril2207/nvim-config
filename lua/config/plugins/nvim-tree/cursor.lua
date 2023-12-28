@@ -1,19 +1,37 @@
 local api = vim.api
 
+local is_transparent = false
+
 local startup = true
+
+local add_tr_cursor = function()
+	if is_transparent then
+		return
+	end
+	if startup then
+		startup = false
+		vim.schedule(function()
+			vim.opt_local.guicursor:append("n:Cursor/lCursor")
+		end)
+	else
+		vim.opt_local.guicursor:append("n:Cursor/lCursor")
+	end
+	is_transparent = true
+end
+
+local remove_tr_cursor = function()
+	if not is_transparent then
+		return
+	end
+	vim.opt_local.guicursor:remove("n:Cursor/lCursor")
+	is_transparent = false
+end
 
 local function toggle_tree_focus()
 	if vim.bo.filetype == "NvimTree" then
-		if startup then
-			startup = false
-			vim.schedule(function()
-				vim.opt_local.guicursor:append("n:Cursor/lCursor")
-			end)
-		else
-			vim.opt_local.guicursor:append("n:Cursor/lCursor")
-		end
+		add_tr_cursor()
 	else
-		vim.opt_local.guicursor:remove("n:Cursor/lCursor")
+		remove_tr_cursor()
 	end
 end
 
