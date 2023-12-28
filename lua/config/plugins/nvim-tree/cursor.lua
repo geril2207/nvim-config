@@ -17,11 +17,11 @@ local function toggle_tree_focus()
 	end
 end
 
--- api.nvim_create_autocmd({ "BufEnter" }, {
--- 	callback = toggle_tree_focus,
--- })
---
--- api.nvim_create_autocmd({ "Filetype" }, {
--- 	pattern = { "lazy", "DressingInput" },
--- 	callback = toggle_tree_focus,
--- })
+api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = toggle_tree_focus,
+})
+
+api.nvim_create_autocmd({ "Filetype" }, {
+	pattern = { "lazy", "DressingInput" },
+	callback = toggle_tree_focus,
+})

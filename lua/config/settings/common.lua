@@ -15,7 +15,7 @@ opt.termguicolors = true
 opt.spelllang = { "en_us", "ru" }
 opt.number = true
 opt.relativenumber = true
-opt.so = 15
+opt.so = 10
 opt.undofile = true
 opt.mouse = "a"
 opt.swb = "usetab,useopen,uselast"
@@ -26,7 +26,8 @@ opt.shiftwidth = 2
 opt.splitright = true
 opt.splitbelow = true
 opt.showtabline = 0
-opt.guicursor = ""
+-- opt.guicursor = ""
+opt.guicursor:append("i:block")
 
 opt.expandtab = true
 opt.smartindent = true
