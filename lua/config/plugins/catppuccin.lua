@@ -29,7 +29,7 @@ require("catppuccin").setup({
 				WinbarSeparator = { fg = colors.text },
 				InclineNormal = { bg = colors.none, fg = colors.flamingo },
 				InclineNormalNC = { bg = colors.none, fg = colors.overlay0 },
-				Cursor = { blend = 100 },
+				TransparentCursor = { blend = 100, nocombine = true },
 				WinBarNC = { link = "WinBar" },
 				TabLine = { bg = transparent and colors.none or colors.mantle },
 				TabLineSel = { bg = transparent and colors.none or colors.surface1 },

@@ -11,10 +11,10 @@ local add_tr_cursor = function()
 	if startup then
 		startup = false
 		vim.schedule(function()
-			vim.opt_local.guicursor:append("n:Cursor/lCursor")
+			vim.opt_local.guicursor:append("n:TransparentCursor")
 		end)
 	else
-		vim.opt_local.guicursor:append("n:Cursor/lCursor")
+		vim.opt_local.guicursor:append("n:TransparentCursor")
 	end
 	is_transparent = true
 end
@@ -23,7 +23,7 @@ local remove_tr_cursor = function()
 	if not is_transparent then
 		return
 	end
-	vim.opt_local.guicursor:remove("n:Cursor/lCursor")
+	vim.opt_local.guicursor:remove("n:TransparentCursor")
 	is_transparent = false
 end
 
