@@ -1,5 +1,5 @@
 return {
-	{ "jose-elias-alvarez/null-ls.nvim", event = "VeryLazy" },
+	{ "nvimtools/none-ls.nvim", event = "VeryLazy" },
 	{
 		"neovim/nvim-lspconfig",
 		lazy = true,
