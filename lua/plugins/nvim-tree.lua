@@ -23,7 +23,6 @@ return {
 		"nvim-tree/nvim-tree.lua",
 		priority = 100,
 		dev = false,
-    branch = "fix/hijack_cursor-with-update-focused",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
