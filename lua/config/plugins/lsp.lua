@@ -38,30 +38,26 @@ local lspconfig = require("lspconfig")
 
 local on_attach = require("config.utils.on_attach")
 
+local get_cwd = function()
+	return vim.uv.cwd()
+end
+
 local servers = {
 	ocamllsp = {
-		root_dir = function()
-			return vim.loop.cwd()
-		end,
+		root_dir = get_cwd,
 	},
 	tsserver = {
-		root_dir = function()
-			return vim.loop.cwd()
-		end,
+		root_dir = get_cwd,
 	},
 	bashls = {
-		root_dir = function()
-			return vim.loop.cwd()
-		end,
+		root_dir = get_cwd,
 	},
 	html = {},
 	cssls = {},
 	-- cssmodules_ls = {},
 	-- stylelint_lsp = {},
 	sqlls = {
-		root_dir = function()
-			return vim.loop.cwd()
-		end,
+		root_dir = get_cwd,
 	},
 	volar = {
 		disabled = true,
@@ -220,9 +216,7 @@ vim.diagnostic.config(diagnostic_config)
 local null_ls = require("null-ls")
 
 null_ls.setup({
-	root_dir = function()
-		return vim.loop.cwd()
-	end,
+	root_dir = get_cwd,
 	diagnostic_config = diagnostic_config,
 	update_in_insert = false,
 	sources = {
