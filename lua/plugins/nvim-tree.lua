@@ -16,6 +16,11 @@ return {
 					cterm_color = "199",
 					name = "GQL",
 				},
+				["ts"] = {
+					icon = "",
+					color = "#519aba",
+          name = "TS"
+				},
 			},
 		},
 	},
