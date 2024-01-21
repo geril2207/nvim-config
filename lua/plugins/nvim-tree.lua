@@ -19,7 +19,7 @@ return {
 				["ts"] = {
 					icon = "",
 					color = "#519aba",
-          name = "TS"
+					name = "TS",
 				},
 			},
 		},

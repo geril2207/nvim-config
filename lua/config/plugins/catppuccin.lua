@@ -17,13 +17,17 @@ require("catppuccin").setup({
 				DiagnosticVirtualTextInfo = { fg = colors.peach, bg = colors.none },
 				DiagnosticVirtualTextError = { fg = colors.red, bg = colors.none },
 				-- CursorLineNr = { fg = colors.text, bg = colors.none },
+				NvimTreeLineNr = { fg = colors.surface1 },
 				NvimTreeCursorLine = { fg = colors.peach, bg = transparent and colors.none or colors.surface0 },
-				NvimTreeCursorLineNr = { fg = colors.text, bg = colors.none },
+				NvimTreeFolderIcon = { fg = "#8aadf5" },
+
+				NvimTreeCursorLineNr = { fg = colors.surface1, bg = colors.none },
 				TelescopeSelection = {
 					fg = transparent and colors.peach or colors.peach,
 					bg = transparent and colors.none or colors.surface0,
 					style = { "bold" },
 				},
+				LineNr = { fg = colors.surface1 },
 				WinBarFilePath = { fg = colors.overlay0 },
 				WinbarFile = { fg = colors.flamingo },
 				WinbarSeparator = { fg = colors.text },

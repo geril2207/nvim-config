@@ -89,3 +89,7 @@ require("ts_context_commentstring").setup({
 	disable = disable,
 	enable_autocmd = false,
 })
+
+require("treesitter-context").setup({
+	enable = false, -- Enable this plugin (Can be enabled/disabled later via commands)
+})
