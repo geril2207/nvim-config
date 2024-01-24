@@ -38,7 +38,7 @@ saga.setup({
 	},
 
 	outline = {
-		layout = "float",
-		win_position = "center",
+		-- layout = "float",
+		-- win_position = "center",
 	},
 })
