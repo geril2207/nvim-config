@@ -29,10 +29,10 @@ require("telescope").setup({
 			},
 		},
 		file_ignore_patterns = {
-			".pnpm-store",
-			"build",
-			"dist",
-			"node_modules",
+			"^.pnpm-store",
+			"^build",
+			"^dist",
+			"^node_modules",
 			"^.git",
 			".png",
 			".svg",
@@ -53,7 +53,8 @@ require("telescope").setup({
 		find_files = {
 			hidden = true,
 			no_ignore = false,
-			find_command = vim.fn.executable("fd") == 1 and { "fd", "--type", "f", "--path-separator", "/" } or nil,
+			find_command = vim.fn.executable("fd") == 1 and { "fd", "--type", "f", "--path-separator", "/", "-E", '".git"' }
+				or nil,
 			previewer = true,
 
 			sorting_strategy = "ascending",
@@ -64,9 +65,9 @@ require("telescope").setup({
 			},
 		},
 		live_grep = {
-			additional_args = function()
-				return { "--hidden" }
-			end,
+			-- additional_args = function()
+			-- 	return { "--hidden" }
+			-- end,
 			sorting_strategy = "ascending",
 			layout_strategy = "vertical",
 			layout_config = {
