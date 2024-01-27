@@ -31,6 +31,7 @@ require("telescope").setup({
 		file_ignore_patterns = {
 			"^.pnpm-store",
 			"^build",
+			"^.next",
 			"^dist",
 			"^node_modules",
 			"^.git",
