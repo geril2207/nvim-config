@@ -65,6 +65,19 @@ require("telescope").setup({
 				},
 			},
 		},
+
+		grep_string = {
+			layout_strategy = "vertical",
+			layout_config = {
+				vertical = {
+					preview_cutoff = 1,
+					prompt_position = "top",
+					mirror = true,
+				},
+			},
+			previewer = true,
+		},
+
 		live_grep = {
 			-- additional_args = function()
 			-- 	return { "--hidden" }
