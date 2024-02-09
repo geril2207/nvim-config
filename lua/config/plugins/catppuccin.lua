@@ -20,6 +20,7 @@ require("catppuccin").setup({
 				NvimTreeLineNr = { fg = colors.surface1 },
 				NvimTreeCursorLine = { fg = colors.peach, bg = transparent and colors.none or colors.surface0 },
 				NvimTreeFolderIcon = { fg = "#8aadf5" },
+				NvimTreeExecFile = { link = "NvimTreeNormal" },
 
 				NvimTreeCursorLineNr = { fg = colors.surface1, bg = colors.none },
 				TelescopeSelection = {
