@@ -2,6 +2,9 @@ vim.filetype.add({
 	pattern = {
 		["%.env%.[%w_.-]+"] = "sh",
 	},
+	extension = {
+		mdx = "jsx",
+	},
 })
 
 vim.api.nvim_create_autocmd("FileType", {
