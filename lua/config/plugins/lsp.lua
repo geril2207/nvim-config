@@ -195,10 +195,14 @@ local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
 	underline = {
-		severity_limit = "Warning",
+		severity = {
+			min = vim.diagnostic.severity.WARN,
+		},
 	},
 	signs = {
-		severity_limit = "Hint",
+		severity = {
+			min = vim.diagnostic.severity.HINT,
+		},
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
 			[vim.diagnostic.severity.WARN] = " ",
@@ -207,7 +211,9 @@ local diagnostic_config = {
 		},
 	},
 	virtual_text = {
-		severity_limit = "Warning",
+		severity = {
+			min = vim.diagnostic.severity.WARN,
+		},
 	},
 }
 
@@ -260,40 +266,3 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 		vim.diagnostic.disable(0)
 	end,
 })
-
--- local api = vim.api
--- ! posible need to fix in 0.10 version
--- local function open_diagnostic()
--- 	local diagnostics = vim.diagnostic.get(0)
--- 	local cursor = api.nvim_win_get_cursor(0)
---
--- 	local cursor_line = cursor[1] - 1
--- 	local cursor_col = cursor[2]
---
--- 	for _, diagnostic in ipairs(diagnostics) do
--- 		if cursor_line == diagnostic.lnum then
--- 			if cursor_col >= diagnostic.col and cursor_col <= diagnostic.end_col then
--- 				vim.diagnostic.open_float({
--- 					scope = "cursor",
--- 					focusable = false,
--- 					close_events = {
--- 						"CursorMoved",
--- 						"CursorMovedI",
--- 						"BufHidden",
--- 						"InsertCharPre",
--- 						"WinLeave",
--- 					},
--- 				})
--- 			end
--- 		end
--- 	end
--- end
-
--- Show diagnostics under the cursor when holding position
--- vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
--- vim.api.nvim_create_autocmd({ "CursorHold" }, {
--- 	pattern = "*",
--- 	-- pattern = "\\v(.*)(node_modules|build|dist)/.*$@<!",
--- 	callback = open_diagnostic,
--- 	group = "lsp_diagnostics_hold",
--- })
