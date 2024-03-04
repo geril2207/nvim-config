@@ -40,6 +40,8 @@ require("catppuccin").setup({
 				TabLineSel = { bg = transparent and colors.none or colors.surface1 },
 
 				["@keyword.export"] = { fg = colors.mauve },
+				["@tag.attribute"] = { link = "@tag" },
+				["@tag.attribute.tsx"] = { link = "@tag" },
 			}
 		end,
 	},
