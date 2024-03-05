@@ -152,6 +152,7 @@ local servers = {
 					["http://json.schemastore.org/stylelintrc.json"] = ".stylelintrc.{yml,yaml}",
 					["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
 					["http://json.schemastore.org/lazydocker.json"] = "lazydocker/**/*.{yml,yaml}",
+					["https://taskfile.dev/schema.json"] = "**/Taskfile.{yml,yaml}",
 				},
 			},
 		},
@@ -159,6 +160,7 @@ local servers = {
 	dockerls = {},
 	prismals = {},
 	gopls = {
+		root_dir = get_cwd,
 		settings = { gopls = { completeFunctionCalls = false } },
 	},
 	emmet_ls = {
@@ -232,7 +234,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.sqlfmt,
 		null_ls.builtins.formatting.ocamlformat,
-		null_ls.builtins.diagnostics.jsonlint,
 	},
 })
 
