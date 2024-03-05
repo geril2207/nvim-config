@@ -81,6 +81,7 @@ require("nvim-ts-autotag").setup({
 		"glimmer",
 		"handlebars",
 		"hbs",
+		"astro",
 	},
 })
 
