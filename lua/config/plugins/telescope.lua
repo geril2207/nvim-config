@@ -47,6 +47,7 @@ require("telescope").setup({
 			".woff",
 			".eot",
 			".gif",
+			".tsbuildinfo",
 		},
 		path_display = { "truncate" },
 	},
