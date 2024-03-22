@@ -148,12 +148,13 @@ end
 
 for i = 1, 9, 1 do
 	if vim.fn.has("macunix") == 1 then
-		map("n", string.format("<D-%s>", i), string.format(':lua require("harpoon.ui").nav_file(%s)<CR>', i))
+		map("n", string.format("<D-%s>", i), function()
+			go_to_tab(i)
+		end)
 	else
-		map("n", string.format("<A-%s>", i), string.format(':lua require("harpoon.ui").nav_file(%s)<CR>', i))
+		map("n", string.format("<A-%s>", i), function()
+			go_to_tab(i)
+		end)
 	end
-	-- map("n", "<leader>" .. i, ':lua require("bufferline").go_to(' .. i .. ")<CR>")
-	map("n", string.format("<leader>%s", i), function()
-		go_to_tab(i)
-	end)
+	map("n", string.format("<leader>%s", i), string.format(':lua require("harpoon.ui").nav_file(%s)<CR>', i))
 end
