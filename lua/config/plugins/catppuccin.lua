@@ -42,6 +42,7 @@ require("catppuccin").setup({
 				["@keyword.export"] = { fg = colors.mauve },
 				["@tag.attribute"] = { link = "@tag" },
 				["@tag.attribute.tsx"] = { link = "@tag" },
+				["@tag.builtin"] = { link = "@tag" },
 			}
 		end,
 	},

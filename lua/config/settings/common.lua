@@ -25,7 +25,7 @@ opt.wrap = false
 opt.shiftwidth = 2
 opt.splitright = true
 opt.splitbelow = true
-opt.showtabline = 0
+opt.showtabline = 1
 -- opt.guicursor = ""
 opt.guicursor:append("i:block")
 
