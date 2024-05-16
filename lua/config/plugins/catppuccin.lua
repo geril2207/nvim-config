@@ -43,6 +43,7 @@ require("catppuccin").setup({
 				["@tag.attribute"] = { link = "@tag" },
 				["@tag.attribute.tsx"] = { link = "@tag" },
 				["@tag.builtin"] = { link = "@tag" },
+				["@keyword.operator"] = { link = "@keyword" },
 			}
 		end,
 	},
