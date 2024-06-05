@@ -43,6 +43,9 @@ local get_cwd = function()
 end
 
 local servers = {
+	gleam = {
+		root_dir = get_cwd,
+	},
 	ocamllsp = {
 		root_dir = get_cwd,
 	},
@@ -60,7 +63,7 @@ local servers = {
 		root_dir = get_cwd,
 	},
 	volar = {
-		disabled = true,
+		disabled = false,
 	},
 	jsonls = {
 		filetypes = { "json", "jsonc" },
