@@ -36,8 +36,10 @@ require("catppuccin").setup({
 				InclineNormalNC = { bg = colors.none, fg = colors.overlay0 },
 				TransparentCursor = { blend = 100, nocombine = true },
 				WinBarNC = { link = "WinBar" },
-				TabLine = { bg = transparent and colors.none or colors.mantle },
-				TabLineSel = { bg = transparent and colors.none or colors.surface1 },
+				-- TabLine = { bg = transparent and colors.none or colors.mantle },
+				-- TabLineSel = { bg = transparent and colors.none or colors.surface1 },
+				TabLine = { bg = colors.none },
+				TabLineSel = { bg = colors.none },
 
 				["@keyword.export"] = { fg = colors.mauve },
 				["@tag.attribute"] = { link = "@tag" },
