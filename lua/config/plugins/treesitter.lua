@@ -2,7 +2,7 @@ local function disable()
 	local is_disable = false
 	local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
 
-	if ok and stats ~= nil and stats.size > 2000 * 100 then
+	if ok and stats ~= nil and stats.size > 3500 * 100 then
 		is_disable = true
 		-- return true
 	end

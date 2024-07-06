@@ -52,6 +52,9 @@ local servers = {
 	tsserver = {
 		root_dir = get_cwd,
 	},
+	-- vtsls = {
+	-- 	root_dir = get_cwd,
+	-- },
 	bashls = {
 		root_dir = get_cwd,
 	},
@@ -257,7 +260,7 @@ vim.lsp.handlers["textDocument/definition"] = function(_, result)
 		return
 	end
 
-	if vim.tbl_islist(result) then
+	if vim.islist(result) then
 		vim.lsp.util.jump_to_location(result[1], "utf-8")
 	else
 		vim.lsp.util.jump_to_location(result, "utf-8")
@@ -267,6 +270,6 @@ end
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 	pattern = { "**/node_modules/**", "node_modules", "/node_modules/*", "dist", "build" },
 	callback = function()
-		vim.diagnostic.disable(0)
+		vim.diagnostic.enable(false, { bufnr = 0 })
 	end,
 })
