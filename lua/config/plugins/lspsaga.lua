@@ -2,19 +2,20 @@ local saga = require("lspsaga")
 
 local quit_keys = { "q", "<ESC>" }
 
+local open_keys = { "o", "<CR>" }
+
+local a = 1
 saga.setup({
-	finder_action_keys = {
-		open = "l",
-		quit = quit_keys,
-		scroll_down = "<C-f>",
-		scroll_up = "<C-d>", -- quit can be a table
+	diagnostic = {
+		keys = {
+			toggle_or_jump = open_keys,
+		},
 	},
-	code_action_keys = {
-		quit = quit_keys,
-		exec = "<CR>",
+	definition = {
+		keys = { quit = quit_keys },
 	},
-	definition_action_keys = {
-		quit = quit_keys,
+	code_action = {
+		keys = { quit = quit_keys },
 	},
 	beacon = {
 		enable = false,
@@ -33,7 +34,10 @@ saga.setup({
 	},
 	finder = {
 		keys = {
-			expand_or_jump = { "o", "l" },
+			expand_or_jump = open_keys,
+			quit = quit_keys,
+			scroll_down = "<C-f>",
+			scroll_up = "<C-d>", -- quit can be a table
 		},
 	},
 
