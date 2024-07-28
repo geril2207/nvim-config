@@ -1,14 +1,14 @@
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
-local tree_utils = require("config.plugins.nvim-tree.utils")
+local tree_utils = require("config.nvim-tree.utils")
 
 local default_values = tree_utils.get_nvim_tree_values_from_cache()
 
 local is_float = default_values.is_float
 local quit_on_open = is_float or default_values.quit_on_open
 
-local map_tbl = require("config.utils.map").map_tbl
+local map_tbl = require("utils.map").map_tbl
 
 local function on_attach(bufnr)
 	local api = require("nvim-tree.api")
@@ -143,4 +143,4 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-require("config.plugins.nvim-tree.cursor")
+require("config.nvim-tree.cursor")

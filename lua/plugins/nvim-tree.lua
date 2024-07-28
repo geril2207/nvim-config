@@ -27,12 +27,13 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		priority = 100,
+		lazy = false,
 		dev = false,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("config.plugins.nvim-tree")
+			require("config.nvim-tree")
 		end,
 	},
 }

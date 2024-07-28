@@ -1,4 +1,4 @@
-local map_utils = require("config.utils.map")
+local map_utils = require("utils.map")
 local map = map_utils.map
 local map_tbl = map_utils.map_tbl
 local mcmd = map_utils.cmd
