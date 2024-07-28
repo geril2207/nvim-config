@@ -342,7 +342,7 @@ return {
 				"j-hui/fidget.nvim",
 				event = "VeryLazy",
 				branch = "legacy",
-				enabled = true,
+				enabled = false,
 				opts = {
 					text = {
 						spinner = "dots",
