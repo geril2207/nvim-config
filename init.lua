@@ -19,18 +19,20 @@ require("lazy").setup("plugins", {
 		-- directory where you store your local plugin projects
 		path = "~/my/nvim-plugins",
 		fallback = false, -- Fallback to git when local plugin doesn't exist
-		performance = {
-			rtp = {
-				-- Stuff I don't use.
-				disabled_plugins = {
-					"gzip",
-					"netrwPlugin",
-					"rplugin",
-					"tarPlugin",
-					"tohtml",
-					"tutor",
-					"zipPlugin",
-				},
+	},
+
+	performance = {
+		enabled = true,
+		rtp = {
+			-- Stuff I don't use.
+			disabled_plugins = {
+				"gzip",
+				"netrwPlugin",
+				"rplugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
 			},
 		},
 	},

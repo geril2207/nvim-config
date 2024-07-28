@@ -1,3 +1,5 @@
+local icons = require("icons")
+
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
@@ -170,8 +172,12 @@ return {
 				},
 			})
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			local capabilities = vim.tbl_deep_extend(
+				"force",
+				vim.lsp.protocol.make_client_capabilities(),
+				-- nvim-cmp supports additional completion capabilities, so broadcast that to servers.
+				require("cmp_nvim_lsp").default_capabilities()
+			)
 			local lspconfig = require("lspconfig")
 
 			local servers = {
@@ -331,6 +337,7 @@ return {
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"williamboman/mason.nvim",
+			"hrsh7th/nvim-cmp",
 			{
 				"j-hui/fidget.nvim",
 				event = "VeryLazy",

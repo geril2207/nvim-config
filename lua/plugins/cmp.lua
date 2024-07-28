@@ -1,8 +1,8 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "VeryLazy",
-		config = function()
+		event = "InsertEnter",
+		opts = function()
 			local luasnip = require("luasnip")
 
 			local cmp = require("cmp")
@@ -21,7 +21,7 @@ return {
 				select = false,
 			}
 
-			cmp.setup({
+			return {
 				preselect = cmp.PreselectMode.None,
 				completion = {
 					completeopt = "menu,menuone,noinsert",
@@ -103,7 +103,6 @@ return {
 					{ name = "buffer", keyword_length = 3 },
 				}),
 				sorting = {
-					-- TODO: Would be cool to add stuff like "See variable names before method names" in rust, or something like that.
 					comparators = {
 						cmp.config.compare.exact,
 						cmp.config.compare.score,
@@ -130,13 +129,12 @@ return {
 						cmp.config.compare.order,
 					},
 				},
-			})
+			}
 		end,
 		dependencies = {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
-			"onsails/lspkind-nvim",
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 		},

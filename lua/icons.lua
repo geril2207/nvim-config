@@ -1,29 +1,12 @@
 local M = {}
 
---- Diagnostic severities.
-M.diagnostics = {
-	ERROR = "",
-	WARN = "",
-	HINT = "",
-	INFO = "",
-}
-
---- For folding.
-M.arrows = {
-	right = "",
-	left = "",
-	up = "",
-	down = "",
-}
-
---- LSP symbol kinds.
 M.symbol_kinds = {
 	Text = "",
 	Method = "",
 	Function = "",
 	Constructor = "",
 	Field = "",
-	Variable = "",
+	Variable = " ",
 	Class = "",
 	Interface = "",
 	Module = "",
@@ -34,7 +17,7 @@ M.symbol_kinds = {
 	Keyword = "",
 	Snippet = "",
 	Color = "",
-	File = "",
+	File = " ",
 	Reference = "",
 	Folder = "",
 	EnumMember = "",
