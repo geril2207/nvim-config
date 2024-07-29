@@ -5,18 +5,19 @@ return {
 		event = "VeryLazy",
 		opts = {
 			jump = { nohlsearch = true },
-			prompt = {
-				-- Place the prompt above the statusline.
-				win_config = { row = -3 },
-			},
 			modes = {
 				-- Enable flash when searching with ? or /
-				search = { enabled = true },
+				search = { enabled = false },
+				char = { enabled = false },
+			},
+			label = {
+
+				style = "overlay",
 			},
 		},
 		keys = {
 			{
-				"<leader>j",
+				"<leader>W",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump()

@@ -91,11 +91,11 @@ map_tbl({
 			vim.wo.wrap = not vim.wo.wrap
 		end,
 
-		[double_leader("w")] = mcmd("HopWordAC"),
+		--[[ [double_leader("w")] = mcmd("HopWordAC"),
 		[double_leader("b")] = mcmd("HopWordBC"),
 		[double_leader("f")] = mcmd("HopChar1AC"),
 		[double_leader("F")] = mcmd("HopChar1BC"),
-		[double_leader("W")] = mcmd("HopWord"),
+		[double_leader("W")] = mcmd("HopWord"), ]]
 	},
 
 	nv = {
