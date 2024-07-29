@@ -1,5 +1,3 @@
-local icons = require("icons")
-
 local diagnostic_config = {
 	update_in_insert = false,
 	severity_sort = true,
@@ -36,34 +34,55 @@ local function format_file()
 	})
 end
 
-local servers_formatting_disable = {
-	"volar",
-	"tsserver",
-	"biome",
-	"html",
-	"cssls",
-	"cssmodules_ls",
-	"stylelint_lsp",
-	"jsonls",
-	"emmet_ls",
-	"tailwindcss",
-	"eslint",
-	"pylsp",
-	"graphql",
-	"lua_ls",
-	"astro",
-}
-
+-- local methods = vim.lsp.protocol.Methods
 local map_utils = require("utils.map")
 local map_tbl = map_utils.map_tbl
 
+--- Sets up LSP keymaps and autocommands for the given buffer.
+---@param client vim.lsp.Client
+---@param bufnr integer
 local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier
-	for _, server in ipairs(servers_formatting_disable) do
+	for _, server in ipairs({
+		"volar",
+		"tsserver",
+		"vtsls",
+		"biome",
+		"html",
+		"cssls",
+		"cssmodules_ls",
+		"stylelint_lsp",
+		"jsonls",
+		"emmet_ls",
+		"tailwindcss",
+		"eslint",
+		"pylsp",
+		"graphql",
+		"lua_ls",
+		"astro",
+	}) do
 		if client.name == server then
 			client.server_capabilities.documentFormattingProvider = false
 		end
 	end
+
+	-- Highlight references when holding
+	--[[ if client.supports_method(methods.textDocument_documentHighlight) then
+		local under_cursor_highlights_group = vim.api.nvim_create_augroup("mariasolos/cursor_highlights", { clear = false })
+		vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
+			group = under_cursor_highlights_group,
+			desc = "Highlight references under the cursor",
+			buffer = bufnr,
+			callback = vim.lsp.buf.document_highlight,
+		})
+		vim.api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
+			group = under_cursor_highlights_group,
+			desc = "Clear highlight references",
+			buffer = bufnr,
+			callback = vim.lsp.buf.clear_references,
+		})
+	end ]]
+
 	require("lsp_signature").on_attach({
 		bind = false,
 		doc_lines = 5,
@@ -151,6 +170,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"tsserver",
+					"vtsls",
 					"html",
 					"cssls",
 					"cssmodules_ls",
@@ -193,6 +213,10 @@ return {
 				},
 				vtsls = {
 					root_dir = get_cwd,
+					settings = {
+						typescript = { format = { enable = false } },
+						javascript = { format = { enable = false } },
+					},
 				},
 				bashls = {
 					root_dir = get_cwd,
