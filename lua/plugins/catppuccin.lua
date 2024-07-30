@@ -54,6 +54,7 @@ return {
 							["@tag.attribute.tsx"] = { link = "@tag" },
 							["@tag.builtin"] = { link = "@tag" },
 							["@keyword.operator"] = { link = "@keyword" },
+							["@function.builtin"] = { link = "@function" },
 						}
 					end,
 				},
@@ -77,7 +78,7 @@ return {
 				},
 
 				integrations = {
-					hop = false,
+					hop = true,
 					cmp = true,
 					gitsigns = true,
 					nvimtree = true,

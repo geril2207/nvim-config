@@ -3,8 +3,8 @@ local opt = vim.opt
 local api = vim.api
 
 g.mapleader = " "
-g.translate_source = "ru"
-g.translate_target = "en"
+-- g.translate_source = "ru"
+-- g.translate_target = "en"
 
 opt.fillchars = "eob: "
 opt.swapfile = false
@@ -12,7 +12,7 @@ opt.signcolumn = "yes"
 opt.ignorecase = true
 opt.cmdheight = 1
 opt.termguicolors = true
-opt.spelllang = { "en_us", "ru" }
+opt.spelllang = { "en_us" }
 opt.number = true
 opt.relativenumber = true
 opt.so = 10

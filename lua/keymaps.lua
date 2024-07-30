@@ -2,7 +2,6 @@ local map_utils = require("utils.map")
 local map = map_utils.map
 local map_tbl = map_utils.map_tbl
 local mcmd = map_utils.cmd
-local double_leader = map_utils.double_leader
 
 local prev_amount = 15
 local function get_amount_of_scrolling_lines()
@@ -90,12 +89,6 @@ map_tbl({
 		["<A-z>"] = function()
 			vim.wo.wrap = not vim.wo.wrap
 		end,
-
-		--[[ [double_leader("w")] = mcmd("HopWordAC"),
-		[double_leader("b")] = mcmd("HopWordBC"),
-		[double_leader("f")] = mcmd("HopChar1AC"),
-		[double_leader("F")] = mcmd("HopChar1BC"),
-		[double_leader("W")] = mcmd("HopWord"), ]]
 	},
 
 	nv = {
