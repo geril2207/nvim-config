@@ -67,11 +67,13 @@ return {
 			luasnip.add_snippets("typescript", js_snippets)
 			luasnip.add_snippets("javascript", js_snippets)
 		end,
-	},
+		dependencies = {
 
-	{ "rafamadriz/friendly-snippets", lazy = true },
-	{
-		"saadparwaiz1/cmp_luasnip",
-		lazy = true,
+			{ "rafamadriz/friendly-snippets", lazy = true },
+			{
+				"saadparwaiz1/cmp_luasnip",
+				lazy = true,
+			},
+		},
 	},
 }
