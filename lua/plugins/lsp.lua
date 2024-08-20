@@ -201,6 +201,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			local servers = {
+				zls = {},
 				gleam = {
 					root_dir = get_cwd,
 				},
