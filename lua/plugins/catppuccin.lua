@@ -47,6 +47,7 @@ return {
 							-- TabLine = { bg = transparent and colors.none or colors.mantle },
 							-- TabLineSel = { bg = transparent and colors.none or colors.surface1 },
 							TabLine = { bg = colors.none },
+							TabLineFill = { bg = colors.none },
 							TabLineSel = { bg = colors.none },
 
 							["@keyword.export"] = { fg = colors.mauve },
