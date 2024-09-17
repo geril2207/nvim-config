@@ -45,7 +45,7 @@ local on_attach = function(client, bufnr)
 	-- Disable formatting for some servers to use external utils like prettier
 	for _, server in ipairs({
 		"volar",
-		"tsserver",
+		"ts_ls",
 		"vtsls",
 		"biome",
 		"html",
@@ -169,7 +169,7 @@ return {
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"tsserver",
+					"ts_ls",
 					"vtsls",
 					"html",
 					"cssls",
@@ -208,7 +208,7 @@ return {
 				ocamllsp = {
 					root_dir = get_cwd,
 				},
-				tsserver = {
+				ts_ls = {
 					disabled = true,
 					root_dir = get_cwd,
 				},
@@ -378,7 +378,7 @@ return {
 					},
 				},
 			},
-			"ray-x/lsp_signature.nvim",
+			{ "ray-x/lsp_signature.nvim", dev = true },
 			"b0o/schemastore.nvim",
 		},
 	},
