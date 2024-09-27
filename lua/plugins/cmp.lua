@@ -75,7 +75,7 @@ return {
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(_, vim_item)
-						local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 25, 20
+						local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 40, 20
 						local ellipsis = require("icons").misc.ellipsis
 						local symbol_kinds = require("icons").symbol_kinds
 
