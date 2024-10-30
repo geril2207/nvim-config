@@ -99,6 +99,7 @@ local on_attach = function(client, bufnr)
 	-- Mappings.lsp
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	local builtin = require("telescope.builtin")
 	map_tbl({
 		i = {
 			["<A-w>"] = { vim.lsp.buf.signature_help, bufopts },
@@ -109,8 +110,12 @@ local on_attach = function(client, bufnr)
 			-- ["gh"] = { vim.lsp.buf.hover, bufopts },
 			["<leader>lh"] = { vim.lsp.buf.hover, bufopts },
 			["gi"] = { ":Telescope lsp_implementations<CR>", bufopts },
-			["<leader>d"] = { vim.lsp.buf.definition, bufopts },
-			["gd"] = { vim.lsp.buf.definition, bufopts },
+
+			-- ["<leader>d"] = { vim.lsp.buf.definition, bufopts },
+			-- ["gd"] = { vim.lsp.buf.definition, bufopts },
+			["<leader>d"] = { builtin.lsp_definitions, bufopts },
+			["gd"] = { builtin.lsp_definitions, bufopts },
+			-- ["gd"] = { vim.lsp.buf.definition, bufopts },
 			-- nmap("gt", vim.lsp.buf.type_definition, bufopts)
 			["<leader>k"] = { vim.lsp.buf.signature_help, bufopts },
 			["[e"] = { vim.diagnostic.goto_prev, bufopts },
@@ -245,7 +250,7 @@ return {
 				},
 				clangd = {},
 				tailwindcss = {
-					disabled = false,
+					disabled = true,
 				},
 				eslint = {
 					settings = { format = false },
@@ -345,6 +350,7 @@ return {
 					return
 				end
 
+				print(vim.islist(result), vim.inspect(result))
 				if vim.islist(result) then
 					vim.lsp.util.jump_to_location(result[1], "utf-8")
 				else
