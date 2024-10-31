@@ -116,6 +116,20 @@ return {
 							width = 0.7,
 						},
 					},
+					lsp_definitions = {
+						previewer = true,
+						show_line = true,
+						path_display = { "tail" },
+						file_ignore_patterns = {},
+						layout_strategy = "vertical",
+						layout_config = {
+							vertical = {
+								preview_cutoff = 1,
+								prompt_position = "top",
+								mirror = true,
+							},
+						},
+					},
 					lsp_references = {
 						previewer = false,
 						show_line = true,

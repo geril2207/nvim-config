@@ -111,10 +111,10 @@ local on_attach = function(client, bufnr)
 			["<leader>lh"] = { vim.lsp.buf.hover, bufopts },
 			["gi"] = { ":Telescope lsp_implementations<CR>", bufopts },
 
-			-- ["<leader>d"] = { vim.lsp.buf.definition, bufopts },
-			-- ["gd"] = { vim.lsp.buf.definition, bufopts },
-			["<leader>d"] = { builtin.lsp_definitions, bufopts },
-			["gd"] = { builtin.lsp_definitions, bufopts },
+			["<leader>d"] = { vim.lsp.buf.definition, bufopts },
+			["gd"] = { vim.lsp.buf.definition, bufopts },
+			-- ["<leader>d"] = { builtin.lsp_definitions, bufopts },
+			-- ["gd"] = { builtin.lsp_definitions, bufopts },
 			-- ["gd"] = { vim.lsp.buf.definition, bufopts },
 			-- nmap("gt", vim.lsp.buf.type_definition, bufopts)
 			["<leader>k"] = { vim.lsp.buf.signature_help, bufopts },
@@ -350,7 +350,6 @@ return {
 					return
 				end
 
-				print(vim.islist(result), vim.inspect(result))
 				if vim.islist(result) then
 					vim.lsp.util.jump_to_location(result[1], "utf-8")
 				else
