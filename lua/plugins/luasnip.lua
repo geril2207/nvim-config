@@ -82,6 +82,7 @@ return {
 			luasnip.add_snippets("javascriptreact", js_snippets)
 			luasnip.add_snippets("typescript", js_snippets)
 			luasnip.add_snippets("javascript", js_snippets)
+			luasnip.add_snippets("astro", js_snippets)
 		end,
 		dependencies = {
 
