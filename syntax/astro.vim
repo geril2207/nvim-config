@@ -10,6 +10,10 @@
 " Credits:     See vim-svelte on github
 
 " Quit when a (custom) syntax file was already loaded.
+
+let b:current_syntax = 1
+finish
+
 if !exists('main_syntax')
   if exists('b:current_syntax')
     finish
@@ -19,8 +23,6 @@ elseif exists('b:current_syntax') && b:current_syntax == 'astro'
   finish
 endif
 
-let b:current_syntax = 'astro'
-finish
 
 " Astro syntax variables are initialized.
 let g:astro_typescript = get(g:, 'astro_typescript', 'disable')
