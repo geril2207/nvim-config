@@ -2,6 +2,7 @@ return {
 	{
 		"iguanacucumber/magazine.nvim",
 		name = "nvim-cmp",
+		dev = false,
 		event = "InsertEnter",
 		opts = function()
 			local luasnip = require("luasnip")
@@ -97,7 +98,7 @@ return {
 					end,
 				},
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp", keyword_length = 2 },
 					{ name = "luasnip" },
 					{ name = "async_path" },
 				}, {
@@ -136,7 +137,6 @@ return {
 			{ "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
 			{ "iguanacucumber/mag-buffer", name = "cmp-buffer" },
 			{ "https://codeberg.org/FelipeLema/cmp-async-path", name = "async_path" },
-			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
 		},
