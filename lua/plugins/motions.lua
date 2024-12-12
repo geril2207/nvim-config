@@ -21,7 +21,7 @@ return {
 		},
 		keys = {
 			{
-				"<leader>W",
+				"<leader>w",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump()
