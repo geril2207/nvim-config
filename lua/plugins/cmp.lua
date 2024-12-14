@@ -1,8 +1,9 @@
 return {
 	{
-		"iguanacucumber/magazine.nvim",
+		"geril2207/magazine.nvim",
 		name = "nvim-cmp",
 		dev = false,
+		branch = "docs-view-ts",
 		event = "InsertEnter",
 		opts = function()
 			local luasnip = require("luasnip")
