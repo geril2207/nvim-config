@@ -367,7 +367,6 @@ return {
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"williamboman/mason.nvim",
-			"geril2207/magazine.nvim",
 			{
 				"j-hui/fidget.nvim",
 				event = "VeryLazy",
