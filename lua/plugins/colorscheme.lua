@@ -91,6 +91,7 @@ return {
 			})
 
 			vim.cmd("colorscheme catppuccin")
+			-- vim.cmd("syntax off")
 		end,
 	},
 }
