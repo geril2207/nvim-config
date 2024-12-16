@@ -17,11 +17,20 @@ return {
 			require("telescope").setup({
 				defaults = {
 					sorting_strategy = "ascending",
+
+					layout_strategy = "vertical",
 					layout_config = {
-						horizontal = {
+						vertical = {
+							preview_cutoff = 1,
 							prompt_position = "top",
+							mirror = true,
 						},
 					},
+					-- layout_config = {
+					-- 	horizontal = {
+					-- 		prompt_position = "top",
+					-- 	},
+					-- },
 					mappings = {
 						i = {
 							["<ESC>"] = actions.close,
@@ -74,39 +83,12 @@ return {
 						previewer = true,
 
 						sorting_strategy = "ascending",
-						layout_config = {
-							horizontal = {
-								prompt_position = "top",
-							},
-						},
 					},
 
-					grep_string = {
-						layout_strategy = "vertical",
-						layout_config = {
-							vertical = {
-								preview_cutoff = 1,
-								prompt_position = "top",
-								mirror = true,
-							},
-						},
-						previewer = true,
-					},
 
 					live_grep = {
 						-- additional_args = function()
 						-- 	return { "--hidden" }
-						-- end,
-						sorting_strategy = "ascending",
-						layout_strategy = "vertical",
-						layout_config = {
-							vertical = {
-								preview_cutoff = 1,
-								prompt_position = "top",
-								mirror = true,
-							},
-						},
-						previewer = true,
 					},
 					lsp_implementations = {
 						initial_mode = "normal",
@@ -117,32 +99,15 @@ return {
 						},
 					},
 					lsp_definitions = {
-						previewer = true,
 						show_line = true,
 						path_display = { "tail" },
 						file_ignore_patterns = {},
-						layout_strategy = "vertical",
-						layout_config = {
-							vertical = {
-								preview_cutoff = 1,
-								prompt_position = "top",
-								mirror = true,
-							},
-						},
 					},
 					lsp_references = {
 						previewer = false,
 						show_line = true,
 						path_display = { "tail" },
 						file_ignore_patterns = {},
-						layout_strategy = "vertical",
-						layout_config = {
-							vertical = {
-								preview_cutoff = 1,
-								prompt_position = "top",
-								mirror = true,
-							},
-						},
 					},
 				},
 				extensions = {
