@@ -29,6 +29,8 @@ return {
 					"qf",
 					"harpoon",
 					"TelescopePrompt",
+					"fzf",
+					"",
 				},
 				left_spacing = " ",
 			})
