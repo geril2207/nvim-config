@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dev = false,
+		enabled = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -84,7 +85,6 @@ return {
 
 						sorting_strategy = "ascending",
 					},
-
 
 					live_grep = {
 						-- additional_args = function()
