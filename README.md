@@ -1,3 +1,8 @@
+# Archived -> Moved to dotfiles
+
+
+---
+
 ## My neovim configuration
 
 
